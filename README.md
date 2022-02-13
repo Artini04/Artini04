@@ -1,3 +1,6 @@
-- 👋 Hi, I’m @Artini04
+# Hello!
 
-- I'm currently learning Web Development at 🏫 Glendale Community College in 🌎 Arizona.
+- 👋 I’m @Artini04
+
+- I'm currently studying Web Development at 🏫 Glendale Community College in 🌎 Arizona.
+
