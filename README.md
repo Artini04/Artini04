@@ -4,8 +4,6 @@ My name is Vincent Angelo (artini04), and I'm an aspiring Web Developer focusing
 
 I'm also studying 日本語.
 
----
-
 ## Skills
 [![My Skills](https://skillicons.dev/icons?i=html,css,sass,js,ts,nodejs,vite,vue)](https://skillicons.dev)
 
