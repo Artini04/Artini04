@@ -1,6 +1,6 @@
 # Hello!
 
-My name is Vincent Angelo (artini04), and I'm an aspiring Web Developer focusing on Frontend development. I'm currently studying for an Associate Degree in Web Development at Glendale Community College. I do digital painting in my free time.
+My name is Vincent (artini04), and I'm an aspiring Web Developer focusing on Frontend development. I'm currently studying for an Associate Degree in Web Development at Glendale Community College. I do digital painting in my free time.
 
 I'm also studying 日本語.
 
