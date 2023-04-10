@@ -119,6 +119,7 @@ interface PARAM_HTML {
 }
 
 const repo_list: Repo[] = []
+let user_json = {}
 const REPO_GRID = document.getElementById('repos-grid') as HTMLDivElement
 
 async function githubFetch() {

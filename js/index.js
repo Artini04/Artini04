@@ -10,6 +10,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 githubFetch();
 const repo_list = [];
+let user_json = {};
 const REPO_GRID = document.getElementById('repos-grid');
 function githubFetch() {
     return __awaiter(this, void 0, void 0, function* () {

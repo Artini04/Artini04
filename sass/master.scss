@@ -1,10 +1,14 @@
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,600;1,400;1,600&family=IBM+Plex+Sans:ital,wght@0,400;0,600;1,400;1,600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,600;1,400;1,600&family=IBM+Plex+Sans+JP&family=IBM+Plex+Sans:ital,wght@0,400;0,600;1,400;1,600&display=swap');
 
 body {
 	background: var(--app-background-color);
 	color: var(--app-font-color);
 
-	font-family: 'IBM Plex Mono', sans-serif;
+	font-family: 'IBM Plex Mono', monospace;
+}
+
+:lang(ja) {
+	font-family: 'IBM Plex Sans JP', sans-serif;
 }
 
 #app {
@@ -20,7 +24,7 @@ body {
 	@media only screen and (min-width: 1024px) {
 		flex-direction: row;
 		gap: 3rem;
-		max-width: 1000px;
+		max-width: 1200px;
 		margin: 2rem auto;
 	}
 }
@@ -28,12 +32,16 @@ body {
 .basic,
 .repositories {
 	& > * + * {
-		margin-top: 1rem;
+		margin-top: 0.5rem;
 	}
 }
 
 .basic {
 	flex: 1 1 30%;
+
+	&-list {
+		margin: 0 1rem;
+	}
 }
 
 .repositories {
@@ -44,6 +52,7 @@ body {
 	&-title {
 		width: 100%;
 		text-align: center;
+		text-transform: uppercase;
 	}
 
 	&-root {
@@ -60,6 +69,20 @@ body {
 		&:is(:hover, :focus, :active) {
 			border-color: var(--app-font-color);
 			color: var(--app-font-color);
+
+			.repo-topics {
+				&__topic {
+					background-color: var(--app-font-color);
+					color: var(--app-background-color);
+				}
+			}
+
+			.repo-langs {
+				&__lang {
+					background-color: var(--app-font-color);
+					color: var(--app-background-color);
+				}
+			}
 		}
 
 		& > div + div {
@@ -109,8 +132,9 @@ body {
 			line-height: 1.3rem;
 			user-select: none;
 			border-radius: var(--app-border-radius);
-			background-color: var(--topic-background);
-			color: var(--topic-font-color);
+			background-color: var(--app-font-color-dimmed);
+			color: var(--app-font-color-alt);
+			transition: background ease var(--app-anim-speed), color ease var(--app-anim-speed);
 		}
 	}
 
@@ -123,14 +147,30 @@ body {
 			line-height: 1.3rem;
 			user-select: none;
 			border-radius: var(--app-border-radius);
-			background-color: var(--topic-background);
-			color: var(--topic-font-color);
+			background-color: var(--app-font-color-dimmed);
+			color: var(--app-font-color-alt);
+			transition: background ease var(--app-anim-speed), color ease var(--app-anim-speed);
 		}
 	}
 }
 
-.username {
-	text-align: right;
+.user {
+	width: 150px;
+	margin-inline: auto;
+
+	&__username {
+		text-align: center;
+		text-transform: lowercase;
+	}
+
+	&__avatar {
+		width: 100%;
+		height: auto;
+		margin-bottom: 0.4rem;
+
+		aspect-ratio: 1;
+		border-radius: 50%;
+	}
 }
 
 // ==================== //
@@ -144,8 +184,10 @@ body {
 
 .in-prog {
 	&::before {
+		line-height: 1.1rem;
 		content: '[ INPROG ] ';
 		color: var(--in-prog-color);
+		animation: progress 1.5s linear infinite;
 	}
 }
 
@@ -153,5 +195,35 @@ body {
 	&::before {
 		content: '[ OK ] ';
 		color: var(--ok-color);
+	}
+}
+
+.i {
+	font-style: italic;
+}
+
+.b {
+	font-weight: 600;
+}
+
+@keyframes progress {
+	0% {
+		content: '[ INPROG | ] ';
+	}
+
+	25% {
+		content: '[ INPROG / ] ';
+	}
+
+	50% {
+		content: '[ INPROG - ] ';
+	}
+
+	75% {
+		content: '[ INPROG \\ ] ';
+	}
+
+	100% {
+		content: '[ INPROG | ] ';
 	}
 }
