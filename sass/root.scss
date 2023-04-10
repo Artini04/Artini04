@@ -1,0 +1,21 @@
+:root {
+	scroll-behavior: smooth;
+	text-rendering: optimizeLegibility;
+}
+
+:root[data-theme='light'] {
+	--app-secondary-color: #afc790;
+	--app-secondary-color-1: #7cad80;
+	--app-background-color: #e4f3bb;
+	--app-background-color-1: #bfdba5;
+	--app-font-color: #4c6816;
+	--app-secondary-font-color: #6f9179;
+}
+
+:root[data-theme='dark'] {
+	--app-secondary-color: #2f373b;
+	--app-background-color: #24292e;
+	--app-background-color-1: #3f4c52;
+	--app-font-color: #d1d1d1;
+	--app-secondary-font-color: #444a50;
+}

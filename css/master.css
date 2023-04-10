@@ -1,0 +1,130 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,600;1,400;1,600&family=IBM+Plex+Sans:ital,wght@0,400;0,600;1,400;1,600&display=swap");
+body {
+  background: var(--app-background-color);
+  color: var(--app-font-color);
+  font-family: "IBM Plex Mono", sans-serif;
+}
+
+#app {
+  display: flex;
+  flex-wrap: nowrap;
+}
+@media only screen and (max-width: 1023px) {
+  #app {
+    flex-direction: column;
+    margin: 1rem;
+    gap: 1rem;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  #app {
+    flex-direction: row;
+    gap: 3rem;
+    max-width: 1000px;
+    margin: 2rem auto;
+  }
+}
+
+.basic > * + *,
+.repositories > * + * {
+  margin-top: 1rem;
+}
+
+.basic {
+  flex: 1 1 30%;
+}
+
+.repositories {
+  flex: 1 1 70%;
+}
+
+.repo-title {
+  width: 100%;
+  text-align: center;
+}
+.repo-root {
+  position: relative;
+  padding: 1rem;
+  border: 1px solid var(--app-font-color-dimmed);
+  border-radius: var(--app-border-radius);
+  color: var(--app-font-color-dimmed);
+  overflow: hidden;
+  transition: border-color ease var(--app-anim-speed, 0.2s), color ease var(--app-anim-speed, 0.2s);
+}
+.repo-root:is(:hover, :focus, :active) {
+  border-color: var(--app-font-color);
+  color: var(--app-font-color);
+}
+.repo-root > div + div {
+  margin-top: 0.5rem;
+}
+.repo-root__link {
+  position: absolute;
+  inset: 0;
+}
+.repo-info {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 0.5rem;
+}
+.repo-info__name {
+  font-size: 1.5rem;
+  word-wrap: break-word;
+  word-break: break-all;
+  text-decoration: underline;
+  text-decoration-thickness: 0.2rem;
+}
+.repo-info__id {
+  font-size: 0.7rem;
+}
+.repo-info__id::before {
+  content: "ID: ";
+}
+.repo-topics, .repo-langs {
+  display: flex;
+  flex-flow: row nowrap;
+  gap: 0.5rem;
+}
+.repo-topics:before {
+  content: "＊";
+}
+.repo-topics__topic {
+  line-height: 1.3rem;
+  user-select: none;
+  border-radius: var(--app-border-radius);
+  background-color: var(--topic-background);
+  color: var(--topic-font-color);
+}
+.repo-langs:before {
+  content: "＄";
+}
+.repo-langs__lang {
+  line-height: 1.3rem;
+  user-select: none;
+  border-radius: var(--app-border-radius);
+  background-color: var(--topic-background);
+  color: var(--topic-font-color);
+}
+
+.username {
+  text-align: right;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1rem;
+}
+
+.in-prog::before {
+  content: "[ INPROG ] ";
+  color: var(--in-prog-color);
+}
+
+.ok::before {
+  content: "[ OK ] ";
+  color: var(--ok-color);
+}
+
+/*# sourceMappingURL=master.css.map */
