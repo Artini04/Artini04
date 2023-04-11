@@ -1,11 +1,17 @@
 {
 	"compilerOptions": {
-		"target": "ES6",
 		"strict": true,
-        "forceConsistentCasingInFileNames": true,
+		"target": "ESNext",
+		"module": "ESNext",
+		"forceConsistentCasingInFileNames": true,
+		"removeComments": true,
+		"sourceMap": true,
 		"rootDir": "./",
-		"outDir": "./"
+		"outDir": "./script"
 	},
-    "include": ["**/*"],
-    "exclude": ["js/types"]
+	"files": [
+		"./src/index.ts"
+	],
+	"include": [],
+	"exclude": []
 }

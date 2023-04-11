@@ -24,7 +24,7 @@ body {
 	@media only screen and (min-width: 1024px) {
 		flex-direction: row;
 		gap: 3rem;
-		max-width: 1200px;
+		max-width: 1000px;
 		margin: 2rem auto;
 	}
 }
@@ -195,6 +195,15 @@ body {
 	&::before {
 		content: '[ OK ] ';
 		color: var(--ok-color);
+	}
+}
+
+.link {
+	width: fit-content;
+
+	&:is(:hover, :focus, :active) {
+		background: var(--app-font-color);
+		color: var(--app-font-color-alt);
 	}
 }
 

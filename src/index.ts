@@ -3,6 +3,7 @@ import type { Repo, Param_HTML, ItemWithExpiry } from './types'
 /**
  * githubFetch() : fetch Github API
  * buildRepoGrid() : build repository list UI
+ * checkCache() : run this first
  */
 
 const REPO_GRID = document.getElementById('repos-grid') as HTMLDivElement
