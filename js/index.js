@@ -1,4 +1,3 @@
-'use strict';
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -8,18 +7,56 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-githubFetch();
-const repo_list = [];
-let user_json = {};
+/**
+ * githubFetch() : fetch Github API
+ * buildRepoGrid() : build repository list UI
+ */
 const REPO_GRID = document.getElementById('repos-grid');
+const repo_list = [];
+checkCache();
+function checkCache() {
+    return __awaiter(this, void 0, void 0, function* () {
+        const added_time = 21600 * 500; // 3hrs
+        const local_data = getWithExpiry('github-data');
+        if (local_data) {
+            repo_list.push(...local_data);
+            buildRepoGrid();
+        }
+        else {
+            setWithExpiry('github-data', yield githubFetch(), added_time);
+            checkCache();
+        }
+        function setWithExpiry(key, value, ttl) {
+            const now = new Date();
+            const item = {
+                value: value,
+                expiry: now.getTime() + ttl,
+            };
+            localStorage.setItem(key, JSON.stringify(item));
+        }
+        function getWithExpiry(key) {
+            const local_data = localStorage.getItem(key);
+            if (!local_data) {
+                return null;
+            }
+            const item = JSON.parse(local_data);
+            const now = new Date();
+            // console.log(`NOW: ${now.toLocaleTimeString()}\nLOCAL: ${new Date(item.expiry).toLocaleTimeString()}\n${now.getTime() > item.expiry}`)
+            if (now.getTime() > item.expiry) {
+                localStorage.removeItem(key);
+                return null;
+            }
+            return item.value;
+        }
+    });
+}
 function githubFetch() {
     return __awaiter(this, void 0, void 0, function* () {
         const API_URL = 'https://api.github.com/users/artini04/repos';
         const response = yield fetch(API_URL)
             .then((r) => r.json())
             .catch((e) => console.log(e));
-        repo_list.push(...response);
-        buildRepoGrid();
+        return response;
     });
 }
 function buildRepoGrid() {
@@ -69,7 +106,7 @@ function createGridItem(obj) {
             const CONT_LANG = createComponent(language, { html_tag: 'span', html_class: 'repo-langs__lang' });
             CONT_LANGS.appendChild(CONT_LANG);
         }
-        // SVN-URL
+        // HTML-URL
         const CONT_HTML_URL = createComponentLink(obj.html_url, 'repo-root__link');
         CONT_ROOT.appendChild(CONT_HTML_URL);
         REPO_GRID.appendChild(CONT_ROOT);
@@ -98,3 +135,4 @@ function getLangs(lang_url) {
         return response;
     });
 }
+export {};

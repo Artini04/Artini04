@@ -7,5 +7,5 @@
 		"outDir": "./"
 	},
     "include": ["**/*"],
-    "exclude": []
+    "exclude": ["js/types"]
 }
