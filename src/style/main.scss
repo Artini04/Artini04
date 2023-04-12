@@ -1,0 +1,251 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,600;1,400;1,600&family=IBM+Plex+Sans+JP&family=IBM+Plex+Sans:ital,wght@0,400;0,600;1,400;1,600&display=swap');
+
+body {
+	background: var(--app-background-color);
+	color: var(--app-font-color);
+
+	font-family: 'IBM Plex Mono', monospace;
+}
+
+:lang(ja) {
+	font-family: 'IBM Plex Sans JP', sans-serif;
+}
+
+#app {
+	display: flex;
+	flex-wrap: nowrap;
+
+	@media only screen and (max-width: 1023px) {
+		flex-direction: column;
+		margin: 1rem;
+		gap: 1rem;
+	}
+
+	@media only screen and (min-width: 1024px) {
+		flex-direction: row;
+		gap: 3rem;
+		max-width: 1000px;
+		margin: 2rem auto;
+	}
+}
+
+.basic,
+.repositories {
+	& > * + * {
+		margin-top: 0.5rem;
+	}
+}
+
+.basic {
+	flex: 1 1 30%;
+
+	&-list {
+		margin: 0 1rem;
+	}
+}
+
+.repositories {
+	flex: 1 1 70%;
+}
+
+.repo {
+	&-title {
+		width: 100%;
+		text-align: center;
+		text-transform: uppercase;
+	}
+
+	&-root {
+		position: relative;
+		padding: 1rem;
+		border: 1px solid var(--app-font-color-dimmed);
+		border-radius: var(--app-border-radius);
+
+		color: var(--app-font-color-dimmed);
+
+		overflow: hidden;
+		animation: fade-in ease-out 0.2s 1;
+		transition: border-color ease var(--app-anim-speed, 0.2s), color ease var(--app-anim-speed, 0.2s);
+
+		&:is(:hover, :focus, :active) {
+			border-color: var(--app-font-color);
+			color: var(--app-font-color);
+
+			.repo-topics {
+				&__topic {
+					background-color: var(--app-font-color);
+					color: var(--app-background-color);
+				}
+			}
+
+			.repo-langs {
+				&__lang {
+					background-color: var(--app-font-color);
+					color: var(--app-background-color);
+				}
+			}
+		}
+
+		& > div + div {
+			margin-top: 0.5rem;
+		}
+
+		&__link {
+			position: absolute;
+			inset: 0;
+		}
+	}
+
+	&-info {
+		display: flex;
+		flex-flow: column nowrap;
+		gap: 0.5rem;
+
+		&__name {
+			font-size: 1.5rem;
+			word-wrap: break-word;
+			word-break: break-all;
+			text-decoration: underline;
+			text-decoration-thickness: 0.2rem;
+		}
+
+		&__id {
+			font-size: 0.7rem;
+			&::before {
+				content: 'ID: ';
+			}
+		}
+	}
+
+	&-topics,
+	&-langs {
+		display: flex;
+		flex-flow: row nowrap;
+		gap: 0.5rem;
+	}
+
+	&-topics {
+		&:before {
+			content: '\FF0A';
+		}
+
+		&__topic {
+			line-height: 1.3rem;
+			user-select: none;
+			border-radius: var(--app-border-radius);
+			background-color: var(--app-font-color-dimmed);
+			color: var(--app-font-color-alt);
+			transition: background ease var(--app-anim-speed), color ease var(--app-anim-speed);
+		}
+	}
+
+	&-langs {
+		&:before {
+			content: '\FF04';
+		}
+
+		&__lang {
+			line-height: 1.3rem;
+			user-select: none;
+			border-radius: var(--app-border-radius);
+			background-color: var(--app-font-color-dimmed);
+			color: var(--app-font-color-alt);
+			transition: background ease var(--app-anim-speed), color ease var(--app-anim-speed);
+		}
+	}
+}
+
+.user {
+	width: 150px;
+	margin-inline: auto;
+
+	&__username {
+		text-align: center;
+		text-transform: lowercase;
+	}
+
+	&__avatar {
+		width: 100%;
+		height: auto;
+		margin-bottom: 0.4rem;
+
+		aspect-ratio: 1;
+		border-radius: 50%;
+	}
+}
+
+// ==================== //
+//		UTILITIES		//
+// ==================== //
+.grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+	gap: 1rem;
+}
+
+.in-prog {
+	&::before {
+		line-height: 1.1rem;
+		content: '[ INPROG ] ';
+		color: var(--in-prog-color);
+		animation: progress 1.5s linear infinite;
+	}
+}
+
+.ok {
+	&::before {
+		content: '[ OK ] ';
+		color: var(--ok-color);
+	}
+}
+
+.link {
+	width: fit-content;
+
+	&:is(:hover, :focus, :active) {
+		background: var(--app-font-color);
+		color: var(--app-font-color-alt);
+	}
+}
+
+.i {
+	font-style: italic;
+}
+
+.b {
+	font-weight: 600;
+}
+
+@keyframes progress {
+	0% {
+		content: '[ INPROG | ] ';
+	}
+
+	25% {
+		content: '[ INPROG / ] ';
+	}
+
+	50% {
+		content: '[ INPROG - ] ';
+	}
+
+	75% {
+		content: '[ INPROG \\ ] ';
+	}
+
+	100% {
+		content: '[ INPROG | ] ';
+	}
+}
+
+@keyframes fade-in {
+	0% {
+		opacity: 0;
+		transform: scale(0.95);
+	}
+
+	100% {
+		opacity: 1;
+		transform: scale(1);
+	}
+}

@@ -1,0 +1,44 @@
+:root {
+	scroll-behavior: smooth;
+	text-rendering: optimizeLegibility;
+
+	--app-border-radius: 0px;
+	--app-anim-speed: 0.15s;
+
+	// DEFAULT
+	--app-background-color: #24292e;
+	--app-font-color: #e4e4e4;
+	--app-font-color-dimmed: #9b9b9b;
+	--app-font-color-alt: #24292e;
+
+	--app-footer-color: #e4e4e4;
+	--app-footer-font-color: #24292e;
+
+	--in-prog-color: #f8f879;
+	--ok-color: #72ec82;
+}
+
+:root[data-theme='light'] {
+	--app-background-color: #ebf0de;
+	--app-font-color: #394620;
+	--app-font-color-dimmed: #98ac6a;
+
+	--app-font-color-alt: #e4f3bb;
+	--app-footer-color: #3f3f3f;
+
+	--in-prog-color: #555402;
+	--ok-color: #0a164b;
+}
+
+:root[data-theme='dark'] {
+	--app-background-color: #24292e;
+	--app-font-color: #e4e4e4;
+	--app-font-color-dimmed: #9b9b9b;
+	--app-font-color-alt: #24292e;
+
+	--app-footer-color: #e4e4e4;
+	--app-footer-font-color: #24292e;
+
+	--in-prog-color: #f8f879;
+	--ok-color: #72ec82;
+}
