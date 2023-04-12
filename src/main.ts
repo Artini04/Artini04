@@ -21,6 +21,9 @@ async function startUp(value: RepoData[] | null = null) {
 
 function buildRepoGrid(repositories_list: RepoData[]) {
 	for (const key in repositories_list) {
+		if (repositories_list[key].name.includes('Artini04')) {
+			continue
+		}
 		createGridItem(repositories_list[key])
 	}
 }
