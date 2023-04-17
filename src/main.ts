@@ -7,15 +7,16 @@ import './style/root.scss'
 import './style/main.scss'
 
 const REPOS_GRID = document.getElementById('repos-grid') as HTMLDivElement
+
 startUp()
 
-async function startUp(value: RepoData[] | null = null) {
-	const repos_list: RepoData[] = value ?? (await fetchTimeout())
+async function startUp() {
+	const REPO_LIST: RepoData[] = await fetchTimeout()
 
-	if (repos_list) {
-		buildRepoGrid(repos_list)
+	if (REPO_LIST) {
+		buildRepoGrid(REPO_LIST)
 	} else {
-		startUp(repos_list)
+		startUp()
 	}
 }
 
