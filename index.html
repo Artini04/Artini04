@@ -7,28 +7,43 @@
 	</head>
 	<body>
 		<main id="app">
-			<div class="player-root">
-				<div class="overlay"></div>
-				<div class="overlay-2"></div>
-				<div class="basic">
-					<div class="user">
-						<h1 class="user-username">Artini04</h1>
-						<h2 class="user-subtitle">Front-End Web Developer</h2>
+			<div class="blob"></div>
+			<div class="blob-blur"></div>
+				<div class="player-root">
+					<div class="overlay"></div>
+					<div class="overlay-2"></div>
+					<div class="basic">
+						<div class="user">
+							<h1 class="user-username">Artini04</h1>
+							<h2 class="user-subtitle">Front-End Web Developer</h2>
+							<a href="mailto:vincentpalomer@gmail.com" class="user-email">vincentpalomer@gmail.com</a>
+						</div>
+						<img src="avatar.jpeg" alt="Artini04 user avatar" class="user-avatar" />
 					</div>
-					<img src="https://avatars.githubusercontent.com/u/89753669" alt="Artini04 user avatar" class="user-avatar" />
+					<div class="status">
+						<h3>Personal Projects and Other Stuff</h3>
+						<ul class="status-list project-list">
+							<li>
+								<a href="https://quartet-index.vercel.app/" target="_blank">日本語カルテット単語索引</a>
+							</li>
+							<li>More on GitHub!</li>
+						</ul>
+						<h3>Status</h3>
+						<ul class="status-list">
+							<li>Currently studying at Glendale Community College (GCC) AZ</li>
+							<li class="prog"><span lang="ja">日本語を勉強してる</span> &#127833;</li>
+							<li class="prog">Figuring out Python &#128013; and Rust &#129408;</li>
+							<li class="ok">HTML / Pug</li>
+							<li class="ok">CSS / SCSS</li>
+							<li class="ok">JavaScript / TypeScript</li>
+						</ul>
+					</div>
+					<div class="links">
+						<a href="https://github.com/Artini04" target="_blank">
+							<span class="bold">Check out my GitHub Account</span>
+						</a>
+					</div>
 				</div>
-				<div class="status">
-					<ul class="status-list">
-						<li><span lang="ja">日本語を勉強してる</span> &#127833;</li>
-						<li>Figuring out Python &#128013; and Rust &#129408;</li>
-					</ul>
-				</div>
-				<div class="links">
-					<a href="https://github.com/Artini04" target="_blank">
-						<span class="bold">Check out my GitHub Account</span>
-					</a>
-				</div>
-			</div>
 		</main>
 		<script type="module" src="/src/main.ts"></script>
 	</body>
