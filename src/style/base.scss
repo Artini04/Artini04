@@ -1,13 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@200;400;600&display=swap');
 
 :root {
-    --app-background-color: #1c2127;
+    --app-background-color: #0f1216;
     --app-font-color: #e4e4e4;
     --app-font-color-muted: #9b9b9b;
-
-    // --app-background-color: #ffffff;
-    // --app-font-color: #434950;
-    // --app-font-color-muted: #9b9b9b;
 }
 
 body {
@@ -17,20 +13,32 @@ body {
     font-size: 14px;
 }
 
+#app {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 0.4rem;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 100svw;
+    height: 100svh;
+}
+
 .player-root {
     --card-background-color: #262931;
     --card-font-color: #ebedf0;
     --card-border-color: #464e55;
 
     --link-color: #ebedf0;
-    --link-color-hover: #98e633;
+    --link-color-hover: #b4f17b;
 
     position: relative;
     display: flex;
     flex-flow: column nowrap;
     gap: 0;
 
-    max-width: 450px;
+    max-width: 400px;
     border-radius: 15px;
     border: 1px solid var(--card-border-color);
     color: var(--card-font-color);
@@ -67,7 +75,6 @@ body {
 
 
     .basic,
-    .status,
     .link {
         flex-grow: 1;
     }
@@ -85,6 +92,7 @@ body {
 
         @media (hover:none) {
             flex-direction: column;
+            gap: 2rem;
         }
 
         .user-avatar {
@@ -104,6 +112,10 @@ body {
         .user {
             flex: 1 1 80%;
             text-align: right;
+
+            &>*+* {
+                margin-top: 0.6rem;
+            }
 
             &-username {
                 font-weight: 600;
@@ -167,6 +179,10 @@ body {
             padding: 1rem;
             transition: color ease 0.2s;
             color: var(--link-color);
+
+            &>* {
+                display: block;
+            }
 
             &:is(:hover, :active, :focus) {
                 color: var(--link-color-hover);
