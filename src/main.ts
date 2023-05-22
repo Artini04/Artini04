@@ -3,8 +3,7 @@ import { createComponent, createComponentLink } from './module/helper'
 import type { RepoData } from './module/type/types'
 
 import './style/reset.scss'
-import './style/root.scss'
-import './style/main.scss'
+import './style/base.scss'
 
 const REPOS_GRID = document.getElementById('repos-grid') as HTMLDivElement
 

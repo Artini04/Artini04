@@ -1,0 +1,191 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@200;400;600&display=swap');
+
+:root {
+    --app-background-color: #1c2127;
+    --app-font-color: #e4e4e4;
+    --app-font-color-muted: #9b9b9b;
+
+    // --app-background-color: #ffffff;
+    // --app-font-color: #434950;
+    // --app-font-color-muted: #9b9b9b;
+}
+
+body {
+    background: var(--app-background-color);
+    color: var(--app-font-color);
+    font-family: 'Outfit', sans-serif;
+    font-size: 14px;
+}
+
+.player-root {
+    --card-background-color: #262931;
+    --card-font-color: #ebedf0;
+    --card-border-color: #464e55;
+
+    --link-color: #ebedf0;
+    --link-color-hover: #98e633;
+
+    position: relative;
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 0;
+
+    max-width: 450px;
+    border-radius: 15px;
+    border: 1px solid var(--card-border-color);
+    color: var(--card-font-color);
+    overflow: hidden;
+    transition: transform ease 0.2s;
+
+    @media (hover: none) {
+        margin: 1rem;
+    }
+
+    .overlay {
+        --line-thickness: 0.5rem;
+        --line-color: #4d6e18;
+        position: absolute;
+        z-index: -1;
+
+        inset: -40%;
+
+        background: var(--card-background-color);
+        background-image: radial-gradient(circle, transparent 1rem, var(--card-background-color) 1rem),
+            linear-gradient(var(--line-color) var(--line-thickness), transparent 0.5rem),
+            linear-gradient(90deg, var(--line-color) var(--line-thickness), transparent 0.5rem);
+        background-size: 5rem 5rem;
+        background-position: 5.25rem 5.25rem, 2.5rem 2.5rem, 2.5rem 2.5rem;
+        transform: rotate(20deg);
+    }
+
+    .overlay-2 {
+        position: absolute;
+        z-index: -1;
+        inset: 0;
+        background-image: linear-gradient(0deg, var(--card-background-color) 40%, rgba(0, 0, 0, 0.2) 100%);
+    }
+
+
+    .basic,
+    .status,
+    .link {
+        flex-grow: 1;
+    }
+
+    .basic {
+        display: flex;
+        flex-flow: row nowrap;
+        gap: 1rem;
+
+        justify-content: flex-end;
+        align-items: flex-end;
+        padding: 1.4rem;
+
+        text-shadow: 0 0 5px rgba($color: #000000, $alpha: 1);
+
+        @media (hover:none) {
+            flex-direction: column;
+        }
+
+        .user-avatar {
+            flex: 1 1 20%;
+            width: 40%;
+            max-width: 120px;
+            border-radius: 15px;
+            box-shadow: 0 7px 7px -3px rgba($color: #000000, $alpha: 0.1);
+
+            @media (hover:none) {
+                width: 100%;
+                max-width: none;
+                order: -1;
+            }
+        }
+
+        .user {
+            flex: 1 1 80%;
+            text-align: right;
+
+            &-username {
+                font-weight: 600;
+                font-size: 2rem;
+            }
+
+            &-subtitle {
+                font-weight: 400;
+                font-size: 1.4rem
+            }
+
+            @media (hover:none) {
+                text-align: center;
+                width: 100%;
+
+                &-username {
+                    font-size: 2.4rem;
+                }
+
+                &-subtitle {
+                    font-size: 1.2rem;
+                }
+            }
+        }
+    }
+
+    .status {
+        padding: 0 1.4rem 1.4rem;
+
+        &-list {
+            display: flex;
+            flex-flow: column nowrap;
+            gap: 0.5rem;
+
+            li {
+                &::before {
+                    content: '-';
+                    margin-right: 0.5rem;
+                }
+            }
+        }
+    }
+
+    .links {
+        display: flex;
+        flex-flow: row nowrap;
+        gap: 0;
+
+        cursor: pointer;
+        border-top: 1px solid var(--card-border-color);
+        background: var(--card-background-color);
+
+        &>*+* {
+            border-left: 1px solid var(--card-border-color);
+        }
+
+        a {
+            flex: 1 1 100px;
+            display: block;
+            text-align: center;
+            padding: 1rem;
+            transition: color ease 0.2s;
+            color: var(--link-color);
+
+            &:is(:hover, :active, :focus) {
+                color: var(--link-color-hover);
+            }
+        }
+    }
+}
+
+.bold {
+    font-weight: bold;
+}
+
+
+@keyframes disc {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}

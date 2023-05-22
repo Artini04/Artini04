@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -7,9 +7,37 @@
 	</head>
 	<body>
 		<main id="app">
-			<div class="basic">
+			<header class="navig"></header>
+
+			<div class="player-root">
+				<div class="overlay"></div>
+				<div class="overlay-2"></div>
+				<div class="basic">
+					<div class="user">
+						<h1 class="user-username">Artini04</h1>
+						<h2 class="user-subtitle">Front-End Web Developer</h2>
+					</div>
+					<img src="https://avatars.githubusercontent.com/u/89753669" alt="Artini04 user avatar" class="user-avatar" />
+				</div>
+				<div class="status">
+					<ul class="status-list">
+						<li><span lang="ja">日本語を勉強してる</span> &#127833;</li>
+						<li>Figuring out Python &#128013; and Rust &#129408;</li>
+					</ul>
+				</div>
+				<div class="links">
+					<a href="https://github.com/Artini04" target="_blank">
+						<span class="bold">See my GitHub Account</span>
+					</a>
+				</div>
+			</div>
+
+			<div class="repositories">
+				<div class="repos-grid" id="repos-grid"></div>
+			</div>
+			<!-- <div class="basic">
 				<div class="user">
-					<img src="https://avatars.githubusercontent.com/u/89753669?v=4" alt="Artini04 user avatar" class="user__avatar" id="avatar" />
+					<img src="https://avatars.githubusercontent.com/u/89753669" alt="Artini04 user avatar" class="user__avatar" id="avatar" />
 					<h1 class="user__username">artini04</h1>
 				</div>
 				<h3>HELLO!</h3>
@@ -31,7 +59,7 @@
 				<h2 class="repo-title">Repositories</h2>
 				<div class="[ repos-grid ]" id="repos-grid"></div>
 				<h2 class="repo-title">End of Repositories</h2>
-			</div>
+			</div> -->
 		</main>
 		<script type="module" src="/src/main.ts"></script>
 	</body>

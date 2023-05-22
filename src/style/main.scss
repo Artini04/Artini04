@@ -1,5 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,600;1,400;1,600&family=IBM+Plex+Sans+JP&family=IBM+Plex+Sans:ital,wght@0,400;0,600;1,400;1,600&display=swap');
 
+:root {
+	--app-background-color: #24292e;
+	--app-font-color: #e4e4e4;
+	--app-font-color-muted: #9b9b9b;
+}
+
 body {
 	background: var(--app-background-color);
 	color: var(--app-font-color);
@@ -13,24 +19,12 @@ body {
 
 #app {
 	display: flex;
-	flex-wrap: nowrap;
-
-	@media only screen and (max-width: 768px) {
-		flex-direction: column;
-		margin: 2rem;
-		gap: 1rem;
-	}
-
-	@media only screen and (min-width: 769px) {
-		flex-direction: row;
-		margin: 4rem;
-		gap: 4rem;
-	}
+	flex-flow: column nowrap;
 }
 
 .basic,
 .repositories {
-	& > * + * {
+	&>*+* {
 		margin-top: 1rem;
 	}
 }
@@ -108,7 +102,7 @@ body {
 			}
 		}
 
-		& > div + div {
+		&>div+div {
 			margin-top: 0.5rem;
 		}
 
@@ -135,6 +129,7 @@ body {
 
 		&__id {
 			font-size: 0.7rem;
+
 			&::before {
 				content: 'ID: ';
 			}
