@@ -97,6 +97,8 @@ body {
         text-shadow: 0 0 5px rgba($color: #000000, $alpha: 1);
 
         @media (hover:none) {
+            justify-content: center;
+            align-items: center;
             flex-direction: column;
             gap: 2rem;
         }
@@ -110,7 +112,8 @@ body {
 
             @media (hover:none) {
                 width: 100%;
-                max-width: none;
+                max-width: 170px;
+                border-radius: 50%;
                 order: -1;
             }
         }
@@ -236,17 +239,23 @@ body {
 }
 
 .blob {
+    --size: 17svw;
+
     border-radius: 50%;
     position: absolute;
     left: 50%;
     top: 50%;
-    width: 170px;
-    height: 200px;
+    width: var(--size);
+    height: var(--size);
     translate: -50% -50%;
     background: linear-gradient(90deg, rgb(127, 251, 255), rgb(93, 148, 211));
 
     z-index: -2;
-    animation: rotate 20s ease infinite;
+    animation: rotate 20s linear infinite;
+
+    @media (hover: none) {
+        --size: 40svw;
+    }
 
     &-blur {
         position: absolute;
