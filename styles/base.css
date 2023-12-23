@@ -1,0 +1,141 @@
+:root {
+  scroll-behavior: smooth;
+  text-rendering: optimizeLegibility;
+}
+
+@font-face {
+  font-family: "Ebihara No Kuseji";
+  src: url(../assets/EbiharaNoKuseji.ttf);
+  font-display: swap;
+}
+
+body {
+  background-color: #171718;
+  color: #f3f3f3;
+  font-size: 1.3rem;
+  font-family: "Ebihara No Kuseji", system-ui, sans-serif;
+}
+
+.card {
+  position: relative;
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 1rem;
+
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+
+  animation: wave 12s ease-in-out infinite;
+  transform-origin: top;
+  z-index: 99;
+}
+
+.info {
+  display: flex;
+  flex-flow: row nowrap;
+  gap: 1rem;
+
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.info > .info-span {
+  writing-mode: vertical-rl;
+}
+
+.info > .info-span:first-child {
+  animation: smallwave 34s ease-in-out infinite;
+  transform-origin: top;
+}
+
+.info > .info-span:last-child {
+  animation: smallwave 16s ease-in-out infinite;
+  transform-origin: top;
+}
+
+.info > .info-media {
+  animation: smallwave 10s ease-in-out infinite;
+  transform-origin: top;
+}
+
+.info-media > img {
+  width: auto;
+  height: 100%;
+}
+
+.avatar {
+  margin-bottom: 0.6rem;
+}
+
+.media {
+  text-align: center;
+}
+
+.media > * {
+  display: block;
+}
+
+.avatar {
+  border-radius: 50%;
+  max-width: 120px;
+  margin-inline: auto;
+}
+
+.title {
+  font-size: 1.4rem;
+}
+
+/* Candle */
+.backdrop {
+  position: fixed;
+  inset: 0 0 0 0;
+  z-index: 0;
+  filter: blur(50px);
+}
+
+.flicker {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+
+  width: 0;
+  height: 60px;
+  margin-inline: auto;
+  box-shadow: 0 5px 25px 5px gold, 0 0px 100px 10px #ff6a00, 0 15px 50px 15px #ff6a00;
+  z-index: 1;
+
+  animation: flicker 100ms linear infinite;
+}
+
+@keyframes wave {
+  0%,
+  100% {
+    rotate: 0deg;
+  }
+
+  50% {
+    rotate: 2deg;
+  }
+}
+
+@keyframes smallwave {
+  0%,
+  100% {
+    rotate: 0deg;
+  }
+
+  25% {
+    rotate: 2deg;
+  }
+
+  75% {
+    rotate: -2deg;
+  }
+}
+
+@keyframes flicker {
+  50% {
+    opacity: 0.93;
+  }
+}
