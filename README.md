@@ -1,8 +1,5 @@
-# Hello!
-
-My name is Vincent (artini04), and I'm an aspiring Web Developer focusing on Frontend development. I'm currently studying for an Associate Degree in Web Development at Glendale Community College. I do digital painting in my free time.
-
-I'm also studying 日本語.
+artini04 | aspiring web dev
+日本語を勉強中
 
 [![My Skills](https://skillicons.dev/icons?i=html,css,sass,js,ts,nodejs,vite,vue)](https://skillicons.dev)
 
