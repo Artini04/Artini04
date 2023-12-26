@@ -4,41 +4,38 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Artini04</title>
+
     <link rel="stylesheet" href="./styles/reset.css" media="all" />
     <link rel="stylesheet" href="./styles/base.css" />
-    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+    <link rel="shortcut icon" href="./assets/avatar-modified.png" type="image/x-icon" />
   </head>
 
   <body>
-    <div class="card">
+    <div class="card" id="wind-chime-base" anim-duration="3000">
       <div class="media">
-        <img src="./assets/avatar.jpeg" alt="Avatar" class="avatar" />
+        <img src="./assets/avatar-modified.png" alt="Avatar" class="avatar" />
         <div class="title">
-          <a href="https://github.com/Artini04" title="github link" target="_blank">
-            <iconify-icon icon="tabler:brand-github-filled"></iconify-icon>
-          </a>
-          <span class="title">@artini04</span>
+          <a href="https://github.com/Artini04" target="_blank" id="github-link"> @Artini04 </a>
         </div>
       </div>
 
-      <div class="info">
-        <div class="info-span">
-          <span>ウェブデベロッパーになりたい｜日本語を勉強中</span>
+      <div class="info" id="wind-chime">
+        <div class="info-span" anim-duration="5500">
+          <span id="info">ウェブデベロッパーになりたい｜日本語を勉強中</span>
         </div>
 
-        <div class="info-media">
-          <img src="https://skillicons.dev/icons?i=html,css,sass,js,ts,nodejs,vite,vue&perline=1" alt="skillset" />
+        <div class="info-media" anim-duration="6000">
+          <img
+            src="https://skillicons.dev/icons?i=html,css,sass,js,ts,nodejs,vite,vue&perline=1"
+            alt="skillset"
+            id="skill-set"
+          />
         </div>
 
-        <div class="info-span">
-          <a href="https://naotoebihara.booth.pm/items/3965615">
+        <div class="info-span" anim-duration="2700">
+          <a href="https://naotoebihara.booth.pm/items/3965615" id="used-font" target="_blank">
             <iconify-icon icon="tabler:link"></iconify-icon>
-            使ったフォント
-          </a>
-
-          <a href="https://github.com/Artini04/Artini04">
-            <iconify-icon icon="tabler:link"></iconify-icon>
-            このサイトのソースコード
+            使ったフォント｜エビハラのくせ字
           </a>
         </div>
       </div>
@@ -47,5 +44,9 @@
     <div class="backdrop">
       <div class="flicker"></div>
     </div>
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+    <script src="https://unpkg.com/@popperjs/core@2"></script>
+    <script src="https://unpkg.com/tippy.js@6"></script>
+    <script type="module" src="./script/index.js"></script>
   </body>
 </html>
