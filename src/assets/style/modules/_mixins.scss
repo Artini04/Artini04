@@ -1,0 +1,15 @@
+@mixin flex($dir, $wrap, $gap, $inline: false) {
+  @if $inline {
+    display: inline-flex;
+  } @else {
+    display: flex;
+  }
+
+  flex-flow: #{$dir} #{$wrap};
+  gap: #{$gap};
+}
+
+@mixin alignment($align, $justify) {
+  align-items: #{$align};
+  justify-content: #{$justify};
+}

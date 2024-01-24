@@ -1,0 +1,59 @@
+@use "./modules/mixins" as mx;
+
+:root {
+  scroll-behavior: smooth;
+  text-rendering: optimizeLegibility;
+}
+
+@font-face {
+  font-family: "Ebihara no Kuseji";
+  src: url(../assets/EbiharaNoKuseji.ttf);
+  font-display: swap;
+}
+
+body {
+  background: #000;
+  color: #f3f3f3;
+  font-size: 1.3rem;
+  font-family: "Ebihara no Kuseji", system-ui, sans-serif;
+}
+
+.card {
+  @include mx.flex(column, nowrap, 0.4rem);
+  @include mx.alignment(center, center);
+
+  position: relative;
+  padding: 1rem;
+  z-index: 99;
+
+  .media {
+    text-align: center;
+
+    .avatar {
+      max-width: 120px;
+      margin-inline: auto;
+    }
+
+    .title {
+      font-size: 1.6rem;
+    }
+  }
+
+  .info-media {
+    & > img {
+      width: auto;
+      height: 100%;
+    }
+  }
+
+  .info {
+    @include mx.flex(row, nowrap, 0.4rem);
+    @include mx.alignment(flex-start, center);
+
+    & > .info-span {
+      writing-mode: vertical-rl;
+      transform-origin: top;
+      transition: rotate 100ms;
+    }
+  }
+}

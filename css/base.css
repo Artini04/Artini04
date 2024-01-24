@@ -1,0 +1,55 @@
+:root {
+  scroll-behavior: smooth;
+  text-rendering: optimizeLegibility;
+}
+
+@font-face {
+  font-family: "Ebihara no Kuseji";
+  src: url(../assets/EbiharaNoKuseji.ttf);
+  font-display: swap;
+}
+body {
+  background: #000;
+  color: #f3f3f3;
+  font-size: 1.3rem;
+  font-family: "Ebihara no Kuseji", system-ui, sans-serif;
+}
+
+.card {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 0.4rem;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: 1rem;
+  z-index: 99;
+}
+.card .media {
+  text-align: center;
+}
+.card .media .avatar {
+  max-width: 120px;
+  margin-inline: auto;
+}
+.card .media .title {
+  font-size: 1.6rem;
+}
+.card .info-media > img {
+  width: auto;
+  height: 100%;
+}
+.card .info {
+  display: flex;
+  flex-flow: row nowrap;
+  gap: 0.4rem;
+  align-items: flex-start;
+  justify-content: center;
+}
+.card .info > .info-span {
+  writing-mode: vertical-rl;
+  transform-origin: top;
+  transition: rotate 100ms;
+}
+
+/*# sourceMappingURL=base.css.map */
