@@ -27,3 +27,31 @@ if (window.screen.availWidth > 480) {
 		arrow: false,
 	});
 }
+
+appendAnimation();
+
+function appendAnimation() {
+	const cBaseDuration = Number.parseInt(
+		baseWindChime.getAttribute("anim-duration"),
+	);
+	baseWindChime.style.transformOrigin = "top";
+	baseWindChime.animate([{ rotate: "0deg" }, { rotate: "1deg" }], {
+		fill: "both",
+		duration: cBaseDuration,
+		iterations: Number.Infinity,
+		easing: "ease-in-out",
+		direction: "alternate",
+	});
+
+	for (const chime of divWindChimeChildren) {
+		const cDuration = Number.parseInt(chime.getAttribute("anim-duration"));
+		chime.style.transformOrigin = "top";
+		chime.animate([{ rotate: "-1deg" }, { rotate: "1deg" }], {
+			fill: "both",
+			duration: cDuration,
+			iterations: Number.Infinity,
+			easing: "ease-in-out",
+			direction: "alternate",
+		});
+	}
+}
