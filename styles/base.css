@@ -1,116 +1,97 @@
 :root {
-    scroll-behavior: smooth;
-    text-rendering: optimizeLegibility;
-
-    --orange: #ff7300;
-    --yellow: #ffdf27;
-    --white: #f3f3f3;
-    --paper-white: #f9fbff;
+  scroll-behavior: smooth;
+  text-rendering: optimizeLegibility;
+  --orange: #ff7300;
+  --yellow: #ffdf27;
+  --paper-white: #f9fbff;
 }
 
 @font-face {
-    font-family: "Ebihara No Kuseji";
-    src: url(../assets/EbiharaNoKuseji.ttf);
-    font-display: swap;
+  font-family: "Ebihara No Kuseji";
+  src: url(../../assets/fonts/EbiharaNoKuseji.ttf);
+  font-display: swap;
 }
-
 body {
-    background-color: #000000;
-    color: var(--white);
-    font-size: 1.4em;
+  background-color: #000000;
+  color: var(--paper-white);
+  font-size: 1.4em;
 }
 
-[lang='jp'] {
-    font-family: "Ebihara No Kuseji", system-ui, sans-serif;
+[lang=jp] {
+  font-family: "Ebihara No Kuseji", system-ui, sans-serif;
 }
 
 .card {
-    position: relative;
-    display: flex;
-    flex-flow: column nowrap;
-    gap: 0.4rem;
-
-    align-items: center;
-    justify-content: center;
-    padding: 1rem;
-    z-index: 99;
+  position: relative;
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 0.4rem;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  z-index: 99;
+  isolation: isolate;
+}
+.card .media {
+  text-align: center;
+}
+.card .media > * {
+  display: block;
+}
+.card .media .avatar {
+  margin-inline: auto;
+  margin-bottom: 0.6rem;
+  border-radius: 50%;
+  max-width: 120px;
+}
+.card .info {
+  display: flex;
+  flex-flow: row nowrap;
+  gap: 0.4em;
+  align-items: flex-start;
+  justify-content: center;
+}
+.card .info-span {
+  writing-mode: vertical-rl;
+  transform-origin: top;
+  transition: rotate 100ms;
+}
+.card .info-media {
+  width: auto;
+  height: 100%;
 }
 
-.info {
-    display: flex;
-    flex-flow: row nowrap;
-    gap: 0.4rem;
-
-    align-items: flex-start;
-    justify-content: center;
-}
-
-.info>.info-span {
-    writing-mode: vertical-rl;
-    transform-origin: top;
-    transition: rotate 100ms;
-}
-
-.info-media>img {
-    width: auto;
-    height: 100%;
-}
-
-.avatar {
-    margin-inline: auto;
-    margin-bottom: 0.6rem;
-    border-radius: 50%;
-    max-width: 120px;
-}
-
-.media {
-    text-align: center;
-}
-
-.media>* {
-    display: block;
-}
-
-.title {
-    font-size: 1.4rem;
-}
-
-/* ================================== */
-/* Candle */
 .backdrop {
-    position: fixed;
-    inset: 0 0 0 0;
-    z-index: 0;
-    filter: blur(50px);
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  filter: blur(50px);
 }
-
-.flicker {
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-
-    width: 0;
-    height: 120px;
-    margin: 0;
-    box-shadow: 0 5px 25px 5px var(--yellow), 0 0px 100px 10px var(--orange), 0 15px 50px 15px var(--orange);
-    z-index: 1;
-
-    animation: flicker 100ms linear infinite;
+.backdrop .flicker {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 120px;
+  margin: 0;
+  box-shadow: 0 5px 25px 5px var(--yellow), 0 0px 100px 10px var(--orange), 0 15px 50px 15px var(--orange);
+  z-index: 1;
+  animation: flicker 100ms linear infinite;
 }
 
 @keyframes flicker {
-    50% {
-        opacity: 0.93;
-    }
+  50% {
+    opacity: 0.93;
+  }
 }
-
 @media (prefers-color-scheme: light) {
-    body {
-        background: rgb(241, 234, 223);
-        color: black;
-    }
-
-    .backdrop {
-        display: none;
-    }
+  body {
+    background: rgb(241, 234, 223);
+    color: black;
+  }
+  .backdrop {
+    display: none;
+  }
 }
+
+/*# sourceMappingURL=base.css.map */
