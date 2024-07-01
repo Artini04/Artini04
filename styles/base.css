@@ -8,7 +8,7 @@
 
 @font-face {
   font-family: "Ebihara No Kuseji";
-  src: url(../../assets/fonts/EbiharaNoKuseji.ttf);
+  src: url(../assets/fonts/EbiharaNoKuseji.ttf);
   font-display: swap;
 }
 body {
