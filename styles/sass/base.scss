@@ -1,122 +1,74 @@
-:root {
-    scroll-behavior: smooth;
-    text-rendering: optimizeLegibility;
-
-    --orange: #ff7300;
-    --yellow: #ffdf27;
-    --paper-white: #f9fbff;
-}
-
-@font-face {
-    font-family: "Ebihara No Kuseji";
-    src: url(../assets/fonts/EbiharaNoKuseji.ttf);
-    font-display: swap;
-}
+@use "./modules/layout" as lo;
 
 body {
-    background-color: #000000;
-    color: var(--paper-white);
-    font-size: 1.4em;
+  background-color: rgb(247, 247, 213);
+  color: #333;
 }
 
-[lang='jp'] {
-    font-family: "Ebihara No Kuseji", system-ui, sans-serif;
+#app {
+  margin-block: 1em;
+
+  img,
+  picture,
+  video {
+    border-radius: 3px;
+  }
 }
 
-// ========== //
-// == CARD == //
-// ========== //
+#basic {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 1em;
 
-.card {
-    position: relative;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.carousel {
+  &-photo {
+    $ms: 500ms;
+    $height-fix: 400px;
+
     display: flex;
-    flex-flow: column nowrap;
-    gap: 0.4rem;
+    flex-flow: row nowrwap;
+    gap: 1em;
 
-    align-items: center;
-    justify-content: center;
-    padding: 1rem;
-    z-index: 99;
-    isolation: isolate;
-
-    .media {
-        text-align: center;
-
-        &>* {
-            display: block;
-        }
-
-        .avatar {
-            margin-inline: auto;
-            margin-bottom: 0.6rem;
-            border-radius: 50%;
-            max-width: 120px;
-        }
+    &-img {
+      height: $height-fix;
+      max-height: $height-fix;
+      object-fit: cover;
+      box-shadow: 0 0 5px -1px rgba($color: #000000, $alpha: 0.4);
     }
 
-    .info {
-        display: flex;
-        flex-flow: row nowrap;
-        gap: 0.4em;
+    @media screen and (width > 451px) {
+      &-img {
+        transition: width ease $ms, height ease $ms;
 
-        align-items: flex-start;
-        justify-content: center;
-
-        &-span {
-            writing-mode: vertical-rl;
-            transform-origin: top;
-            transition: rotate 100ms;
+        &:is(:hover) {
+          width: 100%;
+          height: $height-fix;
         }
+      }
 
-        &-media {
-            width: auto;
-            height: 100%;
+      &:has(img:is(:hover)) {
+        img:not(:is(:hover)) {
+          width: 15%;
         }
+      }
     }
+
+    @media screen and (width < 451px) {
+      flex-flow: column nowrap;
+      gap: 1em;
+
+      &-img {
+        height: auto;
+      }
+    }
+  }
 }
 
-// ============ //
-// == CANDLE == //
-// ============ //
-
-.backdrop {
-    position: fixed;
-    inset: 0;
-    z-index: 0;
-    filter: blur(50px);
-
-    .flicker {
-        position: absolute;
-        bottom: 0;
-        left: 50%;
-
-        width: 0;
-        height: 120px;
-        margin: 0;
-        box-shadow: 0 5px 25px 5px var(--yellow), 0 0px 100px 10px var(--orange), 0 15px 50px 15px var(--orange);
-        z-index: 1;
-
-        animation: flicker 100ms linear infinite;
-    }
-}
-
-// ============== //
-// == KEYFRAME == //
-// ============== //
-
-@keyframes flicker {
-    50% {
-        opacity: 0.93;
-    }
-}
-
-@media (prefers-color-scheme: light) {
-    body {
-        background: rgb(241, 234, 223);
-        color: black;
-    }
-
-    .backdrop {
-        display: none;
-    }
+.header-img {
+  height: 400px;
+  object-fit: cover;
 }

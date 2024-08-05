@@ -1,0 +1,93 @@
+.layout {
+  --default-spacing: 1em;
+  display: grid;
+  gap: var(--default-spacing);
+  width: 100%;
+
+  &-column {
+    &-2 {
+      @extend .layout;
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @container (width < 800px) {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: var(--default-spacing);
+  }
+}
+
+.grid {
+  --default-grid-gap: 1em 0;
+  --default-margin-spacing: 1em;
+  --default-margin-block: 2em;
+
+  container-type: inline-size;
+
+  display: grid;
+  gap: var(--default-grid-gap);
+  grid-template-columns:
+    [full-width-start breakout-left-start]
+    minmax(var(--default-margin-block), 1fr)
+    [hanging-left-start hanging-start]
+    minmax(var(--default-margin-block), 0.3fr)
+    [content-start hanging-right-start breakout-right-start]
+    min(100% - calc(var(--default-margin-block) * 4), 60rem)
+    [content-end hanging-left-end breakout-left-end]
+    minmax(var(--default-margin-block), 0.3fr)
+    [hanging-right-end hanging-end]
+    minmax(var(--default-margin-block), 1fr)
+    [full-width-end breakout-left-end];
+
+  text-align: justify;
+
+  & > .full-width {
+    grid-column: full-width;
+
+    & > * {
+      border-radius: 0 !important;
+    }
+  }
+
+  & > .breakout {
+    &-left {
+      grid-column: breakout-left;
+    }
+    &-right {
+      grid-column: breakout-right;
+    }
+  }
+
+  & > .hanging {
+    grid-column: hanging;
+
+    &-left {
+      grid-column: hanging-left;
+    }
+
+    &-right {
+      grid-column: hanging-right;
+    }
+
+    &,
+    &-left,
+    &-right {
+      @container (width < 800px) {
+        grid-column: hanging;
+        padding-inline: 0.7em;
+      }
+    }
+  }
+}
+
+* {
+  .grid > &,
+  .full-width > & {
+    grid-column: content;
+
+    @container (width < 800px) {
+      grid-column: hanging;
+    }
+  }
+}

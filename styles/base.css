@@ -1,97 +1,125 @@
-:root {
-  scroll-behavior: smooth;
-  text-rendering: optimizeLegibility;
-  --orange: #ff7300;
-  --yellow: #ffdf27;
-  --paper-white: #f9fbff;
+.layout, .layout-column-2 {
+  --default-spacing: 1em;
+  display: grid;
+  gap: var(--default-spacing);
+  width: 100%;
+}
+.layout-column-2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+@container (width < 800px) {
+  .layout, .layout-column-2 {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: var(--default-spacing);
+  }
 }
 
-@font-face {
-  font-family: "Ebihara No Kuseji";
-  src: url(../assets/fonts/EbiharaNoKuseji.ttf);
-  font-display: swap;
+.grid {
+  --default-grid-gap: 1em 0;
+  --default-margin-spacing: 1em;
+  --default-margin-block: 2em;
+  container-type: inline-size;
+  display: grid;
+  gap: var(--default-grid-gap);
+  grid-template-columns: [full-width-start breakout-left-start] minmax(var(--default-margin-block), 1fr) [hanging-left-start hanging-start] minmax(var(--default-margin-block), 0.3fr) [content-start hanging-right-start breakout-right-start] min(100% - var(--default-margin-block) * 4, 60rem) [content-end hanging-left-end breakout-left-end] minmax(var(--default-margin-block), 0.3fr) [hanging-right-end hanging-end] minmax(var(--default-margin-block), 1fr) [full-width-end breakout-left-end];
+  text-align: justify;
 }
+.grid > .full-width {
+  grid-column: full-width;
+}
+.grid > .full-width > * {
+  border-radius: 0 !important;
+}
+.grid > .breakout-left {
+  grid-column: breakout-left;
+}
+.grid > .breakout-right {
+  grid-column: breakout-right;
+}
+.grid > .hanging {
+  grid-column: hanging;
+}
+.grid > .hanging-left {
+  grid-column: hanging-left;
+}
+.grid > .hanging-right {
+  grid-column: hanging-right;
+}
+@container (width < 800px) {
+  .grid > .hanging, .grid > .hanging-left, .grid > .hanging-right {
+    grid-column: hanging;
+    padding-inline: 0.7em;
+  }
+}
+
+.grid > *, .full-width > * {
+  grid-column: content;
+}
+@container (width < 800px) {
+  .grid > *, .full-width > * {
+    grid-column: hanging;
+  }
+}
+
 body {
-  background-color: #000000;
-  color: var(--paper-white);
-  font-size: 1.4em;
+  background-color: rgb(247, 247, 213);
+  color: #333;
 }
 
-[lang=jp] {
-  font-family: "Ebihara No Kuseji", system-ui, sans-serif;
+#app {
+  margin-block: 1em;
+}
+#app img,
+#app picture,
+#app video {
+  border-radius: 3px;
 }
 
-.card {
-  position: relative;
+#basic {
   display: flex;
   flex-flow: column nowrap;
-  gap: 0.4rem;
+  gap: 1em;
   align-items: center;
-  justify-content: center;
-  padding: 1rem;
-  z-index: 99;
-  isolation: isolate;
+  justify-content: flex-start;
 }
-.card .media {
-  text-align: center;
-}
-.card .media > * {
-  display: block;
-}
-.card .media .avatar {
-  margin-inline: auto;
-  margin-bottom: 0.6rem;
-  border-radius: 50%;
-  max-width: 120px;
-}
-.card .info {
+
+.carousel-photo {
   display: flex;
-  flex-flow: row nowrap;
-  gap: 0.4em;
-  align-items: flex-start;
-  justify-content: center;
+  flex-flow: row nowrwap;
+  gap: 1em;
 }
-.card .info-span {
-  writing-mode: vertical-rl;
-  transform-origin: top;
-  transition: rotate 100ms;
+.carousel-photo-img {
+  height: 400px;
+  max-height: 400px;
+  object-fit: cover;
+  box-shadow: 0 0 5px -1px rgba(0, 0, 0, 0.4);
 }
-.card .info-media {
-  width: auto;
-  height: 100%;
+@media screen and (width > 451px) {
+  .carousel-photo-img {
+    transition: width ease 500ms, height ease 500ms;
+  }
+  .carousel-photo-img:is(:hover) {
+    width: 100%;
+    height: 400px;
+  }
+  .carousel-photo:has(img:is(:hover)) img:not(:is(:hover)) {
+    width: 15%;
+  }
+}
+@media screen and (width < 451px) {
+  .carousel-photo {
+    flex-flow: column nowrap;
+    gap: 1em;
+  }
+  .carousel-photo-img {
+    height: auto;
+  }
 }
 
-.backdrop {
-  position: fixed;
-  inset: 0;
-  z-index: 0;
-  filter: blur(50px);
-}
-.backdrop .flicker {
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  width: 0;
-  height: 120px;
-  margin: 0;
-  box-shadow: 0 5px 25px 5px var(--yellow), 0 0px 100px 10px var(--orange), 0 15px 50px 15px var(--orange);
-  z-index: 1;
-  animation: flicker 100ms linear infinite;
-}
-
-@keyframes flicker {
-  50% {
-    opacity: 0.93;
-  }
-}
-@media (prefers-color-scheme: light) {
-  body {
-    background: rgb(241, 234, 223);
-    color: black;
-  }
-  .backdrop {
-    display: none;
-  }
+.header-img {
+  height: 400px;
+  object-fit: cover;
 }
 
 /*# sourceMappingURL=base.css.map */
