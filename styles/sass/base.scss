@@ -1,8 +1,11 @@
+@use "./modules/composition" as com;
 @use "./modules/layout" as lo;
+@use "./modules/utilities" as ut;
+@use "./modules/block" as blk;
 
+@import url(https://fonts.bunny.net/css?family=outfit:200,400,600,800,900);
 body {
-  background-color: rgb(247, 247, 213);
-  color: #333;
+  font-family: "Outfit", sans-serif;
 }
 
 #app {
@@ -12,59 +15,6 @@ body {
   picture,
   video {
     border-radius: 3px;
-  }
-}
-
-#basic {
-  display: flex;
-  flex-flow: column nowrap;
-  gap: 1em;
-
-  align-items: center;
-  justify-content: flex-start;
-}
-
-.carousel {
-  &-photo {
-    $ms: 500ms;
-    $height-fix: 400px;
-
-    display: flex;
-    flex-flow: row nowrwap;
-    gap: 1em;
-
-    &-img {
-      height: $height-fix;
-      max-height: $height-fix;
-      object-fit: cover;
-      box-shadow: 0 0 5px -1px rgba($color: #000000, $alpha: 0.4);
-    }
-
-    @media screen and (width > 451px) {
-      &-img {
-        transition: width ease $ms, height ease $ms;
-
-        &:is(:hover) {
-          width: 100%;
-          height: $height-fix;
-        }
-      }
-
-      &:has(img:is(:hover)) {
-        img:not(:is(:hover)) {
-          width: 15%;
-        }
-      }
-    }
-
-    @media screen and (width < 451px) {
-      flex-flow: column nowrap;
-      gap: 1em;
-
-      &-img {
-        height: auto;
-      }
-    }
   }
 }
 

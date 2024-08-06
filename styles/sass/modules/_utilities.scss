@@ -1,3 +1,18 @@
-body {
-    
+.bold {
+  font-weight: 600;
+  &er {
+    font-weight: 900;
+  }
+}
+
+.light {
+  font-weight: 200;
+}
+
+.img {
+  &-auto {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
 }

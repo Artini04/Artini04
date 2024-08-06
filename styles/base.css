@@ -1,3 +1,16 @@
+@import url(https://fonts.bunny.net/css?family=outfit:200,400,600,800,900);
+.flow, .flow-inline, .flow-block {
+  --default-flow-gap: 1em;
+  display: flex;
+  gap: var(--default-flow-gap);
+}
+.flow-block {
+  flex-flow: column nowrap;
+}
+.flow-inline {
+  flex-flow: row nowrap;
+}
+
 .layout, .layout-column-2 {
   --default-spacing: 1em;
   display: grid;
@@ -62,9 +75,90 @@
   }
 }
 
+.bold {
+  font-weight: 600;
+}
+.bolder {
+  font-weight: 900;
+}
+
+.light {
+  font-weight: 200;
+}
+
+.img-auto {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.basic {
+  align-items: center;
+  justify-content: center;
+  max-width: 500px;
+  margin-inline: auto;
+  flex-wrap: wrap;
+}
+.basic__img {
+  max-width: 100px;
+}
+
+.display-photo {
+  --display-size: 900px;
+  --default-anim-speed: 500ms;
+  --default-fixed-height: 500px;
+}
+.display-photo__img {
+  position: relative;
+  height: var(--default-fixed-height);
+  box-shadow: 0 0 5px -1px rgba(0, 0, 0, 0.4);
+}
+.display-photo__img > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.display-photo__img > figcaption {
+  position: absolute;
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 0.4em;
+  inset: 0;
+  padding: 1em;
+  background-color: rgba(0, 0, 0, 0.7);
+  opacity: 0;
+}
+.display-photo__img > figcaption :nth-child(1) {
+  font-weight: 800;
+}
+@container (width > 900px) {
+  .display-photo__img, .display-photo__img > figcaption {
+    transition: width ease var(--default-anim-speed), opacity ease var(--default-anim-speed);
+  }
+  .display-photo__img:is(:hover, :active, :focus) {
+    z-index: 99;
+    width: 500%;
+  }
+  .display-photo__img:is(:hover, :active, :focus) > figcaption {
+    opacity: 1;
+  }
+}
+@container (width < 450px) {
+  .display-photo__img {
+    height: calc(var(--default-fixed-height) / 1.2);
+  }
+}
+@container (width > 900px) {
+  .display-photo {
+    cursor: help;
+  }
+  .display-photo:has(:is(:hover, :active, :focus)) > :not(:is(:hover, :active, :focus)) {
+    width: 15%;
+  }
+}
+
 body {
-  background-color: rgb(247, 247, 213);
-  color: #333;
+  font-family: "Outfit", sans-serif;
 }
 
 #app {
@@ -74,47 +168,6 @@ body {
 #app picture,
 #app video {
   border-radius: 3px;
-}
-
-#basic {
-  display: flex;
-  flex-flow: column nowrap;
-  gap: 1em;
-  align-items: center;
-  justify-content: flex-start;
-}
-
-.carousel-photo {
-  display: flex;
-  flex-flow: row nowrwap;
-  gap: 1em;
-}
-.carousel-photo-img {
-  height: 400px;
-  max-height: 400px;
-  object-fit: cover;
-  box-shadow: 0 0 5px -1px rgba(0, 0, 0, 0.4);
-}
-@media screen and (width > 451px) {
-  .carousel-photo-img {
-    transition: width ease 500ms, height ease 500ms;
-  }
-  .carousel-photo-img:is(:hover) {
-    width: 100%;
-    height: 400px;
-  }
-  .carousel-photo:has(img:is(:hover)) img:not(:is(:hover)) {
-    width: 15%;
-  }
-}
-@media screen and (width < 451px) {
-  .carousel-photo {
-    flex-flow: column nowrap;
-    gap: 1em;
-  }
-  .carousel-photo-img {
-    height: auto;
-  }
 }
 
 .header-img {

@@ -1,0 +1,16 @@
+.flow {
+  --default-flow-gap: 1em;
+
+  display: flex;
+  gap: var(--default-flow-gap);
+
+  &-block {
+    @extend .flow;
+    flex-flow: column nowrap;
+  }
+
+  &-inline {
+    @extend .flow;
+    flex-flow: row nowrap;
+  }
+}

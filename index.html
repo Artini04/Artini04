@@ -9,31 +9,76 @@
   </head>
 
   <body>
-    <main id="app" class="grid">
-      <!-- <section class="grid | basic"> 
-      <div class="basic-photo">
+    <main id="app">
+      <section class="grid">
+        <div class="basic | flow-inline">
+          <div class="basic__img">
+            <img
+              src="https://res.cloudinary.com/artini-photo/image/upload/v1722964383/Avatar/avatar-modified_quz1yw.png"
+              alt="Basic Avatar" />
+          </div>
+          <div
+            class="basic-heading | flow-block"
+            style="--default-flow-gap: 0em">
+            <span class="basic-heading__main | bold">
+              Vincent Angelo Palomer
+            </span>
+            <span class="basic-heading__sub basic-heading__username">
+              artini04
+            </span>
+            <span class="basic-heading__sub basic-heading__email">
+              vincentpalomer@gmail.com
+            </span>
+          </div>
+        </div>
+
+        <div class="display-photo | flow-inline">
+          <figure class="display-photo__img">
+            <img
+              src="https://res.cloudinary.com/artini-photo/image/upload/v1722962047/photography/2024_07_09__1491_yg6nvz.jpg"
+              alt="King Charles IV Monument, Plaza Roma, Intramuros" />
+            <figcaption>
+              <span> King Charles IV Monument</span>
+              <span>
+                Plaza de Roma, Intramuros, Manila, 1002 Metro Manila,
+                Philippines
+              </span>
+            </figcaption>
+          </figure>
+          <figure class="display-photo__img">
+            <img
+              class="display-photo__img"
+              src="https://res.cloudinary.com/artini-photo/image/upload/v1722962041/photography/2024_07_09__1476_xochcw.jpg"
+              alt="Cafe Intramuros, Intramuros" />
+            <figcaption>
+              <span>Cafe Intramuros</span>
+              <span>
+                Stall 1-C Plaza San Luis Complex Gen. A. Luna St, cor Real St,
+                Intramuros, Manila, Metro Manila, Philippines
+              </span>
+            </figcaption>
+          </figure>
+          <figure class="display-photo__img">
+            <img
+              class="display-photo__img"
+              src="https://res.cloudinary.com/artini-photo/image/upload/v1722878863/photography/2024_06_29__2732_zo0ngs.jpg"
+              alt="Antenna" />
+            <figcaption></figcaption>
+          </figure>
+        </div>
+      </section>
+      <!-- <section class="basic">
+        <div class="basic-img">
           <img
-            class="basic-photo-img"
-            src="https://res.cloudinary.com/artini-photo/image/upload/v1722878865/photography/2024_07_01__2034_q4hwjl.jpg"
-            alt="A-10 Thunderbolt II" />
-          <img
-            class="basic-photo-img"
-            src="https://res.cloudinary.com/artini-photo/image/upload/v1722878863/photography/2024_07_14__1113_ax9bns.jpg"
-            alt="A-10 Thunderbolt II" />
-          <img
-            class="basic-photo-img"
-            src="https://res.cloudinary.com/artini-photo/image/upload/v1722878861/photography/2024_06_15__4065_cwtll7.jpg"
-            alt="A-10 Thunderbolt II" />
-          <img
-            class="basic-photo-img"
-            src="https://res.cloudinary.com/artini-photo/image/upload/v1719284486/photography/IMG_0043-1_kwtw7g.jpg"
-            alt="A-10 Thunderbolt II" />
-          <img
-            class="basic-photo-img"
-            src="https://res.cloudinary.com/artini-photo/image/upload/v1719285563/photography/IMG_0051_pcmj5k.jpg"
-            alt="A-10 Thunderbolt II" />
-        </div> 
-      </section> -->
+            src="https://res.cloudinary.com/artini-photo/image/upload/v1722964383/Avatar/avatar-modified_quz1yw.png"
+            alt="Basic Avatar" />
+        </div>
+        <div class="basic-heading">
+          <h1>Vincent Angelo Palomer</h1>
+          <span>Artini04</span>
+          <span>vincentpalomer@gmail.com</span>
+        </div>
+      </section>
       <section class="grid | full-width">
         <h2>Photography</h2>
         <img
@@ -65,20 +110,7 @@
           blanditiis quibusdam incidunt sapiente quam est recusandae error
           excepturi commodi culpa nemo ipsum fuga?
         </p>
-        <div class="hanging | carousel-photo">
-          <img
-            class="carousel-photo-img"
-            src="https://res.cloudinary.com/artini-photo/image/upload/v1722878865/photography/2024_07_01__2034_q4hwjl.jpg"
-            alt="A-10 Thunderbolt II" />
-          <img
-            class="carousel-photo-img"
-            src="https://res.cloudinary.com/artini-photo/image/upload/v1719284486/photography/IMG_0043-1_kwtw7g.jpg"
-            alt="A-10 Thunderbolt II" />
-          <img
-            class="carousel-photo-img"
-            src="https://res.cloudinary.com/artini-photo/image/upload/v1719285563/photography/IMG_0051_pcmj5k.jpg"
-            alt="A-10 Thunderbolt II" />
-        </div>
+        
         <p>
           Lorem ipsum, dolor sit amet consectetur adipisicing elit.
           Reprehenderit deserunt sit labore fugit perferendis! Laboriosam enim
@@ -88,73 +120,7 @@
           aliquid rem eaque est assumenda sit autem animi optio explicabo minus
           illo quod architecto iste consectetur corrupti, natus molestias.
         </p>
-        <div class="hanging-left | layout-column-2">
-          <img
-            src="https://res.cloudinary.com/artini-photo/image/upload/v1722878861/photography/2024_06_04__4375_r5rget.jpg"
-            alt="" />
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae
-            aliquid sit asperiores quos placeat amet veniam fugiat unde ipsum
-            velit, non magnam reprehenderit sequi nemo! Illo quo omnis adipisci?
-            Eveniet exercitationem quo voluptates eius vero consequuntur quod
-            iusto ab esse expedita animi dolor voluptate praesentium neque cum,
-            suscipit delectus cupiditate totam sunt sint temporibus harum unde
-            laboriosam. Ex, labore quod iusto error doloribus quasi ratione
-            laborum enim sapiente distinctio aliquid voluptate delectus
-            asperiores, modi animi saepe accusamus voluptatibus obcaecati est?
-            Minima ipsum qui voluptatum autem ullam, similique fugit dicta
-            corporis, beatae doloremque repudiandae voluptates aspernatur
-            excepturi deleniti consequuntur provident sunt?
-          </p>
-        </div>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae tempore
-          officiis numquam eaque maiores neque error nisi eum voluptatibus, vero
-          nobis distinctio dolorem veritatis blanditiis, libero animi alias
-          incidunt at nihil doloribus? Vitae ipsa nulla est delectus omnis. Quas
-          ratione pariatur dolorem harum officia? Placeat debitis, nemo animi
-          eum explicabo ad. Saepe illo debitis soluta nisi quam, iusto fugit.
-          Pariatur odio nisi laborum ab possimus blanditiis. Ab unde ducimus hic
-          pariatur! Animi quas exercitationem odio aut placeat. Commodi debitis
-          molestiae molestias illo rerum, ullam ab explicabo, eius aperiam amet
-          mollitia laborum porro. Voluptates dolorum excepturi soluta culpa
-          corporis nulla perspiciatis libero totam est fugit, dolore non!
-          Perferendis ullam fuga est aut modi deleniti voluptates quidem culpa
-          eveniet temporibus dolores saepe, repellat esse odit voluptatem
-          accusamus ratione, distinctio delectus quae. Possimus, reprehenderit
-          odit. Laborum consectetur at quos dolor! Amet aliquam repellendus
-          ipsum doloremque rem quasi voluptatem inventore alias nisi est officia
-          blanditiis eius vero, iure sunt similique voluptas, atque illo
-          mollitia assumenda repudiandae sit, exercitationem harum et! Nesciunt,
-          adipisci numquam. Provident nam ut, recusandae natus molestias qui
-          nihil sapiente voluptates sunt impedit fugiat laborum numquam eos,
-          aliquid nemo maxime ad officia quod eligendi voluptatem amet dolorum
-          cum odio id. Numquam, eius.
-        </p>
-        <div class="hanging-right | layout-column-2">
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae
-            aliquid sit asperiores quos placeat amet veniam fugiat unde ipsum
-            velit, non magnam reprehenderit sequi nemo! Illo quo omnis adipisci?
-            Eveniet exercitationem quo voluptates eius vero consequuntur quod
-            iusto ab esse expedita animi dolor voluptate praesentium neque cum,
-            suscipit delectus cupiditate totam sunt sint temporibus harum unde
-            laboriosam. Ex, labore quod iusto error doloribus quasi ratione
-            laborum enim sapiente distinctio aliquid voluptate delectus
-            asperiores, modi animi saepe accusamus voluptatibus obcaecati est?
-            Minima ipsum qui voluptatum autem ullam, similique fugit dicta
-            corporis, beatae doloremque repudiandae voluptates aspernatur
-            excepturi deleniti consequuntur provident sunt?
-          </p>
-          <img
-            src="https://res.cloudinary.com/artini-photo/image/upload/v1722878863/photography/2024_06_29__2732_zo0ngs.jpg"
-            alt="" />
-        </div>
-        <img
-          class="full-width | header-img"
-          src="https://res.cloudinary.com/artini-photo/image/upload/v1722878861/photography/2024_06_15__4065_cwtll7.jpg"
-          alt="" />
-      </section>
+      </section> -->
     </main>
   </body>
 </html>
