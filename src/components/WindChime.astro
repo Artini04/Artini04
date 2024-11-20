@@ -1,33 +1,33 @@
 ---
-import Image from "astro/components/Image.astro";
+import Image from "astro/components/Image.astro"
 
 const avatarSize = {
   width: 100,
-  height: 100,
-};
+  height: 100
+}
 ---
 
 <script>
   const windChimeInfo = document.getElementById(
     "wind-chime-info"
-  ) as HTMLDivElement;
+  ) as HTMLDivElement
 
   for (const el of [windChimeInfo, ...windChimeInfo.children]) {
-    appendAnimation(el as HTMLElement);
+    appendAnimation(el as HTMLElement)
   }
 
   function appendAnimation(item: HTMLElement) {
     const duration = Number.parseInt(
       item.getAttribute("anim-duration") ?? "3000"
-    );
-    item.style.transformOrigin = "top";
+    )
+    item.style.transformOrigin = "top"
     item.animate([{ rotate: "-1deg" }, { rotate: "1deg" }], {
       fill: "both",
       duration: duration * 2,
       iterations: Infinity,
       easing: "ease-in-out",
-      direction: "alternate",
-    });
+      direction: "alternate"
+    })
   }
 </script>
 
@@ -36,7 +36,7 @@ const avatarSize = {
     <div
       style={{
         width: avatarSize.width + "px",
-        height: avatarSize.height + "px",
+        height: avatarSize.height + "px"
       }}
     >
       <Image
@@ -44,6 +44,7 @@ const avatarSize = {
         alt="Avatar"
         width={avatarSize.width}
         height={avatarSize.height}
+        loading="eager"
       />
       <div class="overlay"></div>
     </div>
@@ -54,15 +55,14 @@ const avatarSize = {
 
   <div class="wind-chime__info" id="wind-chime-info">
     <div class="wind-chime__info-span | vertical | jp" anim-duration="5500">
-      <span id="info">
-        ウェブデベロッパーになりたい WebDev ｜日本語を勉強中
-      </span>
+      <span id="info"> ウェブデベロッパー Web Developer | 日本語を勉強中 </span>
     </div>
     <div class="wind-chime__info-media" anim-duration="6000">
       <Image
         src="https://skillicons.dev/icons?i=html,css,sass,js,ts,nodejs,bun,vite,vue,nuxtjs,git,py&perline=1"
         inferSize={true}
         alt="skillset"
+        loading="eager"
       />
     </div>
     <div class="wind-chime__info-span | vertical | jp" anim-duration="2700">
@@ -118,7 +118,7 @@ const avatarSize = {
         .overlay {
           position: absolute;
           inset: 0;
-          background-color: red;
+          background-color: #bc002d;
           opacity: 0;
           @include util.transition("opacity", 500ms);
 

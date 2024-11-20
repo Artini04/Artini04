@@ -3,8 +3,8 @@
 </div>
 
 <style lang="scss">
-  $yellow: #ffdf27;
-  $orange: #ff7300;
+  $yellow: light-dark(#ff0000, #ffdf27);
+  $orange: light-dark(#ff3300, #ff7300);
 
   .candle {
     position: fixed;
@@ -14,7 +14,7 @@
 
     .flicker {
       position: absolute;
-      bottom: 0;
+      bottom: 10%;
       left: 50%;
 
       width: 0;
@@ -27,31 +27,31 @@
 
       animation:
         candle-flicker 100ms linear infinite,
-        candle-move 15s linear infinite;
+        candle-scale 5s linear infinite;
     }
   }
 
   @keyframes candle-flicker {
     50% {
-      opacity: 0.85;
+      opacity: 0.93;
     }
   }
 
-  @keyframes candle-move {
+  @keyframes candle-scale {
     0% {
       transform: scale(1);
     }
     38% {
-      transform: scale(0.8, 1);
+      transform: scale(0.9, 1);
     }
     40% {
-      transform: scale(0.8, 1);
+      transform: scale(0.9, 1);
     }
     78% {
-      transform: scale(1.3);
+      transform: scale(1.1);
     }
     80% {
-      transform: scale(1.3);
+      transform: scale(1.1);
     }
     100% {
       transform: scale(1);
