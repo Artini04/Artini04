@@ -1,0 +1,138 @@
+---
+import Image from "astro/components/Image.astro";
+
+const avatarSize = {
+  width: 100,
+  height: 100,
+};
+---
+
+<script>
+  const windChimeInfo = document.getElementById(
+    "wind-chime-info"
+  ) as HTMLDivElement;
+
+  for (const el of [windChimeInfo, ...windChimeInfo.children]) {
+    appendAnimation(el as HTMLElement);
+  }
+
+  function appendAnimation(item: HTMLElement) {
+    const duration = Number.parseInt(
+      item.getAttribute("anim-duration") ?? "3000"
+    );
+    item.style.transformOrigin = "top";
+    item.animate([{ rotate: "-1deg" }, { rotate: "1deg" }], {
+      fill: "both",
+      duration: duration * 2,
+      iterations: Infinity,
+      easing: "ease-in-out",
+      direction: "alternate",
+    });
+  }
+</script>
+
+<div class="wind-chime" id="wind-chime-base">
+  <div class="wind-chime__media">
+    <div
+      style={{
+        width: avatarSize.width + "px",
+        height: avatarSize.height + "px",
+      }}
+    >
+      <Image
+        src="/avatar.jpeg"
+        alt="Avatar"
+        width={avatarSize.width}
+        height={avatarSize.height}
+      />
+      <div class="overlay"></div>
+    </div>
+    <a class="jp" href="https://github.com/Artini04" target="_blank">
+      @Artini04
+    </a>
+  </div>
+
+  <div class="wind-chime__info" id="wind-chime-info">
+    <div class="wind-chime__info-span | vertical | jp" anim-duration="5500">
+      <span id="info">
+        ウェブデベロッパーになりたい WebDev ｜日本語を勉強中
+      </span>
+    </div>
+    <div class="wind-chime__info-media" anim-duration="6000">
+      <Image
+        src="https://skillicons.dev/icons?i=html,css,sass,js,ts,nodejs,bun,vite,vue,nuxtjs,git,py&perline=1"
+        inferSize={true}
+        alt="skillset"
+      />
+    </div>
+    <div class="wind-chime__info-span | vertical | jp" anim-duration="2700">
+      <a
+        href="https://naotoebihara.booth.pm/items/3965615"
+        id="used-font"
+        target="_blank"
+      >
+        <span>使ったフォント Font used ｜エビハラのくせ字</span>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="1em"
+          height="1em"
+          viewBox="0 0 24 24"
+        >
+          <path
+            fill="none"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M12 6H6a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6m-7 1l9-9m-5 0h5v5"
+          ></path>
+        </svg>
+      </a>
+    </div>
+  </div>
+</div>
+
+<style lang="scss">
+  @use "../styles/modules/utilities.scss" as util;
+
+  $spacing__wind-chime: 0.4em;
+  $spacing__wind-chime-media: 0.4em;
+  $spacing__wind-chime-info: 0.4em;
+
+  .wind-chime {
+    position: relative;
+    width: fit-content;
+    margin: 1em auto;
+    z-index: 99;
+    @include util.flex(column, nowrap, $spacing__wind-chime);
+
+    &__media {
+      @include util.flex(column, nowrap, $spacing__wind-chime-media);
+      @include util.align(center);
+
+      & > :first-child {
+        position: relative;
+        overflow: hidden;
+        border-radius: 50%;
+
+        .overlay {
+          position: absolute;
+          inset: 0;
+          background-color: red;
+          opacity: 0;
+          @include util.transition("opacity", 500ms);
+
+          &:hover {
+            opacity: 1;
+          }
+        }
+      }
+    }
+
+    &__info {
+      position: relative;
+      @include util.flex(row, nowrap, $spacing__wind-chime-info);
+      @include util.align($justify: center);
+    }
+  }
+</style>
