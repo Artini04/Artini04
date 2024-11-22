@@ -1,0 +1,41 @@
+@use "sass:string";
+
+@mixin flex($dir, $wrap, $gap) {
+  & {
+    display: flex;
+    flex-flow: #{$dir} #{$wrap};
+    gap: #{$gap};
+  }
+}
+
+@mixin align($align: auto, $justify: auto) {
+  & {
+    align-items: #{$align};
+    justify-content: #{$justify};
+  }
+}
+
+@mixin transition($property, $duration: 200ms) {
+  & {
+    transition-property: string.unquote($property);
+    transition-duration: #{$duration};
+    transition-timing-function: ease;
+  }
+}
+
+@mixin hover($property, $normal, $hover) {
+  & {
+    #{$property}: #{$normal};
+
+    &:hover {
+      #{$property}: #{$hover};
+    }
+  }
+}
+
+@mixin with-border($color: transparent) {
+  & {
+    border: 1px solid #{$color};
+    border-radius: 7px;
+  }
+}

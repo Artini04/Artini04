@@ -6,14 +6,49 @@ interface Props {
 const { title } = Astro.props
 ---
 
-<!doctype html>
+<script>
+  import { isDarkMode } from "../stores/appStore"
+
+  // Get the window preferred color scheme
+  const init = window.matchMedia("(prefers-color-scheme: dark)").matches
+  console.log(`Prefered color scheme is currently ${init}`)
+  isDarkMode.set(init)
+
+  const storageInit = localStorage.getItem("data-dark-mode")
+
+  // Check if data-dark-mode exists in local storage
+  if (storageInit) {
+    const storageInitValue = storageInit === "true"
+    console.log(
+      `Persistent local storage value is currently ${storageInitValue}`
+    )
+    isDarkMode.set(storageInitValue)
+  } else {
+    console.log("No storage with the name data-dark-mode! Creating...")
+    localStorage.setItem("data-dark-mode", isDarkMode.get().toString())
+  }
+</script>
+
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="description" content="Artini04 personal website." />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/png" href="/Artini04/avatar-modified.png" />
-    <meta name="generator" content={Astro.generator} />
+    <meta
+      name="description"
+      content="Artini04 personal website."
+    />
+    <meta
+      name="viewport"
+      content="width=device-width"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="/Artini04/avatar-modified.png"
+    />
+    <meta
+      name="generator"
+      content={Astro.generator}
+    />
     <title>{title}</title>
   </head>
 
