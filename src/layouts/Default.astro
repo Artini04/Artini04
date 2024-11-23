@@ -8,24 +8,39 @@ const { title } = Astro.props
 
 <script>
   import { isDarkMode } from "../stores/appStore"
-
-  // Get the window preferred color scheme
-  const init = window.matchMedia("(prefers-color-scheme: dark)").matches
-  console.log(`Prefered color scheme is currently ${init}`)
-  isDarkMode.set(init)
+  import { consoleTrace } from "../utils/document"
 
   const storageInit = localStorage.getItem("data-dark-mode")
 
-  // Check if data-dark-mode exists in local storage
   if (storageInit) {
-    const storageInitValue = storageInit === "true"
-    console.log(
-      `Persistent local storage value is currently ${storageInitValue}`
+    consoleTrace(
+      "%cLocal storage with key name 'data-dark-mode' found! Using storage value...",
+      "lightgreen"
     )
+
+    // Logic block
+    const storageInitValue = storageInit === "true"
     isDarkMode.set(storageInitValue)
+
+    consoleTrace(
+      `Persistent local storage value is currently set to %c${storageInitValue}.`,
+      "yellow"
+    )
   } else {
-    console.log("No storage with the name data-dark-mode! Creating...")
-    localStorage.setItem("data-dark-mode", isDarkMode.get().toString())
+    consoleTrace(
+      "%cNo local storage with the key name 'data-dark-mode'! Creating using preferred color scheme...",
+      "lightcoral"
+    )
+
+    // Logic block
+    const mediaInit = window.matchMedia("(prefers-color-scheme: dark)").matches
+    localStorage.setItem("data-dark-mode", mediaInit.toString())
+    isDarkMode.set(mediaInit)
+
+    consoleTrace(
+      `Preferred color scheme is currently set to %c${mediaInit}.`,
+      "yellow"
+    )
   }
 </script>
 

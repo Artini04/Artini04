@@ -11,3 +11,7 @@ export function appendAnimation(item: HTMLElement) {
     direction: "alternate"
   })
 }
+
+export function consoleTrace(msg: string, color: string = "white") {
+  console.log(msg, `color: ${color}`)
+}

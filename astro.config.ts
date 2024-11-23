@@ -5,6 +5,7 @@ import { defineConfig } from "astro/config"
 export default defineConfig({
   site: "https://artini04.github.io",
   base: "/Artini04",
+
   vite: {
     css: {
       preprocessorOptions: {
