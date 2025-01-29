@@ -1,0 +1,69 @@
+---
+interface Props {
+  // Optionals
+  additionalClass?: string
+
+  // Properties
+  title: string
+  subtitle?: string
+}
+
+const { title, subtitle = "//", additionalClass } = Astro.props
+---
+
+<div class:list={["action-skillset", additionalClass]}>
+  <div class="action-skillset__header">
+    <h2 class="title">{title}</h2>
+    <p class="subtitle">
+      {subtitle}
+    </p>
+  </div>
+
+  <ul class="action-skillset__list">
+    <slot />
+  </ul>
+</div>
+
+<style lang="scss" is:global>
+  .action-skillset__list {
+    [data-icon] {
+      font-size: 50px;
+      vertical-align: middle;
+
+      &.proficient,
+      &.starting {
+        --proficiency-color: white;
+        border: 4px solid var(--proficiency-color);
+        border-radius: 13px;
+      }
+
+      &.proficient {
+        --proficiency-color: hsl(120, 75%, 75%);
+      }
+
+      &.starting {
+        --proficiency-color: hsl(25, 100%, 60%);
+      }
+    }
+  }
+</style>
+
+<style lang="scss">
+  @use "@styles/modules/layouts";
+
+  .action-skillset {
+    & > * + * {
+      margin-top: 1em;
+    }
+  }
+
+  .action-skillset__header {
+    & .title {
+    }
+  }
+
+  .action-skillset__list {
+    --flex-gap: 0.6em;
+    @extend %flex-default;
+  }
+</style>

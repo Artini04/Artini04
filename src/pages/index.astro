@@ -1,15 +1,29 @@
 ---
-import "../styles/reset.scss"
-import "../styles/base.scss"
+import "@styles/reset.scss"
+import "@styles/base.scss"
 
-import Default from "../layouts/Default.astro"
-import WindChime from "../components/WindChime.astro"
-import Candle from "../components/Candle.astro"
+import Default from "@layouts/Default.astro"
+import HomeHeader from "@components/homepage/HomeHeader.astro"
+import HomeSkillset from "@components/homepage/HomeSkillset.astro"
+import HomePhoto from "@components/homepage/HomePhoto.astro"
 ---
 
-<Default title="Artini04 | Home">
-  <main>
-    <WindChime />
-    <Candle />
+<Default title="Artini04 // Home">
+  <main class="page-main">
+    <HomeHeader />
+    <HomeSkillset />
+    <HomePhoto />
   </main>
 </Default>
+
+<style lang="scss" is:global>
+  @use "@styles/modules/layouts";
+
+  .page-main {
+    margin-block: 1em;
+
+    & > * + * {
+      margin-top: 2em;
+    }
+  }
+</style>

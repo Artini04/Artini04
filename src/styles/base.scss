@@ -1,4 +1,6 @@
 @use "./modules/utilities.scss" as util;
+@use "./modules/layouts";
+
 @import url(https://fonts.bunny.net/css?family=noto-sans-jp:400);
 
 @font-face {
@@ -6,18 +8,39 @@
   src: url("/Artini04/EbiharaNoKuseji.ttf");
 }
 
-html {
-  font-family: "Noto Sans JP";
-  line-height: 1.6;
-  background-color: light-dark(white, black);
-  @include util.transition("background-color");
+:root {
+  --shared-border-radius: 7px;
 }
 
-.jp {
-  font-family: "Ebihara No Kuseji";
-}
+@layer base {
+  main,
+  header,
+  footer {
+    container-type: inline-size;
+  }
 
-.vertical {
-  writing-mode: vertical-lr;
-  transform-origin: top;
+  body {
+    font-family: "Noto Sans JP";
+    line-height: 1.4;
+    background-color: light-dark(white, black);
+    min-height: 100dvh;
+    @include util.use-transition("background-color");
+  }
+
+  [data-jp] {
+    font-family: "Ebihara No Kuseji";
+  }
+
+  .vertical {
+    writing-mode: vertical-rl;
+    // text-orientation: upright;
+
+    @include layouts.use-break() {
+      writing-mode: unset;
+    }
+  }
+
+  time {
+    text-combine-upright: digits 4;
+  }
 }

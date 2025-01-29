@@ -1,0 +1,27 @@
+---
+interface Props {
+  // Properties
+  color: string
+  text: string
+}
+
+const { color, text } = Astro.props
+---
+
+<div class:list={["action-skillset-legend"]}>
+  <span
+    class="action-skillset-legend__color"
+    style={{ color: color }}>
+    &#11044;
+  </span>
+  <span class="action-skillset-legend__text">{text}</span>
+</div>
+
+<style lang="scss">
+  .action-skillset-legend {
+    width: fit-content;
+  }
+
+  .action-skillset-legend__color {
+  }
+</style>

@@ -15,7 +15,9 @@
   }
 }
 
-@mixin transition($property, $duration: 200ms) {
+// New
+
+@mixin use-transition($property, $duration: 200ms) {
   & {
     transition-property: string.unquote($property);
     transition-duration: #{$duration};
@@ -23,19 +25,14 @@
   }
 }
 
-@mixin hover($property, $normal, $hover) {
-  & {
-    #{$property}: #{$normal};
-
-    &:hover {
-      #{$property}: #{$hover};
+@mixin use-hover() {
+  @media (hover: hover) {
+    &:is(:hover) {
+      @content;
     }
   }
-}
 
-@mixin with-border($color: transparent) {
-  & {
-    border: 1px solid #{$color};
-    border-radius: 7px;
+  @media (hover: none) {
+    @content;
   }
 }

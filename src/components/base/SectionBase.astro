@@ -1,0 +1,37 @@
+---
+interface Props {
+  additionalClass?: string
+}
+
+const { additionalClass } = Astro.props
+---
+
+<section
+  class:list={["section-base", additionalClass]}
+  data-jp>
+  <slot />
+</section>
+
+<style lang="scss" is:global>
+  @use "@styles/modules/layouts";
+
+  .section-base {
+    @extend %grid-default;
+
+    & > * {
+      grid-column: content;
+
+      @container (width <= 700px) {
+        grid-column: breakpoint;
+      }
+    }
+
+    & > [class$="header"] {
+      --flex-gap: 0 0.6em;
+      --flex-wrap: nowrap;
+      @extend %flex-default;
+
+      text-transform: uppercase;
+    }
+  }
+</style>

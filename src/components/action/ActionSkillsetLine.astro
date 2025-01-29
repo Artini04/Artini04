@@ -1,0 +1,21 @@
+---
+import { Icon } from "astro-icon/components"
+interface Props {
+  // Optional
+  additionalClass?: string
+
+  // Properties
+  name: string
+  title: string
+}
+
+const { name, title, additionalClass } = Astro.props
+---
+
+<li>
+  <Icon
+    name={name}
+    title={title}
+    class:list={additionalClass}
+  />
+</li>

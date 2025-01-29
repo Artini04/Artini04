@@ -1,0 +1,90 @@
+---
+import SectionBase from "@components/base/SectionBase.astro"
+
+const imageSet = [
+  {
+    src: "/Artini04/cat-1.webp",
+    alt: "海辺の猫",
+    caption: "海辺の猫"
+  },
+  {
+    src: "/Artini04/cat-2.webp",
+    alt: "猫",
+    caption: "市の猫📍ケソン市、フィリピン"
+  },
+  {
+    src: "/Artini04/cat-nap.webp",
+    alt: "昼寝猫",
+    caption: "昼寝猫📍UPタウンセンター"
+  },
+  {
+    src: "/Artini04/cat-fat.webp",
+    alt: "デブ猫",
+    caption: "デブ猫📍UPタウンセンター"
+  },
+  {
+    src: "/Artini04/cat-lazy.webp",
+    alt: "なまけねこ",
+    caption: "なまけねこ"
+  },
+  {
+    src: "/Artini04/cat-wet.webp",
+    alt: "ぬれねこ",
+    caption: "ぬれねこ"
+  },
+  {
+    src: "/Artini04/chicken-2.webp",
+    alt: "鶏",
+    caption: "鶏"
+  }
+]
+---
+
+<SectionBase additionalClass="home-photo">
+  <div class="home-photo__header">
+    <h1>写真撮影</h1>
+  </div>
+  <div class="home-photo__grid">
+    {
+      imageSet.map(({ src, alt, caption }) => (
+        <figure class="home-photo__figure">
+          <img
+            class="home-photo__photo"
+            src={src}
+            alt={alt}
+            loading="lazy"
+          />
+          <figcaption>
+            <span>{caption ?? alt}</span>
+          </figcaption>
+        </figure>
+      ))
+    }
+  </div>
+</SectionBase>
+
+<style lang="scss" is:global>
+  .home-photo {
+    --grid-gap: 0.4em 0;
+  }
+</style>
+
+<style lang="scss">
+  .home-photo__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1em;
+
+    & .home-photo__figure {
+      & > * + * {
+        margin-top: 0.4em;
+      }
+    }
+
+    & .home-photo__photo {
+      aspect-ratio: 1;
+      object-fit: cover;
+      border-radius: var(--shared-border-radius);
+    }
+  }
+</style>

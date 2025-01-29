@@ -2,7 +2,11 @@
   "arrowParens": "always",
   "bracketSameLine": true,
   "bracketSpacing": true,
-  "trailingComma": "none",
+  "experimentalTernaries": true,
+  "proseWrap": "preserve",
+  "quoteProps": "as-needed",
   "semi": false,
-  "singleAttributePerLine": true
+  "singleAttributePerLine": true,
+  "singleQuote": false,
+  "trailingComma": "none"
 }

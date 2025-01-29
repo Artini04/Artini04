@@ -1,0 +1,205 @@
+---
+import SectionBase from "@components/base/SectionBase.astro"
+import ActionSkillset from "@components/action/ActionSkillset.astro"
+import ActionSkillsetLine from "@components/action/ActionSkillsetLine.astro"
+import ActionSkillsetLegend from "@components/action/ActionSkillsetLegend.astro"
+---
+
+<SectionBase additionalClass="home-skillset">
+  <div class="home-skillset__header">
+    <h1>スキルセット</h1>
+  </div>
+
+  <div class="home-skillset__legend">
+    <ActionSkillsetLegend
+      color="hsl(120, 75%, 75%)"
+      text="堪能 / Proficient / Prefered"
+    />
+    <ActionSkillsetLegend
+      color="hsl(25, 100%, 60%)"
+      text="ぼちぼち / Basic Proficiency"
+    />
+  </div>
+
+  <div class="home-skillset__items">
+    <ActionSkillset
+      title="WebDev Basics"
+      subtitle="Web開発の基礎"
+      additionalClass="skillset-basics">
+      <ActionSkillsetLine
+        name="skill-icons:html"
+        title="HTML"
+      />
+      <ActionSkillsetLine
+        name="skill-icons:css"
+        title="CSS"
+        additionalClass="proficient"
+      />
+      <ActionSkillsetLine
+        name="skill-icons:javascript"
+        title="Javascript"
+      />
+    </ActionSkillset>
+
+    <ActionSkillset
+      title="WebDev Advanced"
+      subtitle="Web開発の上級"
+      additionalClass="skillset-advanced">
+      <ActionSkillsetLine
+        name="skill-icons:sass"
+        title="SASS / SCSS"
+        additionalClass="proficient"
+      />
+      <ActionSkillsetLine
+        name="skill-icons:less-dark"
+        title="LESS"
+        additionalClass="starting"
+      />
+      <ActionSkillsetLine
+        name="skill-icons:typescript"
+        title="Typescript"
+      />
+      <ActionSkillsetLine
+        name="skill-icons:php-dark"
+        title="PHP"
+        additionalClass="starting"
+      />
+    </ActionSkillset>
+
+    <ActionSkillset
+      title="Frameworks"
+      subtitle="フレームワーク"
+      additionalClass="skillset-frameworks">
+      <ActionSkillsetLine
+        name="skill-icons:vuejs-dark"
+        title="Vue"
+        additionalClass="proficient"
+      />
+      <ActionSkillsetLine
+        name="skill-icons:nuxtjs-dark"
+        title="Nuxt"
+        additionalClass="proficient"
+      />
+      <ActionSkillsetLine
+        name="skill-icons:astro"
+        title="Astro"
+      />
+    </ActionSkillset>
+
+    <ActionSkillset
+      title="Development Environment"
+      subtitle="開発エンバイロメント"
+      additionalClass="skillset-env">
+      <ActionSkillsetLine
+        name="skill-icons:bash-dark"
+        title="Bash"
+      />
+
+      <ActionSkillsetLine
+        name="skill-icons:git"
+        title="Git"
+      />
+      <ActionSkillsetLine
+        name="skill-icons:nodejs-dark"
+        title="Node"
+      />
+      <ActionSkillsetLine
+        name="skill-icons:vite-dark"
+        title="Vite"
+        additionalClass="proficient"
+      />
+      <ActionSkillsetLine
+        name="skill-icons:bun-dark"
+        title="Bun"
+        additionalClass="proficient"
+      />
+      <ActionSkillsetLine
+        name="skill-icons:pnpm-dark"
+        title="pnpm"
+      />
+      <ActionSkillsetLine
+        name="skill-icons:regex-dark"
+        title="Regex"
+      />
+    </ActionSkillset>
+
+    <ActionSkillset
+      title="General Programming"
+      subtitle="プログラミング全般"
+      additionalClass="skillset-general-programming">
+      <ActionSkillsetLine
+        name="skill-icons:python-dark"
+        title="Python"
+        additionalClass="starting"
+      />
+      <ActionSkillsetLine
+        name="skill-icons:java-dark"
+        title="Java"
+        additionalClass="starting"
+      />
+    </ActionSkillset>
+
+    <ActionSkillset
+      title="Relational Database"
+      subtitle="データベース"
+      additionalClass="skillset-database">
+      <ActionSkillsetLine
+        name="skill-icons:mysql-dark"
+        title="MySQL"
+        additionalClass="starting"
+      />
+    </ActionSkillset>
+
+    <ActionSkillset
+      title="Operating System"
+      subtitle="オーエス"
+      additionalClass="skillset-os">
+      <ActionSkillsetLine
+        name="skill-icons:debian-dark"
+        title="Debian / Ubuntu"
+        additionalClass="proficient"
+      />
+      <ActionSkillsetLine
+        name="skill-icons:redhat-dark"
+        title="Red Hat Enterprise Linux / Alma Linux / Rocky Linux"
+      />
+      <ActionSkillsetLine
+        name="skill-icons:windows-dark"
+        title="Windows"
+      />
+    </ActionSkillset>
+
+    <ActionSkillset
+      title="Other"
+      subtitle="他"
+      additionalClass="skillset-other">
+      <ActionSkillsetLine
+        name="skill-icons:blender-dark"
+        title="Blender"
+      />
+    </ActionSkillset>
+  </div>
+</SectionBase>
+
+<style lang="scss">
+  @use "@styles/modules/utilities" as util;
+
+  .home-skillset__items {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1em;
+
+    padding: 1em;
+    border: 1px solid light-dark(hsl(0, 0%, 80%), hsl(200, 20%, 15%));
+    border-radius: var(--shared-border-radius);
+    background: light-dark(hsl(78, 100%, 95%), hsl(180, 10%, 8%));
+
+    @include util.use-transition("background");
+  }
+</style>
+
+<style lang="scss" is:global>
+  .home-skillset {
+    --grid-gap: 0.4em 0;
+  }
+</style>

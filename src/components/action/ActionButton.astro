@@ -1,0 +1,23 @@
+---
+interface Props {
+  // Optionals
+  additionalClass?: string
+
+  // Properties
+  text: string
+}
+
+const { text, additionalClass } = Astro.props
+---
+
+<button class:list={["action-button", additionalClass]}>
+  <span>{text}</span>
+</button>
+
+
+<style lang="scss">
+  .action-button {
+    padding: 1em;
+    border: 1px solid white;
+  }
+</style>

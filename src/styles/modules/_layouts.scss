@@ -1,0 +1,43 @@
+%grid-default {
+  --grid-margin-inline: 1em;
+  --grid-break-inline: 1fr;
+  --grid-content: 1.5fr;
+  --grid-gap: 0;
+
+  display: grid;
+  grid-template-columns:
+    [full-width-start]
+    var(--grid-margin-inline)
+    [breakpoint-start]
+    var(--grid-break-inline)
+    [content-start]
+    var(--grid-content)
+    [middlepoint]
+    var(--grid-content)
+    [content-end]
+    var(--grid-break-inline)
+    [breakpoint-end]
+    var(--grid-margin-inline)
+    [full-width-end];
+  gap: var(--grid-gap);
+}
+
+%flex-default {
+  --flex-direction: row;
+  --flex-wrap: wrap;
+  --flex-gap: 0;
+  display: flex;
+  flex-flow: var(--flex-direction) var(--flex-wrap);
+  gap: var(--flex-gap);
+}
+
+%flex-column {
+  --flex-direction: column;
+  @extend %flex-default;
+}
+
+@mixin use-break($breakpoint: 700px) {
+  @container (width <= #{$breakpoint}) {
+    @content;
+  }
+}
