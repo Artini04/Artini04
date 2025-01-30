@@ -6,6 +6,7 @@
 @font-face {
   font-family: "Ebihara No Kuseji";
   src: url("/Artini04/EbiharaNoKuseji.ttf");
+  font-display: swap;
 }
 
 :root {
@@ -25,6 +26,14 @@
     background-color: light-dark(white, black);
     min-height: 100dvh;
     @include util.use-transition("background-color");
+  }
+
+  main {
+    margin-block: 1em;
+
+    & > * + * {
+      margin-top: 2em;
+    }
   }
 
   [data-jp] {

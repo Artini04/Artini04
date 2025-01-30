@@ -1,4 +1,7 @@
 ---
+import "@styles/reset.scss"
+import "@styles/base.scss"
+
 import Head from "@components/Head.astro"
 
 interface Props {
@@ -7,44 +10,6 @@ interface Props {
 
 const { title } = Astro.props
 ---
-
-<script>
-  import { isDarkMode } from "../stores/appStore"
-  import { consoleTrace } from "../utils/document"
-
-  const storageInit = localStorage.getItem("data-dark-mode")
-
-  if (storageInit) {
-    consoleTrace(
-      "%cLocal storage with key name 'data-dark-mode' found! Using storage value...",
-      "lightgreen"
-    )
-
-    // Logic block
-    const storageInitValue = storageInit === "true"
-    isDarkMode.set(storageInitValue)
-
-    consoleTrace(
-      `Persistent local storage value is currently set to %c${storageInitValue}.`,
-      "yellow"
-    )
-  } else {
-    consoleTrace(
-      "%cNo local storage with the key name 'data-dark-mode'! Creating using preferred color scheme...",
-      "lightcoral"
-    )
-
-    // Logic block
-    const mediaInit = window.matchMedia("(prefers-color-scheme: dark)").matches
-    localStorage.setItem("data-dark-mode", mediaInit.toString())
-    isDarkMode.set(mediaInit)
-
-    consoleTrace(
-      `Preferred color scheme is currently set to %c${mediaInit}.`,
-      "yellow"
-    )
-  }
-</script>
 
 <html lang="jp">
   <head>

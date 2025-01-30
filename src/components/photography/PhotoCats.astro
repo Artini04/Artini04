@@ -1,5 +1,6 @@
 ---
 import SectionBase from "@components/base/SectionBase.astro"
+import { Image } from "astro:assets"
 
 const imageSet = [
   {
@@ -29,8 +30,8 @@ const imageSet = [
   },
   {
     src: "/Artini04/cat-wet.webp",
-    alt: "ぬれねこ",
-    caption: "ぬれねこ"
+    alt: "猫",
+    caption: "猫"
   },
   {
     src: "/Artini04/chicken-2.webp",
@@ -42,17 +43,19 @@ const imageSet = [
 
 <SectionBase additionalClass="home-photo">
   <div class="home-photo__header">
-    <h1>写真撮影</h1>
+    <h1>写真</h1>
   </div>
   <div class="home-photo__grid">
     {
       imageSet.map(({ src, alt, caption }) => (
         <figure class="home-photo__figure">
-          <img
-            class="home-photo__photo"
+          <Image
+            class:list={["home-photo__photo"]}
             src={src}
             alt={alt}
-            loading="lazy"
+            loading={"lazy"}
+            width={300}
+            height={300}
           />
           <figcaption>
             <span>{caption ?? alt}</span>
@@ -62,12 +65,6 @@ const imageSet = [
     }
   </div>
 </SectionBase>
-
-<style lang="scss" is:global>
-  .home-photo {
-    --grid-gap: 0.4em 0;
-  }
-</style>
 
 <style lang="scss">
   .home-photo__grid {
@@ -82,7 +79,7 @@ const imageSet = [
     }
 
     & .home-photo__photo {
-      aspect-ratio: 1;
+      width: 100%;
       object-fit: cover;
       border-radius: var(--shared-border-radius);
     }

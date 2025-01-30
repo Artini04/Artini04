@@ -1,0 +1,30 @@
+---
+import { Icon } from "astro-icon/components"
+
+interface Props {
+  page: string
+  text: string
+}
+
+const { page, text } = Astro.props
+---
+
+<a
+  class="action-page-link"
+  href={page}>
+  <Icon name="tabler:file-symlink" />
+  {text}
+</a>
+
+<style lang="scss">
+  .action-page-link {
+    display: inline-block;
+    padding: 0.1em 0.3em;
+    background: light-dark(lightgreen, hsl(182, 59%, 20%));
+    border-radius: var(--shared-border-radius);
+
+    & [data-icon] {
+      margin-bottom: -0.2em;
+    }
+  }
+</style>

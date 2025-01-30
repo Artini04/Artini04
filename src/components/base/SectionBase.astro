@@ -16,21 +16,18 @@ const { additionalClass } = Astro.props
   @use "@styles/modules/layouts";
 
   .section-base {
+    --grid-gap: 0.5em 0;
     @extend %grid-default;
 
     & > * {
       grid-column: content;
 
-      @container (width <= 700px) {
+      @include layouts.use-break() {
         grid-column: breakpoint;
       }
     }
 
     & > [class$="header"] {
-      --flex-gap: 0 0.6em;
-      --flex-wrap: nowrap;
-      @extend %flex-default;
-
       text-transform: uppercase;
     }
   }

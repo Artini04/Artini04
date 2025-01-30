@@ -1,23 +1,23 @@
 @layer reset, base, component;
 
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-
-* {
-  padding: 0;
-  margin: 0;
-}
-
-:root {
-  scroll-behavior: smooth;
-  text-rendering: optimizeLegibility;
-  color-scheme: light dark;
-}
-
 @layer reset {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  * {
+    padding: 0;
+    margin: 0;
+  }
+
+  :root {
+    scroll-behavior: smooth;
+    text-rendering: optimizeLegibility;
+    color-scheme: light dark;
+  }
+
   html[data-dark-mode="false"] {
     color-scheme: light;
   }

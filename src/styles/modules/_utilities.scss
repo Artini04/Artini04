@@ -25,14 +25,16 @@
   }
 }
 
-@mixin use-hover() {
+@mixin use-hover($hold: false) {
   @media (hover: hover) {
     &:is(:hover) {
       @content;
     }
   }
 
-  @media (hover: none) {
-    @content;
+  @if $hold {
+    @media (hover: none) {
+      @content;
+    }
   }
 }

@@ -1,29 +1,16 @@
 ---
-import "@styles/reset.scss"
-import "@styles/base.scss"
-
 import Default from "@layouts/Default.astro"
 import HomeHeader from "@components/homepage/HomeHeader.astro"
 import HomeSkillset from "@components/homepage/HomeSkillset.astro"
-import HomePhoto from "@components/homepage/HomePhoto.astro"
+import HomeProjects from "@components/homepage/HomepageProjects.astro"
+import PersistLinks from "@components/persist/PersistLinks.astro"
 ---
 
 <Default title="Artini04 // Home">
   <main class="page-main">
     <HomeHeader />
+    <PersistLinks />
+    <HomeProjects />
     <HomeSkillset />
-    <HomePhoto />
   </main>
 </Default>
-
-<style lang="scss" is:global>
-  @use "@styles/modules/layouts";
-
-  .page-main {
-    margin-block: 1em;
-
-    & > * + * {
-      margin-top: 2em;
-    }
-  }
-</style>

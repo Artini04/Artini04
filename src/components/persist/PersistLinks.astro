@@ -1,0 +1,39 @@
+---
+import SectionBase from "@components/base/SectionBase.astro"
+import ActionLinkExternal from "@components/action/ActionLinkExternal.astro"
+import ActionPageLink from "@components/action/ActionPageLink.astro"
+---
+
+<SectionBase additionalClass="persist-links">
+  <div class="persist-links__header">
+    <h1>リンク</h1>
+  </div>
+
+  <div class="persist-links__info">
+    <p>
+      GitHubのアカウント・
+      <ActionLinkExternal
+        link="https://github.com/Artini04"
+        text="GitHub"
+      />
+    </p>
+    <p>
+      使ったフォント・
+      <ActionLinkExternal
+        link="https://naotoebihara.booth.pm/items/3965615"
+        text="【手書きフォント】　エビハラのくせ字"
+      />
+    </p>
+  </div>
+
+  <div class="persist-links__pages">
+    <ActionPageLink
+      page="/Artini04/"
+      text="Home"
+    />
+    <ActionPageLink
+      page="/Artini04/photos"
+      text="写真撮影"
+    />
+  </div>
+</SectionBase>

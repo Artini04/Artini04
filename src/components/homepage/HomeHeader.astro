@@ -28,44 +28,15 @@ const avatarSize = {
       <p>@artin04　//　🕷️🕸️クモです　//　日本語の勉強中</p>
       <p></p>
     </div>
-
-    <div class="home-header__links">
-      <h1>リンク</h1>
-      <p>
-        GitHubのアカウント・
-        <ActionLinkExternal
-          link="https://github.com/Artini04"
-          text="GitHub"
-        />
-      </p>
-      <p>
-        使ったフォント・
-        <ActionLinkExternal
-          link="https://naotoebihara.booth.pm/items/3965615"
-          text="【手書きフォント】　エビハラのくせ字"
-        />
-      </p>
-    </div>
   </div>
 </SectionBase>
-
-<style lang="scss" is:global>
-  .home-header {
-    --grid-gap: 0.4em 0;
-  }
-</style>
 
 <style lang="scss">
   @use "@styles/modules/layouts";
 
   .home-header__content {
     --flex-gap: 0.6em 1em;
+    --flex-direction: column;
     @extend %flex-default;
-    align-items: center;
-
-    @include layouts.use-break() {
-      --flex-direction: column;
-      align-items: flex-start;
-    }
   }
 </style>

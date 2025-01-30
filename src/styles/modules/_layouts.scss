@@ -36,7 +36,7 @@
   @extend %flex-default;
 }
 
-@mixin use-break($breakpoint: 700px) {
+@mixin use-break($breakpoint: 1000px) {
   @container (width <= #{$breakpoint}) {
     @content;
   }

@@ -1,0 +1,76 @@
+---
+import { Icon } from "astro-icon/components"
+import SectionBase from "@components/base/SectionBase.astro"
+
+const projectLinks = [
+  {
+    title: "Japanese Quartet Vocabulary Index // 日本語カルテット単語索引",
+    description: "A small vocabulary index written in Vue/Nuxt",
+    link: "https://quartet-index.vercel.app"
+  },
+  {
+    title: "360 South Streets Photography",
+    description: "South Streets photography website",
+    link: "https://southstreets.co"
+  }
+]
+---
+
+<SectionBase additionalClass="home-projects">
+  <div class="home-projects__header">
+    <h1>プロジェクト</h1>
+  </div>
+
+  <div class="home-projects__list">
+    {
+      projectLinks.map(({ title, description, link }) => (
+        <a
+          href={link}
+          class:list={"project"}
+          target="_blank">
+          <span class:list={"project-visible"}>
+            <p class:list={"project-title"}>
+              <Icon name="tabler:link" />
+              {title}
+            </p>
+            <p class:list={"project-description"}>{description}</p>
+            <p class:list={"project-description"}>・・・ {link}</p>
+          </span>
+        </a>
+      ))
+    }
+  </div>
+</SectionBase>
+
+<style lang="scss">
+  @use "@styles/modules/layouts";
+  @use "@styles/modules/utilities" as util;
+
+  .home-projects__list {
+    --flex-direction: column;
+    --flex-gap: 0.6em;
+    @extend %flex-default;
+
+    & .project {
+      --flex-wrap: nowrap;
+      --flex-gap: 0 0.6em;
+      @extend %flex-default;
+      align-items: center;
+      width: fit-content;
+
+      & [data-icon] {
+        margin-bottom: -0.1em;
+      }
+
+      &-title {
+        text-transform: uppercase;
+      }
+
+      &-description {
+        font-size: 0.9em;
+        line-height: 1.2;
+        color: light-dark(hsl(0, 0%, 25%), hsl(0, 0%, 50%));
+      }
+    }
+  }
+</style>
