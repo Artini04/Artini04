@@ -1,6 +1,6 @@
 ---
-import SectionBase from "@components/base/SectionBase.astro"
 import { Image } from "astro:assets"
+import SectionBase from "@components/base/SectionBase.astro"
 
 const imageSet = [
   {
@@ -41,23 +41,25 @@ const imageSet = [
 ]
 ---
 
-<SectionBase additionalClass="home-photo">
-  <div class="home-photo__header">
+<SectionBase additionalClass="section-photos">
+  <div class="section-photos__header">
     <h1>写真</h1>
   </div>
-  <div class="home-photo__grid">
+
+  <div class="section-photos__grid">
     {
       imageSet.map(({ src, alt, caption }) => (
-        <figure class="home-photo__figure">
+        <figure class="section-photos__figure">
           <Image
-            class:list={["home-photo__photo"]}
+            class:list={["section-photos__figure-photo"]}
             src={src}
             alt={alt}
             loading={"eager"}
             width={300}
             height={300}
           />
-          <figcaption>
+
+          <figcaption class="section-photos__figure-caption">
             <span>{caption ?? alt}</span>
           </figcaption>
         </figure>
@@ -67,21 +69,32 @@ const imageSet = [
 </SectionBase>
 
 <style lang="scss">
-  .home-photo__grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 1em;
+  @use "@styles/modules/utilities" as util;
 
-    & .home-photo__figure {
-      & > * + * {
-        margin-top: 0.4em;
-      }
+  .section-photos__grid {
+    // Component Properties
+    --_grid-item-min-size: 350px;
+
+    display: grid;
+    grid-template-columns: repeat(
+      auto-fit,
+      minmax(min(var(--_grid-item-min-size), 100%), 1fr)
+    );
+    gap: 1em;
+  }
+
+  .section-photos__figure {
+    & > * + * {
+      margin-block-start: 0.4em;
     }
 
-    & .home-photo__photo {
+    &-photo {
       width: 100%;
       object-fit: cover;
       border-radius: var(--shared-border-radius);
+    }
+
+    &-caption {
     }
   }
 </style>

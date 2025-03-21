@@ -11,6 +11,7 @@
 
 :root {
   --shared-border-radius: 7px;
+  --shared-border-color: hsla(0, 0%, 24%, 1);
 }
 
 @layer base {
@@ -28,11 +29,11 @@
     @include util.use-transition("background-color");
   }
 
-  main {
-    margin-block: 1em;
+  div[data-page] {
+    padding-block: 1em;
 
     & > * + * {
-      margin-top: 2em;
+      margin-block-start: 1em;
     }
   }
 

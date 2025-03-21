@@ -1,0 +1,76 @@
+---
+import ActionPageLink from "@components/action/ActionPageLink.astro"
+import AppFooter from "@components/AppFooter.astro"
+---
+
+<main class="layout-main">
+  <div class="layout-main__nav">
+    <nav class="layout-main__nav-list">
+      <ul>
+        <!-- HOME -->
+        <li>
+          <ActionPageLink
+            page="/Artini04"
+            text="Home"
+            icon="lucide:house"
+          />
+        </li>
+
+        <!-- SKILLSET -->
+        <li>
+          <ActionPageLink
+            page="/Artini04/skillset"
+            text="スキルセット"
+            icon="lucide:circle-check"
+          />
+        </li>
+
+        <!-- PHOTOS -->
+        <li>
+          <ActionPageLink
+            page="/Artini04/photos"
+            text="写真"
+            icon="lucide:image"
+          />
+        </li>
+      </ul>
+    </nav>
+  </div>
+
+  <div class="layout-main__content">
+    <slot />
+  </div>
+</main>
+
+<style lang="scss">
+  @use "@styles/modules/layouts";
+
+  .layout-main {
+    @extend %grid-default;
+
+    margin-block-start: 1em;
+  }
+
+  .layout-main__nav,
+  .layout-main__content {
+    grid-column: content;
+    border: 1px solid var(--shared-border-color);
+
+    @container (width <= 1000px) {
+      grid-column: breakpoint;
+    }
+  }
+
+  .layout-main__nav {
+    border-bottom: none;
+
+    &-list ul {
+      display: flex;
+      flex-flow: row nowrap;
+      gap: 1px;
+    }
+  }
+
+  .layout-main__content {
+  }
+</style>

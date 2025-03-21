@@ -2,30 +2,41 @@
 import "@styles/reset.scss"
 import "@styles/base.scss"
 
-import Head from "@components/Head.astro"
-import PersistFooter from "@components/persist/PersistFooter.astro"
+import { ClientRouter } from "astro:transitions"
+
+// Head
+import Head from "@components/head/Head.astro"
+
+// Body
+import AppHeader from "@components/AppHeader.astro"
+import AppFooter from "@components/AppFooter.astro"
+
+// Layout
+import LayoutMain from "@layouts/Main.astro"
 
 interface Props {
   title: string
+  currentPage: string
 }
 
-const { title } = Astro.props
+const { title, currentPage } = Astro.props
 ---
 
-<html lang="jp">
+<html
+  lang="jp"
+  data-page={currentPage}>
   <head>
     <Head />
-    <link
-      rel="icon"
-      type="image/png"
-      href="/Artini04/avatar-modified.png"
-    />
-
-    <title>{title}</title>
+    <title>Artini04 // {title}</title>
   </head>
 
   <body>
-    <slot />
-    <PersistFooter />
+    <ClientRouter />
+
+    <LayoutMain>
+      <slot />
+    </LayoutMain>
+
+    <AppFooter />
   </body>
 </html>

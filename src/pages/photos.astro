@@ -1,12 +1,12 @@
 ---
 import Default from "@layouts/Default.astro"
-import PhotoCats from "@components/photography/PhotoCats.astro"
-import PersistLinks from "@components/persist/PersistLinks.astro"
+import SectionPhotos from "@components/section/SectionPhotos.astro"
 ---
 
-<Default title="Artini04 // Photos">
-  <main class="page-photo">
-    <PersistLinks />
-    <PhotoCats />
-  </main>
+<Default
+  title="写真"
+  currentPage="photos">
+  <div data-page="photos">
+    <SectionPhotos />
+  </div>
 </Default>

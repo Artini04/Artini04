@@ -20,15 +20,7 @@ const { additionalClass } = Astro.props
     @extend %grid-default;
 
     & > * {
-      grid-column: content;
-
-      @include layouts.use-break() {
-        grid-column: breakpoint;
-      }
-    }
-
-    & > [class$="header"] {
-      text-transform: uppercase;
+      grid-column: breakpoint;
     }
   }
 </style>

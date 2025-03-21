@@ -4,27 +4,39 @@ import { Icon } from "astro-icon/components"
 interface Props {
   page: string
   text: string
+  icon?: string
 }
 
-const { page, text } = Astro.props
+const { page, text, icon = "lucide:package" } = Astro.props
 ---
 
 <a
   class="action-page-link"
   href={page}>
-  <Icon name="tabler:file-symlink" />
-  {text}
+  <Icon name={icon} />
+  <span>{text}</span>
 </a>
 
 <style lang="scss">
-  .action-page-link {
-    display: inline-block;
-    padding: 0.1em 0.3em;
-    background: light-dark(lightgreen, hsl(182, 59%, 20%));
-    border-radius: var(--shared-border-radius);
+  @use "@styles/modules/utilities" as util;
 
-    & [data-icon] {
-      margin-bottom: -0.2em;
+  .action-page-link {
+    // Component Properties
+    --_border-color: hsl(0, 0%, 95%);
+    --_border-thickness: 0.2em;
+    --_text-color: var(--_border-color);
+
+    display: inline-block;
+    padding: 0.2em 0.6em 0.4em;
+
+    border-block-start: var(--_border-thickness) solid transparent;
+    box-shadow: 0 0 0 1px var(--shared-border-color);
+
+    @include util.on-hover() {
+      border-block-start-color: var(--_border-color);
+      color: var(--_text-color);
     }
+
+    @include util.use-transition("border-color, color");
   }
 </style>

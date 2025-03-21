@@ -1,16 +1,16 @@
 ---
 import Default from "@layouts/Default.astro"
-import HomeHeader from "@components/homepage/HomeHeader.astro"
-import HomeSkillset from "@components/homepage/HomeSkillset.astro"
-import HomeProjects from "@components/homepage/HomepageProjects.astro"
-import PersistLinks from "@components/persist/PersistLinks.astro"
+import SectionHome from "@components/section/SectionHome.astro"
+import SectionLinks from "@components/section/SectionLinks.astro"
+import SectionProjects from "@components/section/SectionProjects.astro"
 ---
 
-<Default title="Artini04 // Home">
-  <main class="page-main">
-    <HomeHeader />
-    <PersistLinks />
-    <HomeProjects />
-    <HomeSkillset />
-  </main>
+<Default
+  title="ホームページ"
+  currentPage="home">
+  <div data-page="home">
+    <SectionHome />
+    <SectionLinks />
+    <SectionProjects />
+  </div>
 </Default>

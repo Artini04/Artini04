@@ -5,15 +5,15 @@ import ActionSkillsetLine from "@components/action/ActionSkillsetLine.astro"
 import ActionSkillsetLegend from "@components/action/ActionSkillsetLegend.astro"
 ---
 
-<SectionBase additionalClass="home-skillset">
-  <div class="home-skillset__header">
+<SectionBase additionalClass="section-skillset">
+  <div class="section-skillset__header">
     <h1>スキルセット</h1>
   </div>
 
-  <div class="home-skillset__legend">
+  <div class="section-skillset__legend">
     <ActionSkillsetLegend
       color="hsl(120, 75%, 75%)"
-      text="堪能 / Proficient / Prefered"
+      text="堪能 / Proficient / Preferred"
     />
     <ActionSkillsetLegend
       color="hsl(25, 100%, 60%)"
@@ -21,7 +21,7 @@ import ActionSkillsetLegend from "@components/action/ActionSkillsetLegend.astro"
     />
   </div>
 
-  <div class="home-skillset__items">
+  <div class="section-skillset__items">
     <ActionSkillset
       title="Web開発の基礎"
       subtitle="WebDev Basics"
@@ -174,16 +174,36 @@ import ActionSkillsetLegend from "@components/action/ActionSkillsetLegend.astro"
 <style lang="scss">
   @use "@styles/modules/utilities" as util;
 
-  .home-skillset__items {
+  .section-skillset__items {
+    // Component Properties
+    --_grid-item-min-size: 250px;
+
+    // Color Properties
+    --_grid-background-light: hsl(78, 100%, 95%);
+    --_grid-background-dark: hsl(180, 10%, 8%);
+    --_grid-border-color-light: hsl(0, 0%, 80%);
+    --_grid-border-color-dark: hsl(200, 20%, 15%);
+
+    // Styles
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(
+      auto-fit,
+      minmax(min(var(--_grid-item-min-size, 100%)), 1fr)
+    );
     gap: 1em;
 
     padding: 1em;
-    border: 1px solid light-dark(hsl(0, 0%, 80%), hsl(200, 20%, 15%));
+    border: 1px solid
+      light-dark(
+        var(--_grid-border-color-light),
+        var(--_grid-border-color-dark)
+      );
     border-radius: var(--shared-border-radius);
-    background: light-dark(hsl(78, 100%, 95%), hsl(180, 10%, 8%));
+    background: light-dark(
+      var(--_grid-background-light),
+      var(--_grid-background-dark)
+    );
 
-    @include util.use-transition("background");
+    @include util.use-transition("background, border");
   }
 </style>
