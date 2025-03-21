@@ -21,7 +21,7 @@
   }
 
   body {
-    font-family: "Noto Sans JP";
+    font-family: "Ebihara No Kuseji";
     line-height: 1.4;
     background-color: light-dark(white, black);
     min-height: 100dvh;
@@ -34,10 +34,6 @@
     & > * + * {
       margin-top: 2em;
     }
-  }
-
-  [data-jp] {
-    font-family: "Ebihara No Kuseji";
   }
 
   .vertical {

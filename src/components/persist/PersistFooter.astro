@@ -1,0 +1,19 @@
+<footer class="footer">
+  <p>&copy; {new Date().getFullYear()} Artini04</p>
+</footer>
+
+<style lang="scss">
+  @use "@styles/modules/layouts";
+
+  .footer {
+    --grid-gap: 0.5em 0;
+    @extend %grid-default;
+
+    padding-block: 0.4em 1em;
+    text-align: center;
+
+    & > * {
+      grid-column: content;
+    }
+  }
+</style>
