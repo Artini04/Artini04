@@ -5,7 +5,7 @@ import ActionLinkExternal from "@components/action/ActionLinkExternal.astro"
 
 <SectionBase additionalClass="section-links">
   <div class="section-links__header">
-    <h1>リンク</h1>
+    <h1>リンク／連絡先</h1>
   </div>
 
   <div class="section-links__list">
@@ -23,5 +23,29 @@ import ActionLinkExternal from "@components/action/ActionLinkExternal.astro"
         text="【手書きフォント】　エビハラのくせ字"
       />
     </p>
+    <p>EMAIL: vincentpalomer+contact@gmail.com</p>
+    <p class="email-note">
+      NOTE: Any messages that was sent to my email address without the
+      "+contact" will be sent to the spam folder automatically.
+    </p>
   </div>
 </SectionBase>
+
+<style lang="scss">
+  .section-links__list {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 0.2em;
+
+    & p {
+      max-width: 55ch;
+    }
+  }
+
+  .email-note {
+    --_text-color-light: orange;
+    --_text-color-dark: rgb(255, 255, 157);
+
+    color: light-dark(var(--_text-color-light), var(--_text-color-dark));
+  }
+</style>

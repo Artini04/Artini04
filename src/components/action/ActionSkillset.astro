@@ -13,7 +13,7 @@ const { title, subtitle = "//", additionalClass } = Astro.props
 
 <div class:list={["action-skillset", additionalClass]}>
   <div class="action-skillset__header">
-    <h2 class="title">{title}</h2>
+    <h2 class="title | text-ebihara">{title}</h2>
     <p class="subtitle">
       {subtitle}
     </p>
@@ -52,6 +52,18 @@ const { title, subtitle = "//", additionalClass } = Astro.props
   @use "@styles/modules/layouts";
 
   .action-skillset {
+    padding: 1em;
+    border: 1px solid
+      light-dark(
+        var(--_grid-border-color-light),
+        var(--_grid-border-color-dark)
+      );
+    border-radius: var(--shared-border-radius);
+    background: light-dark(
+      var(--_grid-background-light),
+      var(--_grid-background-dark)
+    );
+
     & > * + * {
       margin-top: 1em;
     }

@@ -1,7 +1,7 @@
 @use "./modules/utilities.scss" as util;
 @use "./modules/layouts";
 
-@import url(https://fonts.bunny.net/css?family=noto-sans-jp:400);
+@import url(https://fonts.bunny.net/css?family=noto-sans-jp:400,600,900);
 
 @font-face {
   font-family: "Ebihara No Kuseji";
@@ -24,29 +24,29 @@
   body {
     font-family: "Ebihara No Kuseji";
     line-height: 1.4;
-    background-color: light-dark(white, black);
+
     min-height: 100dvh;
+    padding-block: 1em;
+
+    background-color: light-dark(white, black);
     @include util.use-transition("background-color");
   }
 
   div[data-page] {
-    padding-block: 1em;
-
-    & > * + * {
-      margin-block-start: 1em;
+    & .section-base {
+      padding: 1em;
     }
   }
+}
 
-  .vertical {
-    writing-mode: vertical-rl;
-    // text-orientation: upright;
-
-    @include layouts.use-break() {
-      writing-mode: unset;
+@layer utility {
+  .text {
+    &-default {
+      font-family: "Noto Sans JP";
     }
-  }
 
-  time {
-    text-combine-upright: digits 4;
+    &-ebihara {
+      font-family: "Ebihara No Kuseji";
+    }
   }
 }

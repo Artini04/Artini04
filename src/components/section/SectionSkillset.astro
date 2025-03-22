@@ -176,7 +176,7 @@ import ActionSkillsetLegend from "@components/action/ActionSkillsetLegend.astro"
 
   .section-skillset__items {
     // Component Properties
-    --_grid-item-min-size: 250px;
+    --_grid-item-min-size: 300px;
 
     // Color Properties
     --_grid-background-light: hsl(78, 100%, 95%);
@@ -190,19 +190,8 @@ import ActionSkillsetLegend from "@components/action/ActionSkillsetLegend.astro"
       auto-fit,
       minmax(min(var(--_grid-item-min-size, 100%)), 1fr)
     );
+    grid-auto-rows: 1fr;
     gap: 1em;
-
-    padding: 1em;
-    border: 1px solid
-      light-dark(
-        var(--_grid-border-color-light),
-        var(--_grid-border-color-dark)
-      );
-    border-radius: var(--shared-border-radius);
-    background: light-dark(
-      var(--_grid-background-light),
-      var(--_grid-background-dark)
-    );
 
     @include util.use-transition("background, border");
   }

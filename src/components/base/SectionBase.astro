@@ -6,9 +6,7 @@ interface Props {
 const { additionalClass } = Astro.props
 ---
 
-<section
-  class:list={["section-base", additionalClass]}
-  data-jp>
+<section class:list={["section-base", additionalClass]}>
   <slot />
 </section>
 
@@ -20,7 +18,11 @@ const { additionalClass } = Astro.props
     @extend %grid-default;
 
     & > * {
-      grid-column: breakpoint;
+      grid-column: full-width;
     }
+  }
+
+  .section-base + .section-base {
+    border-block-start: 1px solid var(--shared-border-color);
   }
 </style>

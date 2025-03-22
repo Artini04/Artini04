@@ -38,5 +38,9 @@ const { page, text, icon = "lucide:package" } = Astro.props
     }
 
     @include util.use-transition("border-color, color");
+
+    & > * + * {
+      margin-inline-start: 0.2em;
+    }
   }
 </style>
