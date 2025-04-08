@@ -16,15 +16,6 @@
   :root {
     scroll-behavior: smooth;
     text-rendering: optimizeLegibility;
-    color-scheme: light dark;
-  }
-
-  // html
-  html[data-dark-mode="false"] {
-    color-scheme: light;
-  }
-
-  html[data-dark-mode="true"] {
     color-scheme: dark;
   }
 
