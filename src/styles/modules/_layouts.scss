@@ -46,7 +46,7 @@
 	--grid-margin-size: 1em;
 	--grid-margin-break-size: 1fr;
 	--grid-break-size: 100px;
-	--grid-content-size: 1.5fr;
+	--grid-content-size: 2fr;
 
 	display: grid;
 	gap: 1em 0;
@@ -81,6 +81,14 @@
 
 	&-break {
 		grid-column: break;
+
+		@container (width <= 600px) {
+			grid-column: margin;
+		}
+	}
+
+	&-content {
+		grid-column: content;
 
 		@container (width <= 600px) {
 			grid-column: margin;

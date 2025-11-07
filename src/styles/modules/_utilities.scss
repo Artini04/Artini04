@@ -17,7 +17,7 @@
 
 // New
 
-@mixin use-transition($property, $duration: 200ms, $easing: ease) {
+@mixin use-transition($property, $duration: 200ms, $easing: ease-out) {
 	& {
 		transition-property: string.unquote($property);
 		transition-duration: #{$duration};

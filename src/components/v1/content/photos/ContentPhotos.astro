@@ -1,0 +1,24 @@
+---
+import Section from "@components/v1/section/Section.astro"
+---
+
+<Section class="photos">
+	<div class="photos-heading">
+		<h2>Photos</h2>
+	</div>
+	<div class="photos-content"></div>
+</Section>
+
+<style lang="scss">
+	@use "@styles/modules/layouts";
+
+	.photos {
+		&-heading {
+			@extend %grid-content;
+		}
+
+		&-content {
+			@extend %grid-margin;
+		}
+	}
+</style>

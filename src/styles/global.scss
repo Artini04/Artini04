@@ -4,7 +4,9 @@
 		--global-app-font-color: hsl(0, 0%, 95%);
 
 		--global-border-color: hsl(0, 0%, 60%, 0.1);
-		--global-border: 1px solid var(--global-border-color);
+		--global-border-color-contrast: hsl(0, 0%, 60%, 0.4);
+		--global-border: 2px solid var(--global-border-color);
+		--global-border-contrast: 2px solid var(--global-border-color-contrast);
 		--global-border-radius: 5px;
 	}
 }

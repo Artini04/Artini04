@@ -7,7 +7,7 @@ import PROJECTS from "@data/projects.json"
 
 <Section class="projects">
 	<div class="projects-heading">
-		<h2>Projects</h2>
+		<h2>Stuff I made...</h2>
 	</div>
 
 	<div class="projects-content">
@@ -17,12 +17,17 @@ import PROJECTS from "@data/projects.json"
 					title={proj.title}
 					description={proj.description}
 					link={proj.link}
+					type={proj.type}
 					pinned={proj.pinned}
 					cover-img={proj["cover-img"]}
 					cover-alt={proj["cover-alt"]}
 				/>
 			))
 		}
+
+		<div class="projects-content__final">
+			<p>More coming in the future!</p>
+		</div>
 	</div>
 </Section>
 
@@ -32,13 +37,39 @@ import PROJECTS from "@data/projects.json"
 	.projects {
 		&-heading,
 		&-content {
-			@extend %grid-break;
+			@extend %grid-content;
 		}
 
 		&-content {
+			--grid-item-min-size: 400px;
+
+			display: grid;
+			grid-template-columns: repeat(
+				auto-fit,
+				minmax(min(var(--grid-item-min-size), 100%), 1fr)
+			);
+
+			gap: 1em;
+
+			@container (width > 600px) {
+				//grid-auto-rows: 1fr;
+			}
+		}
+
+		&-content__final {
+			grid-column: 1 / -1;
+
 			display: flex;
-			flex-flow: column nowrap;
-			gap: 0.6em;
+			place-items: center;
+			place-content: center;
+
+			padding: 0.4em;
+
+			border-left: var(--global-border);
+			border-right: var(--global-border);
+
+			font-size: 0.8em;
+			opacity: 0.5;
 		}
 	}
 </style>
