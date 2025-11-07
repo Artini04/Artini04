@@ -1,12 +1,29 @@
 ---
 import Section from "@components/v1/section/Section.astro"
+import Photo from "@components/v1/comp/photo/Photo.astro"
+
+import PHOTOS from "@data/photos.json"
 ---
 
 <Section class="photos">
 	<div class="photos-heading">
-		<h2>Photos</h2>
+		<h2>Photography 写真</h2>
 	</div>
-	<div class="photos-content"></div>
+
+	<div class="photos-content">
+		{
+			PHOTOS.map((photo) => (
+				<Photo
+					src={photo.src}
+					alt={photo.alt}
+					caption={photo.caption}
+					location={photo.location}
+				/>
+			))
+		}
+
+		<div class="photos-content__filler"></div>
+	</div>
 </Section>
 
 <style lang="scss">
@@ -19,6 +36,18 @@ import Section from "@components/v1/section/Section.astro"
 
 		&-content {
 			@extend %grid-margin;
+
+			display: flex;
+			gap: 0.6em;
+			flex-flow: row wrap;
+		}
+
+		&-content > :global(*) {
+			flex: 1 1 auto;
+		}
+
+		&-content__filler {
+			flex: 99 1 auto;
 		}
 	}
 </style>

@@ -9,6 +9,16 @@ import ContentPhotos from "@components/v1/content/photos/ContentPhotos.astro"
 ---
 
 <Default title="Home">
-	<ContentProjects />
-	<ContentPhotos />
+	<main id="home">
+		<ContentProjects />
+		<ContentPhotos />
+	</main>
 </Default>
+
+<style lang="scss" is:global>
+	#home {
+		& > * + * {
+			margin-block-start: 1em;
+		}
+	}
+</style>

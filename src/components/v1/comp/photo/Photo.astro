@@ -1,0 +1,95 @@
+---
+import { Image } from "astro:assets"
+
+interface Props {
+	src: string
+	alt?: string
+	location?: string
+	caption?: string
+}
+
+const { src, alt = "No alt given.", location = "", caption = "" } = Astro.props
+const hasDesc = caption || location ? true : false
+---
+
+<div class="photo">
+	<div class="photo-cover">
+		<Image
+			class="photo__img"
+			src={src}
+			alt={alt}
+			loading="lazy"
+			width={1920}
+			height={1080}
+		/>
+	</div>
+	{
+		hasDesc && (
+			<div class="photo-content">
+				<div class="photo__overlay" />
+
+				{caption && <p class="photo__caption">{caption}</p>}
+				{location && <p class="photo__location">{location}</p>}
+			</div>
+		)
+	}
+</div>
+
+<style lang="scss">
+	.photo {
+		overflow: clip;
+		border: var(--global-border);
+		border-radius: var(--global-border-radius);
+
+		display: grid;
+		grid-template-areas: "stack";
+
+		&-cover,
+		&-content {
+			grid-area: stack;
+			position: relative;
+			isolation: isolate;
+		}
+
+		&-content {
+			display: flex;
+			flex-flow: column nowrap;
+			place-content: flex-end;
+
+			padding: 1em;
+		}
+
+		&__img {
+			width: 100%;
+			height: 100%;
+
+			max-height: 300px;
+			object-fit: cover;
+		}
+
+		&__overlay {
+			position: absolute;
+			inset: 0;
+			z-index: -1;
+
+			background: linear-gradient(
+				to bottom,
+				hsl(0, 0%, 10%, 0) 60%,
+				hsl(0, 0%, 10%, 0.8) 100%
+			);
+		}
+
+		&__caption {
+			font-weight: bold;
+		}
+
+		&__location {
+			font-size: 0.8em;
+
+			&::before {
+				content: "📍";
+				margin-inline-end: 0.4em;
+			}
+		}
+	}
+</style>
