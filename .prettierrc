@@ -1,12 +1,17 @@
 {
-  "arrowParens": "always",
-  "bracketSameLine": true,
-  "bracketSpacing": true,
-  "experimentalTernaries": true,
-  "proseWrap": "preserve",
-  "quoteProps": "as-needed",
-  "semi": false,
-  "singleAttributePerLine": true,
-  "singleQuote": false,
-  "trailingComma": "none"
+    "arrowParens": "always",
+    "bracketSameLine": true,
+    "bracketSpacing": true,
+    "embeddedLanguageFormatting": "auto",
+    "experimentalOperatorPosition": "start",
+    "experimentalTernaries": true,
+    "objectWrap": "collapse",
+    "printWidth": 80,
+    "quoteProps": "as-needed",
+    "semi": false,
+    "singleAttributePerLine": false,
+    "singleQuote": false,
+    "tabWidth": 4,
+    "trailingComma": "all",
+    "useTabs": true
 }

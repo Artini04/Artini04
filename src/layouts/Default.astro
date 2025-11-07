@@ -1,42 +1,26 @@
 ---
 import "@styles/reset.scss"
+import "@styles/global.scss"
 import "@styles/base.scss"
 
-import { ClientRouter } from "astro:transitions"
-
-// Head
 import Head from "@components/head/Head.astro"
 
-// Body
-import AppHeader from "@components/AppHeader.astro"
-import AppFooter from "@components/AppFooter.astro"
-
-// Layout
-import LayoutMain from "@layouts/Main.astro"
-
 interface Props {
-  title: string
-  currentPage: string
+	title: string
 }
 
-const { title, currentPage } = Astro.props
+const { title } = Astro.props
 ---
 
-<html
-  lang="jp"
-  data-page={currentPage}>
-  <head>
-    <Head />
-    <title>Artini04 // {title}</title>
-  </head>
+<html lang="en">
+	<head>
+		<Head />
+		<title>
+			{title ? `${title.toUpperCase()} // Artini04` : "Index // Artini04"}
+		</title>
+	</head>
 
-  <body>
-    <ClientRouter />
-
-    <LayoutMain>
-      <slot />
-    </LayoutMain>
-
-    <AppFooter />
-  </body>
+	<body>
+		<slot />
+	</body>
 </html>

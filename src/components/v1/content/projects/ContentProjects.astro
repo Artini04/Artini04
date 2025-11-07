@@ -1,0 +1,44 @@
+---
+import Section from "@components/v1/section/Section.astro"
+import Project from "@components/v1/comp/project/Project.astro"
+
+import PROJECTS from "@data/projects.json"
+---
+
+<Section class="projects">
+	<div class="projects-heading">
+		<h2>Projects</h2>
+	</div>
+
+	<div class="projects-content">
+		{
+			PROJECTS.map((proj) => (
+				<Project
+					title={proj.title}
+					description={proj.description}
+					link={proj.link}
+					pinned={proj.pinned}
+					cover-img={proj["cover-img"]}
+					cover-alt={proj["cover-alt"]}
+				/>
+			))
+		}
+	</div>
+</Section>
+
+<style lang="scss">
+	@use "@styles/modules/layouts";
+
+	.projects {
+		&-heading,
+		&-content {
+			@extend %grid-break;
+		}
+
+		&-content {
+			display: flex;
+			flex-flow: column nowrap;
+			gap: 0.6em;
+		}
+	}
+</style>

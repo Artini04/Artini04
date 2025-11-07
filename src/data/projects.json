@@ -1,0 +1,18 @@
+[
+	{
+		"title": "Japanese Quartet Vocabulary Index // 日本語カルテット単語索引",
+		"description": "A small Quartet Book Vocabulary Index written in Vue/Nuxt",
+		"link": "https://quartet-index.vercel.app",
+		"pinned": false,
+		"cover-img": "/Artini04/cat-nap.webp",
+		"cover-alt": ""
+	},
+	{
+		"title": "360 South Streets Photography",
+		"description": "South Streets Photography website",
+		"link": "https://southstreets.co",
+		"pinned": true,
+		"cover-img": "/Artini04/cat-lazy.webp",
+		"cover-alt": ""
+	}
+]

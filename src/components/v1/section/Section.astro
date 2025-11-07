@@ -1,0 +1,22 @@
+---
+interface Props {
+	class?: string | string[]
+}
+
+const { class: classNames = "" } = Astro.props
+
+const classNormalized =
+	typeof classNames === "string" ? [classNames] : classNames
+---
+
+<section class:list={["section", ...classNormalized]}>
+	<slot />
+</section>
+
+<style lang="scss">
+	@use "@styles/modules/layouts";
+
+	.section {
+		@extend %grid;
+	}
+</style>

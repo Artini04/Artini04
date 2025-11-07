@@ -1,43 +1,89 @@
 %grid-default {
-  --grid-margin-inline: 1em;
-  --grid-break-inline: 1fr;
-  --grid-content: 2fr;
-  --grid-gap: 0;
+	--grid-margin-inline: 1em;
+	--grid-break-inline: 1fr;
+	--grid-content: 2fr;
+	--grid-gap: 0;
 
-  display: grid;
-  grid-template-columns:
-    [full-width-start]
-    var(--grid-margin-inline)
-    [breakpoint-start]
-    var(--grid-break-inline)
-    [content-start]
-    var(--grid-content)
-    [middlepoint]
-    var(--grid-content)
-    [content-end]
-    var(--grid-break-inline)
-    [breakpoint-end]
-    var(--grid-margin-inline)
-    [full-width-end];
-  gap: var(--grid-gap);
+	display: grid;
+	gap: var(--grid-gap);
+	grid-template-columns:
+		[full-width-start]
+		var(--grid-margin-inline)
+		[breakpoint-start]
+		var(--grid-break-inline)
+		[content-start]
+		var(--grid-content)
+		[middlepoint]
+		var(--grid-content)
+		[content-end]
+		var(--grid-break-inline)
+		[breakpoint-end]
+		var(--grid-margin-inline)
+		[full-width-end];
 }
 
 %flex-default {
-  --flex-direction: row;
-  --flex-wrap: wrap;
-  --flex-gap: 0;
-  display: flex;
-  flex-flow: var(--flex-direction) var(--flex-wrap);
-  gap: var(--flex-gap);
+	--flex-direction: row;
+	--flex-wrap: wrap;
+	--flex-gap: 0;
+	display: flex;
+	flex-flow: var(--flex-direction) var(--flex-wrap);
+	gap: var(--flex-gap);
 }
 
 %flex-column {
-  --flex-direction: column;
-  @extend %flex-default;
+	--flex-direction: column;
+	@extend %flex-default;
 }
 
 @mixin use-break($breakpoint: 1000px) {
-  @container (width <= #{$breakpoint}) {
-    @content;
-  }
+	@container (width <= #{$breakpoint}) {
+		@content;
+	}
+}
+
+%grid {
+	--grid-margin-size: 1em;
+	--grid-margin-break-size: 1fr;
+	--grid-break-size: 100px;
+	--grid-content-size: 1.5fr;
+
+	display: grid;
+	gap: 1em 0;
+	grid-template-columns:
+		[full-width-start]
+		var(--grid-margin-size)
+		[margin-start]
+		var(--grid-margin-break-size)
+		[break-start]
+		var(--grid-break-size)
+		[content-start]
+		var(--grid-content-size)
+		[middlepoint]
+		var(--grid-content-size)
+		[content-end]
+		var(--grid-break-size)
+		[break-end]
+		var(--grid-margin-break-size)
+		[margin-end]
+		var(--grid-margin-size)
+		[full-width-end];
+}
+
+%grid {
+	&-full {
+		grid-column: full-width;
+	}
+
+	&-margin {
+		grid-column: margin;
+	}
+
+	&-break {
+		grid-column: break;
+
+		@container (width <= 600px) {
+			grid-column: margin;
+		}
+	}
 }
