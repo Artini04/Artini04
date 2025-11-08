@@ -5,15 +5,15 @@ import Project from "./Project.astro"
 import PROJECTS from "@data/projects.json"
 ---
 
-<Section class="projects">
-	<div class="projects-heading">
+<Section id="section-projects" class="section-projects">
+	<div class="section-projects-heading">
 		<h2>
 			<span>プロジェクト</span>
 			Stuff I made
 		</h2>
 	</div>
 
-	<div class="projects-content">
+	<div class="section-projects-content">
 		{
 			PROJECTS.map((proj) => (
 				<Project
@@ -33,7 +33,7 @@ import PROJECTS from "@data/projects.json"
 <style lang="scss">
 	@use "@styles/modules/layouts";
 
-	.projects {
+	.section-projects {
 		&-heading {
 			@extend %grid-content;
 		}

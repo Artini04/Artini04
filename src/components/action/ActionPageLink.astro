@@ -2,46 +2,44 @@
 import { Icon } from "astro-icon/components"
 
 interface Props {
-  page: string
-  text: string
-  icon?: string
+	page: string
+	text: string
+	icon?: string
 }
 
 const { page, text, icon = "lucide:package" } = Astro.props
 ---
 
-<a
-  class="action-page-link"
-  href={page}>
-  <Icon name={icon} />
-  <span>{text}</span>
+<a class="action-page-link" href={page}>
+	<Icon name={icon} />
+	<span>{text}</span>
 </a>
 
 <style lang="scss">
-  @use "@styles/modules/utilities" as util;
+	@use "@styles/modules/utilities" as util;
 
-  .action-page-link {
-    // Component Properties
-    --_border-color: hsl(0, 0%, 95%);
-    --_border-thickness: 0.2em;
-    --_text-color: var(--_border-color);
+	.action-page-link {
+		// Component Properties
+		--_border-color: hsl(0, 0%, 95%);
+		--_border-thickness: 0.2em;
+		--_text-color: var(--_border-color);
 
-    display: inline-block;
-    padding: 0.2em 0.6em 0.4em;
+		display: inline-block;
+		padding: 0.2em 0.6em 0.4em;
 
-    border-block-start: var(--_border-thickness) solid transparent;
-    box-shadow: 0 0 0 1px var(--shared-border-color);
-    background-color: black;
+		border-block-start: var(--_border-thickness) solid transparent;
+		box-shadow: 0 0 0 1px var(--shared-border-color);
+		background-color: black;
 
-    @include util.on-hover() {
-      border-block-start-color: var(--_border-color);
-      color: var(--_text-color);
-    }
+		@include util.on-hover() {
+			border-block-start-color: var(--_border-color);
+			color: var(--_text-color);
+		}
 
-    @include util.use-transition("border-color, color");
+		@include util.use-transition("border-color, color");
 
-    & > * + * {
-      margin-inline-start: 0.2em;
-    }
-  }
+		& > * + * {
+			margin-inline-start: 0.2em;
+		}
+	}
 </style>

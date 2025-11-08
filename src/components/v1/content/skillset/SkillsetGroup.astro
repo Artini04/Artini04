@@ -1,0 +1,15 @@
+---
+interface Props {
+	class: string
+
+	title: string
+	subtitle?: string
+}
+
+const { title, subtitle = "//", class: classNames } = Astro.props
+---
+
+<div class:list={["skillset-group", ...classNames.split(" ")]}>
+	<div class="skillset-group-heading"></div>
+	<div class="skillset-group-list"></div>
+</div>

@@ -1,0 +1,28 @@
+---
+import Section from "@components/v1/section/Section.astro"
+import SkillsetGroup from "./SkillsetGroup.astro"
+---
+
+<Section id="section-skillset" class="section-skillset">
+	<div class="section-skillset-heading">
+		<h2>
+			<span>スキルセット</span>
+			Skillset
+		</h2>
+	</div>
+	<div class="skillset-content"></div>
+</Section>
+
+<style lang="scss">
+	@use "@styles/modules/layouts";
+
+	.section-skillset {
+		&-heading {
+			@extend %grid-content;
+		}
+
+		&-content {
+			@extend %grid-break;
+		}
+	}
+</style>
