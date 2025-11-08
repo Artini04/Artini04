@@ -1,13 +1,36 @@
 <div class="under-construction">
-	<h1>Website under construction!</h1>
+	<h1 class="under-construction__jp | text-hina">現在構築中</h1>
+	<h2 class="under-construction__en">Website Under Construction!</h2>
+	<div class="under-construction-links">
+		<a href="https://github.com/Artini04" target="_blank">Artini04</a>
+		<p>Web Developer</p>
+	</div>
 </div>
 
 <style lang="scss">
 	.under-construction {
-		min-height: 50svh;
+		min-height: 80svh;
 
 		display: flex;
+		gap: 0.6em 0;
+		flex-flow: column nowrap;
 		place-items: center;
 		place-content: center;
+
+		&-links {
+			display: flex;
+			flex-flow: row wrap;
+			gap: 0 1em;
+		}
+
+		&__jp {
+			font-size: clamp(3em, 10svw, 6em);
+			color: hsl(60, 100%, 70%);
+		}
+
+		&__en {
+			font-size: clamp(1.2em, 10svw, 2em);
+			text-align: center;
+		}
 	}
 </style>

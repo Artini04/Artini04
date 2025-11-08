@@ -4,6 +4,7 @@ import "@styles/global.scss"
 import "@styles/base.scss"
 
 import Head from "@components/head/Head.astro"
+import AppFooter from "@components/v1/app/AppFooter.astro"
 
 interface Props {
 	title: string
@@ -12,7 +13,7 @@ interface Props {
 const { title } = Astro.props
 ---
 
-<html lang="en">
+<html lang="ja">
 	<head>
 		<Head />
 		<title>
@@ -22,5 +23,7 @@ const { title } = Astro.props
 
 	<body>
 		<slot />
+
+		<AppFooter />
 	</body>
 </html>

@@ -11,6 +11,12 @@ import PHOTOS from "@data/photos.json"
 			<span>写真</span>
 			Photography
 		</h2>
+
+		<div class="photos-gear">
+			<p>Canon EOS Rebel T7</p>
+			<p>Canon EF-s 55-250mm f/4-5.6 IS STM</p>
+			<p>ART (Rawtherapee), Darktables, Upscayl</p>
+		</div>
 	</div>
 
 	<div class="photos-content">
@@ -28,6 +34,13 @@ import PHOTOS from "@data/photos.json"
 		<div class="photos-content__filler"></div>
 	</div>
 </Section>
+<style lang="scss" is:global>
+	.photos {
+		&-content > * {
+			flex: 1 1 auto;
+		}
+	}
+</style>
 
 <style lang="scss">
 	@use "@styles/modules/layouts";
@@ -49,8 +62,14 @@ import PHOTOS from "@data/photos.json"
 			}
 		}
 
-		&-content > :global(*) {
-			flex: 1 1 auto;
+		&-gear {
+			display: flex;
+			flex-flow: row wrap;
+			gap: 0 1.4em;
+			& > *::before {
+				content: "\2299";
+				margin-inline-end: 0.4em;
+			}
 		}
 
 		&-content__filler {

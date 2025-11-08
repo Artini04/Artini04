@@ -1,8 +1,7 @@
 @use "./modules/utilities.scss" as util;
 @use "./modules/layouts";
 
-@import url(https://fonts.bunny.net/css?family=noto-sans-jp:400,600,900);
-@import url(https://fonts.bunny.net/css?family=oxanium:400,600,800);
+@import url(https://fonts.bunny.net/css?family=hina-mincho:400|ibm-plex-sans-jp:400|oxanium:400,600,800);
 
 @font-face {
 	font-family: "Ebihara No Kuseji";
@@ -20,29 +19,22 @@
 		background-color: var(--global-app-background-color);
 		color: var(--global-app-font-color);
 
-		//font-family: "Ebihara No Kuseji";
-		font-family: "Oxanium", "Noto Sans JP", sans-serif;
+		font-family: "Oxanium", "IBM Plex Sans JP", sans-serif;
 		min-height: 100dvh;
 		overflow-y: scroll;
 
 		@include util.use-transition("background-color");
 	}
-
-	div[data-page] {
-		& .section-base {
-			padding: 1em;
-		}
-	}
 }
 
 @layer utility {
 	.text {
-		&-default {
-			font-family: "Noto Sans JP";
-		}
-
 		&-ebihara {
 			font-family: "Ebihara No Kuseji";
+		}
+
+		&-hina {
+			font-family: "Hina Mincho";
 		}
 	}
 }
