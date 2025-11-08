@@ -7,6 +7,12 @@
 			hsl(0, 0%, 5%, 1) 100%
 		);
 		--global-app-font-color: hsl(0, 0%, 95%);
+		--global-app-font-color-dim: oklch(
+			from var(--global-app-font-color) calc(l - 0.2) c h
+		);
+		--global-app-font-color-muted: oklch(
+			from var(--global-app-font-color) calc(l - 0.4) c h
+		);
 
 		--global-border-color: hsl(0, 0%, 60%, 0.1);
 		--global-border-color-contrast: hsl(0, 0%, 60%, 0.4);
