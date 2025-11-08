@@ -1,0 +1,25 @@
+---
+import Section from "@components/v1/section/Section.astro"
+import { Image } from "astro:assets"
+---
+
+<Section class="random">
+	<div class="random-wrapper"></div>
+</Section>
+
+<style lang="scss">
+	@use "@styles/modules/layouts";
+
+	.random {
+		&-wrapper {
+			@extend %grid-content;
+		}
+
+		&__img {
+			width: 100%;
+			height: 100%;
+
+			object-fit: cover;
+		}
+	}
+</style>
