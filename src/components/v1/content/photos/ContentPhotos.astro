@@ -1,6 +1,6 @@
 ---
 import Section from "@components/v1/section/Section.astro"
-import Photo from "@components/v1/comp/photo/Photo.astro"
+import Photo from "./Photo.astro"
 
 import PHOTOS from "@data/photos.json"
 ---
@@ -27,6 +27,7 @@ import PHOTOS from "@data/photos.json"
 					alt={photo.alt}
 					caption={photo.caption}
 					location={photo.location}
+					date={photo.date}
 				/>
 			))
 		}

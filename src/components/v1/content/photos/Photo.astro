@@ -6,9 +6,16 @@ interface Props {
 	alt?: string
 	location?: string
 	caption?: string
+	date?: string
 }
 
-const { src, alt = "No alt given.", location = "", caption = "" } = Astro.props
+const {
+	src,
+	alt = "No alt given.",
+	location = "",
+	caption = "",
+	date = "",
+} = Astro.props
 const hasDesc = caption || location ? true : false
 ---
 
@@ -21,7 +28,6 @@ const hasDesc = caption || location ? true : false
 			loading="lazy"
 			width={1920}
 			height={1080}
-			decoding="async"
 		/>
 	</div>
 	{
@@ -30,7 +36,11 @@ const hasDesc = caption || location ? true : false
 				<div class="photo__overlay" />
 
 				{caption && <p class="photo__caption">{caption}</p>}
-				{location && <p class="photo__location">{location}</p>}
+				{location && (
+					<p class="photo__location" data-icon="📍">
+						{location}
+					</p>
+				)}
 			</div>
 		)
 	}
@@ -88,11 +98,12 @@ const hasDesc = caption || location ? true : false
 			font-weight: bold;
 		}
 
-		&__location {
+		&__location,
+		&__date {
 			font-size: 0.8em;
 
 			&::before {
-				content: "📍";
+				content: attr(data-icon);
 				margin-inline-end: 0.4em;
 			}
 		}
