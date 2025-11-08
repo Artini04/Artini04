@@ -1,5 +1,15 @@
 [
 	{
+		"src": "/Artini04/masinloc-baywalk.webp",
+		"location": "マシンロク, ザンバレス"
+	},
+	{
+		"src": "/Artini04/alcatraz.webp",
+		"alt": "埠頭",
+		"caption": "埠頭",
+		"location": "ピア39、サンフランシスコ"
+	},
+	{
 		"src": "/Artini04/cat-1.webp",
 		"alt": "海辺の猫",
 		"caption": "海辺の猫"
@@ -8,30 +18,43 @@
 		"src": "/Artini04/cat-2.webp",
 		"alt": "猫",
 		"caption": "市の猫",
-		"location": "Quezon City, PH"
+		"location": "クエゾン市"
 	},
 	{
 		"src": "/Artini04/cat-nap.webp",
 		"alt": "昼寝猫",
 		"caption": "昼寝猫",
-		"location": "UP Town Center"
+		"location": "UPタウンセンター、クエゾン市"
+	},
+	{
+		"src": "/Artini04/fishing.webp",
+		"alt": "釣り",
+		"caption": "釣り"
 	},
 	{
 		"src": "/Artini04/cat-fat.webp",
 		"caption": "Fat Cat",
-		"location": "UP Town Center"
+		"location": "UPタウンセンター、クエゾン市"
 	},
 	{
 		"src": "/Artini04/cat-lazy.webp",
 		"alt": "なまけねこ",
 		"caption": "なまけねこ",
-		"location": "UP Town Center"
-	},
-	{
-		"src": "/Artini04/cat-wet.webp"
+		"location": "UPタウンセンター、クエゾン市"
 	},
 	{
 		"src": "/Artini04/chicken-2.webp",
 		"caption": "鶏"
+	},
+	{
+		"src": "/Artini04/seagull.webp",
+		"alt": "カモメ",
+		"caption": "カモメ",
+		"location": "ピア39、サンフランシスコ"
+	},
+	{
+		"src": "/Artini04/power-plant.webp",
+		"alt": "マシンロック石炭火力発電所",
+		"caption": "マシンロック石炭火力発電所"
 	}
 ]

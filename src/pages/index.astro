@@ -6,10 +6,12 @@ import Section from "@components/v1/section/Section.astro"
 
 import ContentProjects from "@components/v1/content/projects/ContentProjects.astro"
 import ContentPhotos from "@components/v1/content/photos/ContentPhotos.astro"
+import Construction from "@components/v1/comp/construction/Construction.astro"
 ---
 
 <Default title="Home">
 	<main id="home">
+		<Construction />
 		<ContentProjects />
 		<ContentPhotos />
 	</main>
@@ -18,7 +20,7 @@ import ContentPhotos from "@components/v1/content/photos/ContentPhotos.astro"
 <style lang="scss" is:global>
 	#home {
 		& > * + * {
-			margin-block-start: 1em;
+			margin-block-start: 4em;
 		}
 	}
 </style>

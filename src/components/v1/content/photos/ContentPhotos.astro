@@ -7,7 +7,10 @@ import PHOTOS from "@data/photos.json"
 
 <Section class="photos">
 	<div class="photos-heading">
-		<h2>Photography 写真</h2>
+		<h2>
+			<span>写真</span>
+			Photography
+		</h2>
 	</div>
 
 	<div class="photos-content">
@@ -35,11 +38,15 @@ import PHOTOS from "@data/photos.json"
 		}
 
 		&-content {
-			@extend %grid-margin;
+			@extend %grid-break;
 
 			display: flex;
 			gap: 0.6em;
 			flex-flow: row wrap;
+
+			@container (width <= 600px) {
+				flex-flow: column nowrap;
+			}
 		}
 
 		&-content > :global(*) {
@@ -48,6 +55,10 @@ import PHOTOS from "@data/photos.json"
 
 		&-content__filler {
 			flex: 99 1 auto;
+
+			@container (width <= 600px) {
+				display: none;
+			}
 		}
 	}
 </style>

@@ -13,6 +13,21 @@ const classNormalized =
 	<slot />
 </section>
 
+<style lang="scss" is:global>
+	.section {
+		& > div[class*="heading"] {
+			& h2 {
+				font-size: 2em;
+				text-transform: capitalize;
+
+				& span {
+					color: lightcoral;
+				}
+			}
+		}
+	}
+</style>
+
 <style lang="scss">
 	@use "@styles/modules/layouts";
 

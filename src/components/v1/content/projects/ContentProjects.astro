@@ -7,7 +7,10 @@ import PROJECTS from "@data/projects.json"
 
 <Section class="projects">
 	<div class="projects-heading">
-		<h2>Stuff I made...</h2>
+		<h2>
+			<span>プロジェクト</span>
+			Stuff I made
+		</h2>
 	</div>
 
 	<div class="projects-content">
@@ -31,12 +34,13 @@ import PROJECTS from "@data/projects.json"
 	@use "@styles/modules/layouts";
 
 	.projects {
-		&-heading,
-		&-content {
+		&-heading {
 			@extend %grid-content;
 		}
 
 		&-content {
+			@extend %grid-break;
+
 			--grid-item-min-size: 400px;
 
 			display: grid;
