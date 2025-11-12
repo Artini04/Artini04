@@ -14,6 +14,9 @@ const { class: classNames = "", id } = Astro.props
 <style lang="scss" is:global>
 	.section {
 		& > div[class*="heading"] {
+			& > * + * {
+				margin-block-start: 0.6em;
+			}
 			& h2 {
 				font-size: 2em;
 				text-transform: capitalize;

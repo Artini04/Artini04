@@ -1,12 +1,13 @@
 ---
 import Section from "@components/v1/section/Section.astro"
+import AnchorExternal from "./AnchorExternal.astro"
 ---
 
 <Section class="content-anchors">
 	<div class="content-anchors-wrapper">
 		<a href="#section-projects">Projects</a>
 		<a href="#section-photos">Photography</a>
-		<a href="#section-skillset">Skillset</a>
+		<AnchorExternal href="https://github.com/Artini04" label="Github" />
 	</div>
 </Section>
 
@@ -29,7 +30,7 @@ import Section from "@components/v1/section/Section.astro"
 				place-content: center;
 			}
 
-			& > a {
+			& > :global(a) {
 				text-decoration: none;
 
 				padding: 0.2em 0.6em 0.1em;
