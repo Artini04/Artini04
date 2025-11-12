@@ -16,7 +16,7 @@
 
 @layer base {
 	body {
-		background-color: var(--global-app-background-color);
+		background: var(--global-app-background-color);
 		color: var(--global-app-font-color);
 
 		font-family: "Oxanium", "IBM Plex Sans JP", sans-serif;

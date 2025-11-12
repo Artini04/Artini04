@@ -5,21 +5,21 @@ import Photo from "./Photo.astro"
 import PHOTOS from "@data/photos.json"
 ---
 
-<Section class="photos">
-	<div class="photos-heading">
+<Section id="section-photos" class="section-photos">
+	<div class="section-photos-heading">
 		<h2>
 			<span>写真</span>
 			Photography
 		</h2>
 
-		<div class="photos-gear">
+		<div class="section-photos-gear">
 			<p>Canon EOS Rebel T7</p>
 			<p>Canon EF-s 55-250mm f/4-5.6 IS STM</p>
 			<p>ART (Rawtherapee), Darktables, Upscayl</p>
 		</div>
 	</div>
 
-	<div class="photos-content">
+	<div class="section-photos-content">
 		{
 			PHOTOS.map((photo) => (
 				<Photo
@@ -32,11 +32,11 @@ import PHOTOS from "@data/photos.json"
 			))
 		}
 
-		<div class="photos-content__filler"></div>
+		<div class="section-photos-content__filler"></div>
 	</div>
 </Section>
 <style lang="scss" is:global>
-	.photos {
+	.section-photos {
 		&-content > * {
 			flex: 1 1 auto;
 		}
@@ -46,7 +46,7 @@ import PHOTOS from "@data/photos.json"
 <style lang="scss">
 	@use "@styles/modules/layouts";
 
-	.photos {
+	.section-photos {
 		&-heading {
 			@extend %grid-content;
 		}

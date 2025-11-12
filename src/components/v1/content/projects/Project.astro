@@ -32,6 +32,7 @@ const {
 					class="project__img"
 					src={coverImg}
 					alt={coverAlt}
+					loading="eager"
 					width={1024}
 					height={768}
 				/>
@@ -66,7 +67,7 @@ const {
 
 		@include utils.use-transition("outline");
 
-		&:is(:hover) {
+		@include utils.on-hover() {
 			outline: 0.2em solid white;
 		}
 
@@ -113,6 +114,7 @@ const {
 		&__description {
 			flex: 1 1 auto;
 			font-size: 0.8em;
+			color: var(--global-app-font-color-dim);
 		}
 
 		&__type {

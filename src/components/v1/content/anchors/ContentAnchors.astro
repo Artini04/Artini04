@@ -1,0 +1,52 @@
+---
+import Section from "@components/v1/section/Section.astro"
+import AnchorExternal from "./AnchorExternal.astro"
+---
+
+<Section class="content-anchors">
+	<div class="content-anchors-wrapper">
+		<a href="#section-projects">Projects</a>
+		<a href="#section-photos">Photography</a>
+		<AnchorExternal href="https://github.com/Artini04" label="Github" />
+	</div>
+</Section>
+
+<style lang="scss">
+	@use "@styles/modules/layouts";
+	@use "@styles/modules/utilities" as utils;
+
+	.content-anchors {
+		position: sticky;
+		top: 1em;
+
+		&-wrapper {
+			@extend %grid-content;
+
+			display: flex;
+			flex-flow: row wrap;
+			gap: 0.8em;
+
+			@container (width > 600px) {
+				place-content: center;
+			}
+
+			& > :global(a) {
+				text-decoration: none;
+
+				padding: 0.2em 0.6em 0.1em;
+				border: var(--global-border);
+				border-radius: var(--global-border-radius);
+
+				@include utils.use-transition(
+					"scale, rotate",
+					$easing: cubic-bezier(0.3, 4, 0.6, 1)
+				);
+
+				@include utils.on-hover() {
+					scale: 1.05;
+					rotate: 5deg;
+				}
+			}
+		}
+	}
+</style>

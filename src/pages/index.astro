@@ -1,14 +1,17 @@
 ---
 import Default from "@layouts/Default.astro"
 
+import ContentAnchors from "@components/v1/content/anchors/ContentAnchors.astro"
 import Construction from "@components/v1/content/construction/Construction.astro"
 import ContentProjects from "@components/v1/content/projects/ContentProjects.astro"
 import ContentPhotos from "@components/v1/content/photos/ContentPhotos.astro"
+import ContentSkillset from "@components/v1/content/skillset/ContentSkillset.astro"
 ---
 
 <Default title="Home">
 	<main id="home">
 		<Construction />
+		<ContentAnchors />
 		<ContentProjects />
 		<ContentPhotos />
 	</main>

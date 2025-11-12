@@ -1,59 +1,59 @@
 [
 	{
-		"src": "/Artini04/masinloc-baywalk.webp",
+		"src": "/Artini04/photos/masinloc-baywalk.webp",
 		"location": "マシンロク, ザンバレス"
 	},
 	{
-		"src": "/Artini04/alcatraz.webp",
+		"src": "/Artini04/photos/alcatraz.webp",
 		"alt": "埠頭",
 		"caption": "埠頭",
 		"location": "ピア39、サンフランシスコ"
 	},
 	{
-		"src": "/Artini04/cat-1.webp",
+		"src": "/Artini04/photos/cat-1.webp",
 		"alt": "海辺の猫",
 		"caption": "海辺の猫"
 	},
 	{
-		"src": "/Artini04/cat-2.webp",
+		"src": "/Artini04/photos/cat-2.webp",
 		"alt": "猫",
 		"caption": "市の猫",
 		"location": "クエゾン市"
 	},
 	{
-		"src": "/Artini04/cat-nap.webp",
+		"src": "/Artini04/photos/cat-nap.webp",
 		"alt": "昼寝猫",
 		"caption": "昼寝猫",
 		"location": "UPタウンセンター、クエゾン市"
 	},
 	{
-		"src": "/Artini04/fishing.webp",
+		"src": "/Artini04/photos/fishing.webp",
 		"alt": "釣り",
 		"caption": "釣り"
 	},
 	{
-		"src": "/Artini04/cat-fat.webp",
+		"src": "/Artini04/photos/cat-fat.webp",
 		"location": "UPタウンセンター、クエゾン市"
 	},
 	{
-		"src": "/Artini04/cat-lazy.webp",
+		"src": "/Artini04/photos/cat-lazy.webp",
 		"alt": "なまけねこ",
 		"caption": "なまけねこ",
 		"location": "UPタウンセンター、クエゾン市"
 	},
 	{
-		"src": "/Artini04/chicken-2.webp",
+		"src": "/Artini04/photos/chicken-2.webp",
 		"caption": "鶏"
 	},
 	{
-		"src": "/Artini04/seagull.webp",
+		"src": "/Artini04/photos/seagull.webp",
 		"alt": "カモメ",
 		"caption": "カモメ",
 		"location": "ピア39、サンフランシスコ",
 		"date": "2025/11/25"
 	},
 	{
-		"src": "/Artini04/power-plant.webp",
+		"src": "/Artini04/photos/power-plant.webp",
 		"alt": "マシンロック石炭火力発電所",
 		"caption": "マシンロック石炭火力発電所"
 	}

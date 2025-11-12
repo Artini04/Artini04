@@ -1,21 +1,22 @@
 ---
 interface Props {
-	class?: string | string[]
+	class?: string
+	id?: string
 }
 
-const { class: classNames = "" } = Astro.props
-
-const classNormalized =
-	typeof classNames === "string" ? [classNames] : classNames
+const { class: classNames = "", id } = Astro.props
 ---
 
-<section class:list={["section", ...classNormalized]}>
+<section id={id} class:list={["section", ...classNames.split(" ")]}>
 	<slot />
 </section>
 
 <style lang="scss" is:global>
 	.section {
 		& > div[class*="heading"] {
+			& > * + * {
+				margin-block-start: 0.6em;
+			}
 			& h2 {
 				font-size: 2em;
 				text-transform: capitalize;
@@ -34,5 +35,7 @@ const classNormalized =
 
 	.section {
 		@extend %grid;
+
+		scroll-margin-block-start: 1em;
 	}
 </style>
