@@ -41,8 +41,17 @@ const {
 	<div class="project-description">
 		<p class="project__title">{title}</p>
 		<p class="project__description">{description}</p>
-		<div class="project-description-type">
-			{type.map((element) => <p class="project__type">{element}</p>)}
+		<div class="project-description-tags">
+			<div class="project-description-types">
+				{type.map((element) => <p class="project__type">{element}</p>)}
+			</div>
+			{
+				pinned && (
+					<div class="project-description-active">
+						<div class="project-description-active__led" />
+					</div>
+				)
+			}
 		</div>
 	</div>
 </a>
@@ -62,11 +71,11 @@ const {
 		overflow: clip;
 
 		&[data-pinned="true"] {
-			background: hsl(0, 92%, 5%);
+			//background: hsl(220, 90%, 5%);
+			order: 0;
 		}
 
 		@include utils.use-transition("outline");
-
 		@include utils.on-hover() {
 			outline: 0.2em solid white;
 		}
@@ -86,12 +95,6 @@ const {
 			display: flex;
 			flex-flow: column nowrap;
 			gap: 0.2em 0;
-		}
-
-		&-description-type {
-			display: flex;
-			flex-flow: row wrap;
-			gap: 0.2em;
 		}
 
 		// Image
@@ -124,6 +127,35 @@ const {
 
 			background-color: hsl(0, 0%, 15%);
 			border-radius: 25px;
+		}
+	}
+
+	.project-description {
+		&-types {
+			display: flex;
+			flex-flow: row wrap;
+			gap: 0.2em;
+
+			flex: 1 1 100%;
+		}
+
+		&-tags {
+			display: flex;
+			flex-flow: row nowrap;
+			gap: 1em;
+		}
+
+		&-active {
+			display: flex;
+			place-items: center;
+			place-content: center;
+
+			&__led {
+				aspect-ratio: 1;
+				padding: 0.3em;
+				background: lightgreen;
+				border-radius: 50px;
+			}
 		}
 	}
 </style>
