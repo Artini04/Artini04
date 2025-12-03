@@ -14,13 +14,13 @@
     "astro": "5.15.4",
     "astro-embed": "^0.9.1",
     "astro-icon": "^1.1.5",
-    "nanostores": "^1.0.1",
-    "sass": "^1.93.3",
+    "nanostores": "^1.1.0",
+    "sass": "^1.94.2",
     "typescript": "^5.9.3"
   },
   "devDependencies": {
-    "@iconify-json/devicon": "^1.2.23",
-    "@iconify-json/lucide": "^1.2.35",
+    "@iconify-json/devicon": "^1.2.51",
+    "@iconify-json/lucide": "^1.2.77",
     "@iconify-json/skill-icons": "^1.2.0",
     "@iconify-json/tabler": "^1.2.23"
   }

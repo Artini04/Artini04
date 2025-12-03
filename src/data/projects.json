@@ -10,7 +10,7 @@
 	},
 	{
 		"title": "Vocabulary Index Web App for Japanese Quartet",
-		"description": "Nuxtで作られた小規模な「４技能でひろがる 中級日本語カルテット単語索引」ウェブアプリ。",
+		"description": "Nuxtで作られた小さい「４技能でひろがる 中級日本語カルテット単語索引」ウェブアプリ。",
 		"link": "https://quartet-index.vercel.app",
 		"pinned": false,
 		"type": ["website", "nuxt"],

@@ -7,15 +7,15 @@ import PHOTOS from "@data/photos.json"
 
 <Section id="section-photos" class="section-photos">
 	<div class="section-photos-heading">
-		<h2>
-			<span>写真</span>
-			Photography
-		</h2>
+		<div class="section-photo-heading-title">
+			<h2>写真</h2>
+			<h3>Photography</h3>
+		</div>
 
 		<div class="section-photos-gear">
 			<p>Canon EOS Rebel T7</p>
 			<p>Canon EF-s 55-250mm f/4-5.6 IS STM</p>
-			<p>ART (Rawtherapee), Darktables, Upscayl</p>
+			<p>ART (Rawtherapee), Upscayl</p>
 		</div>
 	</div>
 
@@ -55,7 +55,7 @@ import PHOTOS from "@data/photos.json"
 			@extend %grid-break;
 
 			display: flex;
-			gap: 0.6em;
+			gap: 0.4em;
 			flex-flow: row wrap;
 
 			@container (width <= 600px) {

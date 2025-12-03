@@ -1,4 +1,6 @@
 ---
+import { Icon } from "astro-icon/components"
+
 interface Props {
 	label: string
 	href: string
@@ -8,10 +10,6 @@ const { label, href } = Astro.props
 ---
 
 <a class="anchor-external" href={href} target="_blank">
-	{label}
+	<span>{label}</span>
+	<Icon name="tabler:external-link" />
 </a>
-
-<style lang="scss">
-	.anchor-external {
-	}
-</style>

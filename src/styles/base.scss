@@ -9,11 +9,6 @@
 	font-display: swap;
 }
 
-:root {
-	--shared-border-radius: 7px;
-	--shared-border-color: hsla(0, 0%, 24%, 1);
-}
-
 @layer base {
 	body {
 		background: var(--global-app-background-color);
