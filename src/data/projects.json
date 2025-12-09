@@ -5,7 +5,7 @@
 		"link": "https://southstreets.co",
 		"pinned": true,
 		"type": ["nuxt", "appwrite"],
-		"cover-img": "/Artini04/south-streets-co.webp",
+		"cover-img": "/Artini04/projects/south-streets-co.webp",
 		"cover-alt": "South Streets Photography website landing page."
 	},
 	{
@@ -15,7 +15,7 @@
 		"github": "https://github.com/Artini04/quartet-index",
 		"pinned": false,
 		"type": ["nuxt"],
-		"cover-img": "/Artini04/quartet.jpg",
+		"cover-img": "/Artini04/projects/quartet.jpg",
 		"cover-alt": ""
 	}
 ]
