@@ -1,0 +1,40 @@
+---
+import { Icon } from "astro-icon/components"
+
+interface Props {
+	link: string
+	label: string
+	icon?: string
+}
+
+const { link, label, icon = "tabler:link" } = Astro.props
+---
+
+<a class="project-action-link" href={link} target="_blank">
+	<Icon name={icon} />
+	<span>{label}</span>
+</a>
+
+<style lang="scss">
+	@use "@styles/modules/utilities" as utils;
+
+	.project-action-link {
+		display: flex;
+		flex-flow: row nowrap;
+		gap: 0 0.5ch;
+
+		place-items: center;
+		place-content: center;
+
+		color: var(--global-text-color--dim);
+
+		@include utils.use-transition("color");
+		@include utils.on-hover() {
+			color: var(--global-text-color);
+		}
+
+		span {
+			font-size: var(--global-text-size--sm);
+		}
+	}
+</style>

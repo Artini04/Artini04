@@ -1,0 +1,24 @@
+---
+interface Props {
+	label: string
+}
+
+const { label } = Astro.props
+---
+
+<div class="project-type">
+	<p>{label}</p>
+</div>
+
+<style lang="scss">
+	.project-type {
+		font-size: var(--global-text-size--tiny);
+		color: var(--global-text-color--dim);
+
+		padding: 0.1em 0.4em;
+		background-color: hsl(0, 0%, 60%, 0.1);
+		border-radius: 7px;
+
+		user-select: none;
+	}
+</style>

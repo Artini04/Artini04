@@ -4,7 +4,7 @@
 		"description": "SOUTH STREETS写真サイト。",
 		"link": "https://southstreets.co",
 		"pinned": true,
-		"type": ["website", "nuxt", "appwrite"],
+		"type": ["nuxt", "appwrite"],
 		"cover-img": "/Artini04/south-streets-co.webp",
 		"cover-alt": "South Streets Photography website landing page."
 	},
@@ -12,8 +12,9 @@
 		"title": "Vocabulary Index Web App for Japanese Quartet",
 		"description": "Nuxtで作られた小さい「４技能でひろがる 中級日本語カルテット単語索引」ウェブアプリ。",
 		"link": "https://quartet-index.vercel.app",
+		"github": "https://github.com/Artini04/quartet-index",
 		"pinned": false,
-		"type": ["website", "nuxt"],
+		"type": ["nuxt"],
 		"cover-img": "/Artini04/quartet.jpg",
 		"cover-alt": ""
 	}

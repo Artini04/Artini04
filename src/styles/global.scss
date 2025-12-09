@@ -19,5 +19,13 @@
 		--global-border: 2px solid var(--global-border-color);
 		--global-border-contrast: 2px solid var(--global-border-color-contrast);
 		--global-border-radius: 5px;
+
+		// Text Sizing
+		--global-text-size--tiny: 0.6em;
+		--global-text-size--sm: 0.8em;
+
+		// Text Color
+		--global-text-color: hsl(0, 0%, 95%);
+		--global-text-color--dim: hsl(0, 0%, 60%);
 	}
 }

@@ -1,10 +1,16 @@
 ---
 import { Image } from "astro:assets"
+import ProjectTypeDiv from "./ProjectTypeDiv.astro"
+import ProjectType from "./ProjectType.astro"
+import ProjectActionDiv from "./ProjectActionDiv.astro"
+import ProjectActionLink from "./ProjectActionLink.astro"
+import ProjectPinned from "./ProjectPinned.astro"
 
 interface Props {
 	title: string
 	description: string
 	link: string
+	github?: string
 	type: string[]
 	pinned: boolean
 
@@ -16,6 +22,7 @@ const {
 	title,
 	description,
 	link,
+	github,
 	type,
 	pinned,
 	"cover-img": coverImg,
@@ -23,10 +30,11 @@ const {
 } = Astro.props
 ---
 
-<a class="project" href={link} target="_blank" data-pinned={pinned}>
+<!--<div class="project" href={link} target="_blank" data-pinned={pinned}>-->
+<div class="project" data-pinned={pinned}>
 	<div class="project-media">
 		{
-			coverImg.length == 0 ?
+			!coverImg ?
 				<div class="project__img-none">No image provided!</div>
 			:	<Image
 					class="project__img"
@@ -38,7 +46,38 @@ const {
 				/>
 		}
 	</div>
-	<div class="project-description">
+	<div class="project-metadata">
+		<p class="project__title">{title}</p>
+		<p class="project__description">{description}</p>
+
+		<div class="project-metadata-actions">
+			<ProjectTypeDiv>
+				{type.map((item) => <ProjectType label={item} />)}
+			</ProjectTypeDiv>
+
+			<ProjectActionDiv>
+				<ProjectActionLink
+					link={link}
+					label="Visit"
+					icon="tabler:external-link"
+				/>
+
+				{
+					github && (
+						<ProjectActionLink
+							link={github}
+							label="GitHub"
+							icon="tabler:brand-github"
+						/>
+					)
+				}
+			</ProjectActionDiv>
+
+			{pinned && <ProjectPinned />}
+		</div>
+	</div>
+
+	<!--<div class="project-description">
 		<p class="project__title">{title}</p>
 		<p class="project__description">{description}</p>
 		<div class="project-description-tags">
@@ -53,8 +92,8 @@ const {
 				)
 			}
 		</div>
-	</div>
-</a>
+	</div>-->
+</div>
 
 <style lang="scss">
 	@use "@styles/modules/utilities" as utils;
@@ -75,11 +114,6 @@ const {
 			order: 0;
 		}
 
-		@include utils.use-transition("outline");
-		@include utils.on-hover() {
-			outline: 0.2em solid white;
-		}
-
 		@container (width <= 600px) {
 			flex-flow: column nowrap;
 		}
@@ -89,9 +123,6 @@ const {
 		}
 
 		&-description {
-			flex: 1 1 calc(100% - $project-media-size);
-			padding: 0.6em;
-
 			display: flex;
 			flex-flow: column nowrap;
 			gap: 0.2em 0;
@@ -128,6 +159,23 @@ const {
 			background-color: hsl(0, 0%, 15%);
 			border-radius: 25px;
 		}
+	}
+
+	.project-metadata {
+		flex: 1 1 calc(100% - $project-media-size);
+		padding: 0.6em;
+
+		display: flex;
+		flex-flow: column nowrap;
+		gap: 0.2em 0;
+	}
+
+	.project-metadata-actions {
+		display: flex;
+		gap: 1em;
+		flex-flow: row nowrap;
+		place-items: center;
+		place-content: center;
 	}
 
 	.project-description {
