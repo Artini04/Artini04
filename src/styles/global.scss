@@ -1,11 +1,12 @@
 @layer global {
 	:root {
-		//--global-app-background-color: hsl(0, 0%, 10%);
-		--global-app-background-color: linear-gradient(
-			to bottom,
-			hsl(0, 0%, 10%, 1) 0%,
-			hsl(0, 0%, 5%, 1) 100%
-		);
+		//--global-app-background-color: #0095da;
+		--global-app-background-color: hsl(0, 0%, 10%);
+		//--global-app-background-color: linear-gradient(
+		//	to bottom,
+		//	hsl(0, 0%, 10%, 1) 0%,
+		//	hsl(0, 0%, 5%, 1) 100%
+		//);
 		--global-app-font-color: hsl(0, 0%, 95%);
 		--global-app-font-color-dim: oklch(
 			from var(--global-app-font-color) calc(l - 0.2) c h

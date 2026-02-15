@@ -4,7 +4,11 @@
 		"description": "SOUTH STREETS写真サイト。",
 		"link": "https://southstreets.co",
 		"pinned": true,
-		"type": ["nuxt", "appwrite"],
+		"type": [
+			"nuxt",
+			"appwrite",
+			"freelance project"
+		],
 		"cover-img": "/Artini04/projects/south-streets-co.webp",
 		"cover-alt": "South Streets Photography website landing page."
 	},
@@ -14,7 +18,9 @@
 		"link": "https://quartet-index.vercel.app",
 		"github": "https://github.com/Artini04/quartet-index",
 		"pinned": false,
-		"type": ["nuxt"],
+		"type": [
+			"nuxt"
+		],
 		"cover-img": "/Artini04/projects/quartet.jpg",
 		"cover-alt": ""
 	}
