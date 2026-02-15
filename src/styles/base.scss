@@ -36,4 +36,19 @@
 			font-family: "Hina Mincho";
 		}
 	}
+
+	.image-overlay {
+		position: absolute;
+		inset: 0;
+
+		&--gradual-bottom {
+			@extend .image-overlay;
+
+			background: linear-gradient(
+				to bottom,
+				hsla(0, 0%, var(--global-app-background-color), 0) 50%,
+				hsla(0, 0%, var(--global-app-background-color), 1) 100%
+			);
+		}
+	}
 }

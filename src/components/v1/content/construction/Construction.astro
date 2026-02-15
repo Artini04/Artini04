@@ -1,30 +1,36 @@
+---
+import { Image } from "astro:assets"
+---
+
 <div class="under-construction">
-	<h1 class="under-construction__jp | text-hina">現在構築中</h1>
-	<h2 class="under-construction__en">Website Under Construction!</h2>
-	<div class="under-construction-links">
-		<p>Artini04</p>
-		<p>Web Developer</p>
-		<p>日本語勉強中</p>
+	<div class="under-construction-content">
+		<Image
+			class="under-construction-content__mini-image"
+			src="/Artini04/photos/background/background-1.webp"
+			alt="Oversaturated sky with big clouds."
+			width={1920}
+			height={1280}
+		/>
+		<!--<h1 class="under-construction__jp | text-hina">現在構築中</h1>
+		<h2 class="under-construction__en">Website Under Construction!</h2>-->
+		<div class="under-construction-content-short">
+			<p>Artini04</p>
+			<p>Web Developer</p>
+			<p>日本語勉強中</p>
+		</div>
 	</div>
 </div>
 
 <style lang="scss">
+	@use "@styles/modules/layouts";
+	@use "@styles/modules/utilities" as utils;
+
 	.under-construction {
-		min-height: 70svh;
+		display: grid;
+		grid-template-areas: "stack";
 
-		display: flex;
-		gap: 0.6em 0;
-		flex-flow: column nowrap;
-		place-items: center;
-		place-content: center;
-		margin-inline: 1em;
-
-		&-links {
-			display: flex;
-			flex-flow: row wrap;
-			gap: 0 1em;
-			place-content: center;
-		}
+		min-height: 100svh;
+		margin-block-end: 20svh;
 
 		&__jp {
 			font-size: clamp(3em, 10svw, 6em);
@@ -34,6 +40,77 @@
 		&__en {
 			font-size: clamp(1.2em, 10svw, 2em);
 			text-align: center;
+		}
+	}
+
+	.under-construction-cover,
+	.under-construction-content {
+		grid-area: stack;
+		position: relative;
+	}
+
+	.under-construction-cover {
+		&__cover {
+			height: 100%;
+			width: 100%;
+			object-fit: cover;
+
+			mask-image: linear-gradient(
+				to bottom,
+				hsla(0, 0%, 0%, 0.4) 60%,
+				hsla(0, 0%, 0%, 0) 100%
+			);
+		}
+	}
+
+	.under-construction-content {
+		display: flex;
+		flex-flow: column nowrap;
+		gap: 0.6em 0;
+		place-items: flex-start;
+		place-content: center;
+
+		width: min(500px, calc(100% - 2em));
+		margin-inline: auto;
+
+		//@container (width <= 600px) {
+		//	margin-inline: 1em;
+		//}
+
+		&__mini-image {
+			height: auto;
+			object-fit: contain;
+			border-radius: var(--global-border-radius);
+		}
+
+		&-short {
+			--short-flex-gap: 1em;
+			--short-divider-color: hsl(0, 0%, 30%);
+
+			display: flex;
+			gap: 0.2em var(--short-flex-gap);
+
+			@container (width > 600px) {
+				flex-flow: row wrap;
+
+				& > * + * {
+					&::before {
+						content: "/";
+						color: var(--short-divider-color);
+						margin-inline-end: var(--short-flex-gap);
+					}
+				}
+			}
+
+			@container (width <= 600px) {
+				flex-flow: column nowrap;
+
+				& > *::before {
+					content: "/";
+					color: var(--short-divider-color);
+					margin-inline-end: var(--short-flex-gap);
+				}
+			}
 		}
 	}
 </style>
