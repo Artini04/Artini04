@@ -1,0 +1,241 @@
+---
+/**
+ * MonthCalendar.astro
+ *
+ * Props:
+ *   month       — 1–12
+ *   year        — e.g. 2025
+ *   slots       — Record<number, ComponentSlot>
+ *                 key   : day of the month (1-based)
+ *                 value : { component: any; props?: Record<string, unknown> }
+ *
+ * Example usage:
+ *
+ *   ---
+ *   import MonthCalendar from '@/components/MonthCalendar.astro'
+ *   import EventBadge   from '@/components/EventBadge.astro'
+ *
+ *   const slots = {
+ *     5:  { component: EventBadge, props: { label: 'Opening night' } },
+ *     18: { component: EventBadge, props: { label: 'Workshop' } },
+ *   }
+ *   ---
+ *
+ *   <MonthCalendar month={4} year={2025} slots={slots} />
+ */
+
+interface Props {
+	month: number // 1–12
+	year: number
+}
+
+const { month, year } = Astro.props
+
+// ── Calendar calculation ──────────────────────────────────────────────────────
+
+const DAYS = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
+const MONTHS = [
+	"January",
+	"February",
+	"March",
+	"April",
+	"May",
+	"June",
+	"July",
+	"August",
+	"September",
+	"October",
+	"November",
+	"December",
+]
+
+const monthLabel = MONTHS[(month - 1 + 12) % 12]
+const daysInMonth = new Date(year, month, 0).getDate()
+
+// Sun-origin week: getDay() returns Sun = 0 … Sat = 6 — no shift needed
+const startOffset = new Date(year, month - 1, 1).getDay()
+
+// Build a flat array of cells: nulls for leading empty slots, numbers for days
+const cells: (number | null)[] = [
+	...Array(startOffset).fill(null),
+	...Array.from({ length: daysInMonth }, (_, i) => i + 1),
+]
+// Pad trailing cells so the grid is always complete rows of 7
+while (cells.length % 7 !== 0) cells.push(null)
+---
+
+<div class="cal">
+	<!-- Header ----------------------------------------------------------------->
+	<header class="cal__header">
+		<span class="cal__month">{monthLabel}</span>
+		<span class="cal__year">{year}</span>
+	</header>
+
+	<!-- Day-of-week labels ----------------------------------------------------->
+	<div class="cal__grid cal__grid--labels" role="row">
+		{
+			DAYS.map((d) => (
+				<div class="cal__label" role="columnheader" aria-label={d}>
+					{d}
+				</div>
+			))
+		}
+	</div>
+
+	<!-- Day cells ------------------------------------------------------------->
+	<div class="cal__grid cal__grid--days" role="grid">
+		{
+			cells.map((day) => {
+				if (day === null) {
+					return (
+						<div
+							class="cal__cell cal__cell--empty"
+							role="gridcell"
+							aria-hidden="true"
+						/>
+					)
+				}
+
+				return (
+					<div
+						class:list={["cal__cell"]}
+						role="gridcell"
+						aria-label={`${monthLabel} ${day}, ${year}`}>
+						<span class="cal__day-num">{day}</span>
+					</div>
+				)
+			})
+		}
+	</div>
+</div>
+
+<style>
+	/* ── Design tokens ─────────────────────────────────────────────────────── */
+	.cal {
+		--cal-bg: #0d0d0d;
+		--cal-surface: #141414;
+		--cal-border: #2a2a2a;
+		--cal-text: #e8e0d5;
+		--cal-muted: #555;
+		--cal-accent: #c8522a; /* burnt-orange — your signature */
+		--cal-event-dot: #c8522a;
+		--cal-label-font: "Bebas Neue", "Arial Narrow", sans-serif;
+		--cal-body-font: "Space Mono", "Courier New", monospace;
+		--cal-radius: 2px;
+		--cal-gap: 1px;
+
+		background: var(--cal-bg);
+		color: var(--cal-text);
+		font-family: var(--cal-body-font);
+		width: 100%;
+		max-width: 720px;
+		padding: 2rem;
+		box-sizing: border-box;
+		border: 1px solid var(--cal-border);
+	}
+
+	/* ── Header ────────────────────────────────────────────────────────────── */
+	.cal__header {
+		display: flex;
+		align-items: baseline;
+		gap: 0.6rem;
+		margin-bottom: 1.75rem;
+		border-bottom: 1px solid var(--cal-border);
+		padding-bottom: 1rem;
+	}
+
+	.cal__month {
+		font-family: var(--cal-label-font);
+		font-size: clamp(2rem, 6vw, 3.5rem);
+		letter-spacing: 0.06em;
+		line-height: 1;
+		color: var(--cal-text);
+		text-transform: uppercase;
+	}
+
+	.cal__year {
+		font-family: var(--cal-body-font);
+		font-size: 0.8rem;
+		color: var(--cal-accent);
+		letter-spacing: 0.2em;
+		align-self: flex-end;
+		padding-bottom: 0.15em;
+	}
+
+	/* ── Grid shell ────────────────────────────────────────────────────────── */
+	.cal__grid {
+		display: grid;
+		grid-template-columns: repeat(7, 1fr);
+		gap: var(--cal-gap);
+	}
+
+	/* ── Day-of-week labels ────────────────────────────────────────────────── */
+	.cal__grid--labels {
+		margin-bottom: var(--cal-gap);
+	}
+
+	.cal__label {
+		background: var(--cal-surface);
+		font-family: var(--cal-label-font);
+		font-size: 0.7rem;
+		letter-spacing: 0.18em;
+		color: var(--cal-muted);
+		text-transform: uppercase;
+		text-align: center;
+		padding: 0.4rem 0;
+	}
+
+	/* ── Day cells ─────────────────────────────────────────────────────────── */
+	.cal__cell {
+		background: var(--cal-surface);
+		border-radius: var(--cal-radius);
+		min-height: 5.5rem;
+		padding: 0.5rem;
+		box-sizing: border-box;
+		position: relative;
+		transition: background 0.15s ease;
+	}
+
+	.cal__cell--empty {
+		background: transparent;
+		pointer-events: none;
+	}
+
+	.cal__cell:not(.cal__cell--empty):hover {
+		background: #1e1e1e;
+	}
+
+	/* Event indicator — top-right corner dot */
+	.cal__cell--event::after {
+		content: "";
+		position: absolute;
+		top: 0.45rem;
+		right: 0.45rem;
+		width: 5px;
+		height: 5px;
+		border-radius: 50%;
+		background: var(--cal-event-dot);
+	}
+
+	/* Day number */
+	.cal__day-num {
+		display: block;
+		font-family: var(--cal-label-font);
+		font-size: 1.15rem;
+		letter-spacing: 0.04em;
+		line-height: 1;
+		color: var(--cal-muted);
+		transition: color 0.15s;
+	}
+
+	.cal__cell:not(.cal__cell--empty):hover .cal__day-num {
+		color: var(--cal-text);
+	}
+
+	/* Slot container — sits below the day number */
+	.cal__slot {
+		margin-top: 0.35rem;
+		font-size: 0.7rem;
+		line-height: 1.3;
+	}
+</style>

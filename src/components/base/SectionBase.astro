@@ -1,28 +1,28 @@
 ---
 interface Props {
-  additionalClass?: string
+	additionalClass?: string
 }
 
 const { additionalClass } = Astro.props
 ---
 
 <section class:list={["section-base", additionalClass]}>
-  <slot />
+	<slot />
 </section>
 
 <style lang="scss" is:global>
-  @use "@styles/modules/layouts";
+	@use "@styles/modules/layouts";
 
-  .section-base {
-    --grid-gap: 0.5em 0;
-    @extend %grid-default;
+	.section-base {
+		--grid-gap: 0.5em 0;
+		@extend %grid-default;
 
-    & > * {
-      grid-column: full-width;
-    }
-  }
+		& > * {
+			grid-column: full-width;
+		}
+	}
 
-  .section-base + .section-base {
-    border-block-start: 1px solid var(--shared-border-color);
-  }
+	.section-base + .section-base {
+		border-block-start: 1px solid var(--shared-border-color);
+	}
 </style>

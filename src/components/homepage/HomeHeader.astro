@@ -2,40 +2,37 @@
 import { Image } from "astro:assets"
 import SectionBase from "@components/base/SectionBase.astro"
 
-const avatarSize = {
-  width: 100,
-  height: 100
-}
+const avatarSize = { width: 100, height: 100 }
 ---
 
 <SectionBase additionalClass="home-header">
-  <div class="home-header__content">
-    <div class="home-header__avatar">
-      <Image
-        class:list={"home-avatar"}
-        src="/Artini04/avatar-modified.png"
-        alt="Avatar"
-        width={avatarSize.width}
-        height={avatarSize.height}
-        loading="eager"
-      />
-    </div>
+	<div class="home-header__content">
+		<div class="home-header__avatar">
+			<Image
+				class:list={"home-avatar"}
+				src="/Artini04/avatar-modified.png"
+				alt="Avatar"
+				width={avatarSize.width}
+				height={avatarSize.height}
+				loading="eager"
+			/>
+		</div>
 
-    <div class="home-header__desc">
-      <h1>ようこそ!</h1>
-      <p></p>
-      <p>@artin04　//　🕷️🕸️クモです　//　日本語の勉強中</p>
-      <p></p>
-    </div>
-  </div>
+		<div class="home-header__desc">
+			<h1>ようこそ!</h1>
+			<p></p>
+			<p>@artin04　//　🕷️🕸️クモです　//　日本語の勉強中</p>
+			<p></p>
+		</div>
+	</div>
 </SectionBase>
 
 <style lang="scss">
-  @use "@styles/modules/layouts";
+	@use "@styles/modules/layouts";
 
-  .home-header__content {
-    --flex-gap: 0.6em 1em;
-    --flex-direction: column;
-    @extend %flex-default;
-  }
+	.home-header__content {
+		--flex-gap: 0.6em 1em;
+		--flex-direction: column;
+		@extend %flex-default;
+	}
 </style>

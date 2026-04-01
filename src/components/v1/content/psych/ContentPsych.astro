@@ -1,0 +1,20 @@
+---
+import CalendarMonth from "@components/v1/calendar/CalendarMonth.astro"
+import Section from "@components/v1/section/Section.astro"
+---
+
+<Section id="section-psych-1" class="section-psych-1">
+	<div class="section-psych-1-content">
+		<CalendarMonth month={4} year={2026} />
+	</div>
+</Section>
+
+<style lang="scss">
+	@use "@styles/modules/layouts";
+
+	.section-psych-1 {
+		&-content {
+			@extend %grid-full;
+		}
+	}
+</style>

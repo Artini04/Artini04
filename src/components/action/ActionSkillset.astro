@@ -1,81 +1,81 @@
 ---
 interface Props {
-  // Optionals
-  additionalClass?: string
+	// Optionals
+	additionalClass?: string
 
-  // Properties
-  title: string
-  subtitle?: string
+	// Properties
+	title: string
+	subtitle?: string
 }
 
 const { title, subtitle = "//", additionalClass } = Astro.props
 ---
 
 <div class:list={["action-skillset", additionalClass]}>
-  <div class="action-skillset__header">
-    <h2 class="title | text-ebihara">{title}</h2>
-    <p class="subtitle">
-      {subtitle}
-    </p>
-  </div>
+	<div class="action-skillset__header">
+		<h2 class="title | text-ebihara">{title}</h2>
+		<p class="subtitle">
+			{subtitle}
+		</p>
+	</div>
 
-  <ul class="action-skillset__list">
-    <slot />
-  </ul>
+	<ul class="action-skillset__list">
+		<slot />
+	</ul>
 </div>
 
 <style lang="scss" is:global>
-  .action-skillset__list {
-    [data-icon] {
-      font-size: 50px;
-      vertical-align: middle;
+	.action-skillset__list {
+		[data-icon] {
+			font-size: 50px;
+			vertical-align: middle;
 
-      &.proficient,
-      &.starting {
-        --proficiency-color: white;
-        border: 4px solid var(--proficiency-color);
-        border-radius: 13px;
-      }
+			&.proficient,
+			&.starting {
+				--proficiency-color: white;
+				border: 4px solid var(--proficiency-color);
+				border-radius: 13px;
+			}
 
-      &.proficient {
-        --proficiency-color: hsl(120, 75%, 75%);
-      }
+			&.proficient {
+				--proficiency-color: hsl(120, 75%, 75%);
+			}
 
-      &.starting {
-        --proficiency-color: hsl(25, 100%, 60%);
-      }
-    }
-  }
+			&.starting {
+				--proficiency-color: hsl(25, 100%, 60%);
+			}
+		}
+	}
 </style>
 
 <style lang="scss">
-  @use "@styles/modules/layouts";
+	@use "@styles/modules/layouts";
 
-  .action-skillset {
-    padding: 1em;
-    border: 1px solid
-      light-dark(
-        var(--_grid-border-color-light),
-        var(--_grid-border-color-dark)
-      );
-    border-radius: var(--shared-border-radius);
-    background: light-dark(
-      var(--_grid-background-light),
-      var(--_grid-background-dark)
-    );
+	.action-skillset {
+		padding: 1em;
+		border: 1px solid
+			light-dark(
+				var(--_grid-border-color-light),
+				var(--_grid-border-color-dark)
+			);
+		border-radius: var(--shared-border-radius);
+		background: light-dark(
+			var(--_grid-background-light),
+			var(--_grid-background-dark)
+		);
 
-    & > * + * {
-      margin-top: 1em;
-    }
-  }
+		& > * + * {
+			margin-top: 1em;
+		}
+	}
 
-  .action-skillset__header {
-    & .title {
-    }
-  }
+	.action-skillset__header {
+		& .title {
+		}
+	}
 
-  .action-skillset__list {
-    --flex-gap: 0.6em;
-    @extend %flex-default;
-  }
+	.action-skillset__list {
+		--flex-gap: 0.6em;
+		@extend %flex-default;
+	}
 </style>
