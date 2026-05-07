@@ -6,16 +6,20 @@ import "@styles/base.scss"
 import Head from "@components/head/Head.astro"
 import AppFooter from "@components/v1/app/AppFooter.astro"
 
+import Unfont from "unplugin-fonts/astro/component.astro"
+
 interface Props {
 	title: string
+	favicon?: string
 }
 
-const { title } = Astro.props
+const { title, favicon } = Astro.props
 ---
 
 <html lang="ja">
 	<head>
-		<Head />
+		<Head favicon={favicon} />
+		<Unfont />
 		<title>
 			{title ? `${title.toUpperCase()} // Artini04` : "Index // Artini04"}
 		</title>

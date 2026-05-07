@@ -1,0 +1,50 @@
+[
+	{
+		"date": 1775808000,
+		"log": "Cleaned and reviewed my notes about Motivation",
+		"log2": "revisiting course material to prepare for an upcoming exam.",
+		"type": "Extrinsic"
+	},
+	{
+		"date": 1775894400,
+		"log": "Started migrating old home server to new server",
+		"log2": "a self-directed project driven by personal curiosity and the satisfaction of building something that works.",
+		"type": "Intrinsic"
+	},
+	{
+		"date": 1776326400,
+		"log": "Cleaned and reviewed my notes about Personality",
+		"log2": "consolidating class material ahead of the next exam.",
+		"type": "Extrinsic"
+	},
+	{
+		"date": 1776499200,
+		"log": "Worked with the assignment and Study Guide for Exam 3",
+		"log2": "focusing on course requirements and structured review to meet academic expectations.",
+		"type": "Extrinsic"
+	},
+	{
+		"date": 1776672000,
+		"log": "Continued working through the Study Guide for Exam 3",
+		"log2": "reinforcing key concepts to perform well on an assessed outcome.",
+		"type": "Extrinsic"
+	},
+	{
+		"date": 1776672000,
+		"log": "Went to the Opportunity Fair in GCC Student Union",
+		"log2": "exploring opportunities for career development and future goals.",
+		"type": "Extrinsic"
+	},
+	{
+		"date": 1776931200,
+		"log": "Started working on the Art History Paper Essay",
+		"log2": "beginning a required written assignment with a set deadline.",
+		"type": "Extrinsic"
+	},
+	{
+		"date": 1777190400,
+		"log": "Went to Phoenix Art Museum",
+		"log2": "gathered direct visual references for the class assignment.",
+		"type": "Extrinsic"
+	}
+]

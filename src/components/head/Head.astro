@@ -1,42 +1,22 @@
 ---
+interface Props {
+	favicon?: string
+}
+
+const { favicon = "/Artini04/avatar-modified.png" } = Astro.props
+
 const title = "Artini04"
 const description = "Artini04 Website"
 const url = "https://artini04.github.io/Artini04"
-const favicon = "/Artini04/avatar-modified.png"
 ---
 
 <meta charset="utf-8" />
-<meta
-  name="viewport"
-  content="width=device-width"
-/>
-<meta
-  name="description"
-  content={description}
-/>
-<meta
-  property="og:type"
-  content="website"
-/>
-<meta
-  property="og:title"
-  content={title}
-/>
-<meta
-  property="og:description"
-  content={description}
-/>
-<meta
-  property="og:url"
-  content={url}
-/>
-<meta
-  name="generator"
-  content={Astro.generator}
-/>
+<meta name="viewport" content="width=device-width" />
+<meta name="description" content={description} />
+<meta property="og:type" content="website" />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:url" content={url} />
+<meta name="generator" content={Astro.generator} />
 
-<link
-  rel="shortcut icon"
-  type="image/png"
-  href={favicon}
-/>
+<link rel="shortcut icon" type="image/png" href={favicon} />

@@ -1,0 +1,20 @@
+---
+import Section from "@components/v1/section/Section.astro"
+import PsyLogs from "./PsyLogs.astro"
+---
+
+<Section id="section-psychology" class="section-psychology">
+	<div class="section-psychology-content">
+		<PsyLogs />
+	</div>
+</Section>
+
+<style lang="scss">
+	@use "@styles/modules/layouts";
+
+	.section-psychology {
+		&-content {
+			@extend %grid-content;
+		}
+	}
+</style>

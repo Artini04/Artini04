@@ -4,6 +4,7 @@ import { fileURLToPath } from "url"
 import path from "path"
 
 import icon from "astro-icon"
+import Unfonts from "unplugin-fonts/astro"
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
@@ -66,5 +67,10 @@ export default defineConfig({
 		},
 	},
 
-	integrations: [icon()],
+	integrations: [
+		icon(),
+		Unfonts({
+			google: { families: [{ name: "Arvo" }, { name: "Hina Mancho" }] },
+		}),
+	],
 })
