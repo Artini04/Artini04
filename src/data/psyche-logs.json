@@ -8,8 +8,20 @@
 	{
 		"date": 1775894400,
 		"log": "Started migrating old home server to new server",
-		"log2": "a self-directed project driven by personal curiosity and the satisfaction of building something that works.",
+		"log2": "a self-directed project driven by satisfaction of building something that works.",
 		"type": "Intrinsic"
+	},
+	{
+		"date": 1776153600,
+		"log": "Attended classes",
+		"log2": "showing up to scheduled lecture as part of course requirements.",
+		"type": "Extrinsic"
+	},
+	{
+		"date": 1776326400,
+		"log": "Attended classes",
+		"log2": "showing up to scheduled lecture as part of course requirements.",
+		"type": "Extrinsic"
 	},
 	{
 		"date": 1776326400,
@@ -18,8 +30,20 @@
 		"type": "Extrinsic"
 	},
 	{
+		"date": 1776384000,
+		"log": "Performed routine home server maintenance",
+		"log2": "keeping my self-hosted server running smoothly.",
+		"type": "Intrinsic"
+	},
+	{
+		"date": 1776470400,
+		"log": "Cleaned my room",
+		"log2": "doing weekly tidying to keep my living space organized.",
+		"type": "Intrinsic"
+	},
+	{
 		"date": 1776499200,
-		"log": "Worked with the assignment and Study Guide for Exam 3",
+		"log": "Worked with assignment and Study Guide for Exam 3",
 		"log2": "focusing on course requirements and structured review to meet academic expectations.",
 		"type": "Extrinsic"
 	},
@@ -30,9 +54,21 @@
 		"type": "Extrinsic"
 	},
 	{
-		"date": 1776672000,
+		"date": 1776758400,
+		"log": "Attended classes",
+		"log2": "showing up to scheduled lecture as part of course requirements.",
+		"type": "Extrinsic"
+	},
+	{
+		"date": 1776844800,
 		"log": "Went to the Opportunity Fair in GCC Student Union",
 		"log2": "exploring opportunities for career development and future goals.",
+		"type": "Extrinsic"
+	},
+	{
+		"date": 1776931200,
+		"log": "Attended classes",
+		"log2": "showing up to scheduled lecture as part of course requirements.",
 		"type": "Extrinsic"
 	},
 	{
@@ -42,9 +78,15 @@
 		"type": "Extrinsic"
 	},
 	{
+		"date": 1777075200,
+		"log": "Cleaned my room",
+		"log2": "doing weekly tidying to keep my living space organized.",
+		"type": "Intrinsic"
+	},
+	{
 		"date": 1777190400,
 		"log": "Went to Phoenix Art Museum",
-		"log2": "gathered direct visual references for the class assignment.",
+		"log2": "gathered direct visual references for the Art History Paper Essay.",
 		"type": "Extrinsic"
 	}
 ]
