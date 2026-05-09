@@ -1,0 +1,45 @@
+---
+interface Props {
+	label: string
+	desc?: string
+}
+
+const { label, desc } = Astro.props
+---
+
+<div class="content-div">
+	<div class="content-div-heading">
+		<h3 class="content-h3">{label}</h3>
+
+		{!!desc && <p>{desc}</p>}
+	</div>
+
+	<div class="content-div-content">
+		<slot />
+	</div>
+</div>
+
+<style lang="scss">
+	@use "@styles/base";
+
+	.content-div {
+		padding: 1.4em 0;
+
+		& > * + * {
+			margin-block-start: 1em;
+		}
+	}
+
+	.content-div-heading {
+		& > * + * {
+			margin-block-start: 1ch;
+		}
+
+		.content-h3 {
+			@extend .text-serif;
+			text-transform: capitalize;
+
+			font-size: 2em;
+		}
+	}
+</style>

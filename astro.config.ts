@@ -70,7 +70,9 @@ export default defineConfig({
 	integrations: [
 		icon(),
 		Unfonts({
-			google: { families: [{ name: "Arvo" }, { name: "Hina Mancho" }] },
+			google: {
+				families: [{ name: "EB Garamond" }, { name: "Hina Mancho" }],
+			},
 		}),
 	],
 })

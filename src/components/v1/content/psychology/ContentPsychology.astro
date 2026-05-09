@@ -1,20 +1,53 @@
 ---
 import Section from "@components/v1/section/Section.astro"
 import PsyLogs from "./PsyLogs.astro"
+import PsyDiv from "./PsyDiv.astro"
 ---
 
 <Section id="section-psychology" class="section-psychology">
+	<div class="section-psychology-heading">
+		<h2 class="text-serif">Motivation</h2>
+		<p>
+			A 2-week personal log examining what actually drives my behavior
+			most of the time, and what Self-Determination Theory says about it.
+		</p>
+	</div>
+
 	<div class="section-psychology-content">
-		<PsyLogs />
+		<PsyDiv
+			label="From April 10 to April 26"
+			desc="Each entry records what I did and the tag reflects which motivation type I felt was driving it at that moment.">
+			<PsyLogs />
+		</PsyDiv>
+
+		<PsyDiv
+			label="Self-Determination Theory"
+			desc=`"The term self-determination refers to a person\'s own ability to manage themselves, to make confident chouses, and to think on their own."`>
+			<p class="sdt-pblock">
+				Psychologists Edward Deci and Richard Ryan proposed that
+				motivation isn't just "on or off" but fueled by three core
+				psychological needs. When these needs are met, intrinsic
+				motivation naturally grows. When they're blocked, we fall back
+				on extrinsic drivers just to keep going.
+			</p>
+		</PsyDiv>
 	</div>
 </Section>
 
 <style lang="scss">
 	@use "@styles/modules/layouts";
 
-	.section-psychology {
-		&-content {
-			@extend %grid-content;
-		}
+	.section-psychology-heading,
+	.section-psychology-content {
+		@extend %grid-content;
+	}
+
+	.sdt-pblock {
+		border-inline-start: 0.3em solid darkorange;
+		border-top-right-radius: var(--global-border-radius);
+		border-bottom-right-radius: var(--global-border-radius);
+		background-color: var(--global-app-background-color-light1);
+
+		padding: 1em 1.2em;
 	}
 </style>
