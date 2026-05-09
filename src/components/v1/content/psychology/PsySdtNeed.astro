@@ -1,0 +1,39 @@
+---
+interface Props {
+	label: string
+	desc: string
+}
+
+const { label, desc } = Astro.props
+---
+
+<div class="sdt-need">
+	<p class="sdt-need__label">{label}</p>
+	<p class="sdt-need__desc">{desc}</p>
+</div>
+
+<style lang="scss">
+	@use "@styles/base";
+
+	.sdt-need {
+		padding: 1em;
+		border: 1px solid hsla(0, 0%, 60%, 0.2);
+		border-radius: var(--global-border-radius);
+		background-color: var(--global-app-background-color-light1);
+
+		& > * + * {
+			margin-block-start: 0.6em;
+		}
+
+		&__label {
+			@extend .text-serif;
+
+			font-size: 1.4em;
+			font-weight: 900;
+		}
+
+		&__desc {
+			text-wrap: pretty;
+		}
+	}
+</style>

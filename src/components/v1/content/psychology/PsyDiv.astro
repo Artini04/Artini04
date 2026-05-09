@@ -23,7 +23,7 @@ const { label, desc } = Astro.props
 	@use "@styles/base";
 
 	.content-div {
-		padding: 1.4em 0;
+		padding: 2em 0;
 
 		& > * + * {
 			margin-block-start: 1em;
@@ -40,6 +40,12 @@ const { label, desc } = Astro.props
 			text-transform: capitalize;
 
 			font-size: 2em;
+		}
+	}
+
+	.content-div-content {
+		:global(> * + *) {
+			margin-block-start: 1em;
 		}
 	}
 </style>

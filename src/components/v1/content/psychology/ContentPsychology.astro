@@ -2,6 +2,7 @@
 import Section from "@components/v1/section/Section.astro"
 import PsyLogs from "./PsyLogs.astro"
 import PsyDiv from "./PsyDiv.astro"
+import PsySdtNeed from "./PsySdtNeed.astro"
 ---
 
 <Section id="section-psychology" class="section-psychology">
@@ -20,16 +21,29 @@ import PsyDiv from "./PsyDiv.astro"
 			<PsyLogs />
 		</PsyDiv>
 
-		<PsyDiv
-			label="Self-Determination Theory"
-			desc=`"The term self-determination refers to a person\'s own ability to manage themselves, to make confident chouses, and to think on their own."`>
+		<PsyDiv label="Self-Determination Theory">
 			<p class="sdt-pblock">
 				Psychologists Edward Deci and Richard Ryan proposed that
-				motivation isn't just "on or off" but fueled by three core
-				psychological needs. When these needs are met, intrinsic
-				motivation naturally grows. When they're blocked, we fall back
-				on extrinsic drivers just to keep going.
+				motivation is fueled by three core psychological needs. When
+				these needs are met, intrinsic motivation naturally grows. When
+				they're blocked, we fall back on extrinsic drivers just to keep
+				going.
 			</p>
+
+			<div class="sdt-needs">
+				<PsySdtNeed
+					label="Autonomy"
+					desc="The feeling that you're acting by your own choice, not because you're forced to."
+				/>
+				<PsySdtNeed
+					label="Competence"
+					desc="The feeling that you're capable of producing desired outcomes and developing mastery."
+				/>
+				<PsySdtNeed
+					label="Relatedness"
+					desc="The feeling connection to people, ideas, or your own sense of identity and purpose. "
+				/>
+			</div>
 		</PsyDiv>
 	</div>
 </Section>
@@ -49,5 +63,11 @@ import PsyDiv from "./PsyDiv.astro"
 		background-color: var(--global-app-background-color-light1);
 
 		padding: 1em 1.2em;
+	}
+
+	.sdt-needs {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 1em;
 	}
 </style>
