@@ -3,6 +3,10 @@ import Section from "@components/v1/section/Section.astro"
 import PsyLogs from "./PsyLogs.astro"
 import PsyDiv from "./PsyDiv.astro"
 import PsySdtNeed from "./PsySdtNeed.astro"
+
+// Terms
+import Terms from "./terms/Terms.astro"
+import TermItem from "./terms/TermItem.astro"
 ---
 
 <Section id="section-psychology" class="section-psychology">
@@ -18,6 +22,31 @@ import PsySdtNeed from "./PsySdtNeed.astro"
 	</div>
 
 	<div class="section-psychology-content">
+		<PsyDiv label="What I'm looking for">
+			<p>
+				To find out, I kept a simple log for two weeks. Everytime I did
+				something, I wrote it down and tagged it based on what was
+				driving me.
+			</p>
+
+			<Terms>
+				<TermItem cat="What I tracked" p="aiowdhaowdwadh" />
+				<TermItem
+					cat="How I categorized"
+					p="Tagged each entry as intrinsic or extrinsic."
+				/>
+				<TermItem
+					cat="My hypothesis"
+					p="I expected most of my entries to be extrinsic."
+				/>
+				<TermItem
+					cat="Why this matters"
+					p="Self-Determination Theory argues that when all three
+						needs are met, intrinsic motivation naturally flows."
+				/>
+			</Terms>
+		</PsyDiv>
+
 		<PsyDiv
 			label="From April 10 to April 26"
 			desc="Each entry records what I did and the tag reflects which motivation type I felt was driving it at that moment.">
@@ -47,6 +76,10 @@ import PsySdtNeed from "./PsySdtNeed.astro"
 					desc="The feeling of connection to people, ideas, or your own sense of identity and purpose. "
 				/>
 			</div>
+		</PsyDiv>
+
+		<PsyDiv label="What I Found">
+			<p>I assumed most of my motivation would be extrinsic.</p>
 		</PsyDiv>
 	</div>
 </Section>
