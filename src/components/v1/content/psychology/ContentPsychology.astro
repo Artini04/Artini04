@@ -6,12 +6,15 @@ import PsySdtNeed from "./PsySdtNeed.astro"
 ---
 
 <Section id="section-psychology" class="section-psychology">
-	<div class="section-psychology-heading">
-		<h2 class="text-serif">Motivation</h2>
-		<p>
-			A 2-week personal log examining what actually drives my behavior
-			most of the time, and what Self-Determination Theory says about it.
-		</p>
+	<div class="section-psychology-top">
+		<div class="section-psychology-top-title">
+			<h2 class="section-psychology-top-title__h2">Motivation</h2>
+			<p class="section-psychology-top-title__p">
+				A 2-week personal log examining what actually drives my behavior
+				most of the time, and what Self-Determination Theory says about
+				it.
+			</p>
+		</div>
 	</div>
 
 	<div class="section-psychology-content">
@@ -41,7 +44,7 @@ import PsySdtNeed from "./PsySdtNeed.astro"
 				/>
 				<PsySdtNeed
 					label="Relatedness"
-					desc="The feeling connection to people, ideas, or your own sense of identity and purpose. "
+					desc="The feeling of connection to people, ideas, or your own sense of identity and purpose. "
 				/>
 			</div>
 		</PsyDiv>
@@ -50,24 +53,58 @@ import PsySdtNeed from "./PsySdtNeed.astro"
 
 <style lang="scss">
 	@use "@styles/modules/layouts";
+	@use "@styles/base";
 
-	.section-psychology-heading,
+	.section-psychology-top {
+		@extend %grid-full;
+
+		display: grid;
+		grid-template-areas: "stack";
+
+		@container (width > 600px) {
+			min-height: 50svh;
+		}
+	}
+
+	.section-psychology-top-title {
+		grid-area: stack;
+		place-self: flex-end center;
+		margin-block-end: 10svh;
+
+		display: flex;
+		flex-flow: column nowrap;
+		gap: 1ch;
+
+		width: min(800px, 100%);
+
+		&__h2 {
+			@extend .text-serif;
+
+			font-size: clamp(3em, 5vw, 4em);
+		}
+	}
+
 	.section-psychology-content {
 		@extend %grid-content;
 	}
 
-	.sdt-pblock {
-		border-inline-start: 0.3em solid darkorange;
-		border-top-right-radius: var(--global-border-radius);
-		border-bottom-right-radius: var(--global-border-radius);
-		background-color: var(--global-app-background-color-light1);
+	//.sdt-pblock {
+	//	border-inline-start: 0.3em solid darkorange;
+	//	border-top-right-radius: var(--global-border-radius);
+	//	border-bottom-right-radius: var(--global-border-radius);
+	//	background-color: var(--global-app-background-color-light1);
 
-		padding: 1em 1.2em;
-	}
+	//	padding: 1em 1.2em;
+	//}
 
 	.sdt-needs {
+		--grid-item-min-size: min(250px, 100%);
+
 		display: grid;
-		grid-template-columns: repeat(3, 1fr);
+		grid-template-columns: repeat(
+			auto-fit,
+			minmax(var(--grid-item-min-size), 1fr)
+		);
 		gap: 1em;
 	}
 </style>
