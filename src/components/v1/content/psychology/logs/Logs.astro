@@ -1,0 +1,29 @@
+---
+import PSYLOG from "@data/psyche-logs.json"
+import LogItem from "./LogItem.astro"
+---
+
+<div class="psy-log-grid">
+	{
+		PSYLOG.map((log) => (
+			<LogItem
+				date={log.date}
+				log={log.log}
+				log2={log.log2}
+				type={log.type}
+			/>
+		))
+	}
+</div>
+
+<style lang="scss">
+	.psy-log-grid {
+		display: flex;
+		flex-flow: column nowrap;
+		//gap: 0.5em;
+
+		:global(> * + *) {
+			border-block-start: 1px solid hsl(0, 0%, 60%, 0.2);
+		}
+	}
+</style>

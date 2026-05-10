@@ -1,0 +1,70 @@
+---
+import { unixToReadable } from "src/utils/class"
+
+interface Props {
+	date: number
+	log: string
+	log2: string
+	type: string
+}
+
+const { date, log, log2, type } = Astro.props
+---
+
+<div class="psy-log">
+	<p class="psy-log__date">{unixToReadable(date)}</p>
+	<div class="psy-log__log-div">
+		<p class="psy-log__log">{log}</p>
+		<p class="psy-log__log-2">{log2}</p>
+	</div>
+	<p class="psy-log__type" data-type={type.toLowerCase()}>
+		{type}
+	</p>
+</div>
+
+<style lang="scss">
+	.psy-log {
+		display: grid;
+		grid-template-columns: 0.5fr 4fr 0.5fr;
+		gap: 1em;
+
+		padding: 1em 0;
+		//width: min(700px, 100%);
+		//margin-inline: auto;
+
+		&__date {
+			opacity: 0.4;
+			margin-block-start: 0.2em;
+
+			font-family: "EB Garamond";
+		}
+
+		&__log-2 {
+			&::before {
+				content: "-";
+				margin-inline-end: 1ch;
+			}
+		}
+
+		&__type {
+			place-self: center stretch;
+
+			border-radius: 50px;
+
+			font-size: 0.8em;
+			text-align: center;
+			padding: 0.4em 0.4em 0.15em;
+
+			color: var(--log-base-color);
+			background-color: hsl(from var(--log-base-color) h s l / 0.2);
+
+			&[data-type="extrinsic"] {
+				--log-base-color: hsl(207, 68%, 67%);
+			}
+
+			&[data-type="intrinsic"] {
+				--log-base-color: hsl(92, 64%, 50%);
+			}
+		}
+	}
+</style>
