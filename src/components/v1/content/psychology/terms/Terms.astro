@@ -1,0 +1,17 @@
+<div class="sdt-terms">
+	<slot />
+</div>
+
+<style lang="scss">
+	.sdt-terms {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: 1px;
+
+		border: var(--global-border);
+		border-radius: var(--global-border-radius--large);
+		background-color: var(--global-app-background-color-light1);
+
+		overflow: hidden;
+	}
+</style>

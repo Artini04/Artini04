@@ -1,19 +1,61 @@
 ---
+import Image from "astro/components/Image.astro"
+
 import Section from "@components/v1/section/Section.astro"
-import PsyLogs from "./PsyLogs.astro"
 import PsyDiv from "./PsyDiv.astro"
 import PsySdtNeed from "./PsySdtNeed.astro"
+
+// Terms
+import Terms from "./terms/Terms.astro"
+import TermItem from "./terms/TermItem.astro"
+
+// Logs
+import Logs from "./logs/Logs.astro"
 ---
 
 <Section id="section-psychology" class="section-psychology">
+	<div class="section-psychology-cover">
+		<Image
+			class="section-psychology-cover__img"
+			src="/Artini04/photos/background/background-1.webp"
+			alt="Psychology cover"
+			width={1920}
+			height={1080}
+		/>
+		<div class="section-psychology-cover__overlay"></div>
+	</div>
+
 	<div class="section-psychology-top">
-		<div class="section-psychology-top-title">
-			<h2 class="section-psychology-top-title__h2">Motivation</h2>
-			<p class="section-psychology-top-title__p">
+		<h2 class="section-psychology-top__h2">Motivation</h2>
+
+		<div class="section-psychology-top-div">
+			<p class="section-psychology-top__p">
 				A 2-week personal log examining what actually drives my behavior
 				most of the time, and what Self-Determination Theory says about
-				it.
+				it. To find out, I kept a simple log for two weeks. Everytime I
+				did something, I wrote it down and tagged it based on what was
+				driving me.
 			</p>
+
+			<Terms>
+				<TermItem
+					cat="What I tracked"
+					p="Random actions I took whenever I feel motivated."
+				/>
+				<TermItem
+					cat="How I categorized"
+					p="Tagged each entry as intrinsic or extrinsic."
+				/>
+				<TermItem
+					cat="My hypothesis"
+					p="I expected most of my entries to be extrinsic."
+				/>
+				<TermItem
+					cat="Why this matters"
+					p="Self-Determination Theory argues that when all three
+						needs are met, intrinsic motivation naturally flows."
+				/>
+			</Terms>
 		</div>
 	</div>
 
@@ -21,7 +63,7 @@ import PsySdtNeed from "./PsySdtNeed.astro"
 		<PsyDiv
 			label="From April 10 to April 26"
 			desc="Each entry records what I did and the tag reflects which motivation type I felt was driving it at that moment.">
-			<PsyLogs />
+			<Logs />
 		</PsyDiv>
 
 		<PsyDiv label="Self-Determination Theory">
@@ -48,6 +90,17 @@ import PsySdtNeed from "./PsySdtNeed.astro"
 				/>
 			</div>
 		</PsyDiv>
+
+		<PsyDiv label="What I Found">
+			<p>
+				SDT doesn't say extrinsic motivation is a failure, it says
+				extrinsic motivation is what happens when those three needs
+				aren't engaged. Most of my daily student life doesn't engage
+				them. That's not a personal flaw; it's just what structured
+				environments tend to produce. Hopefully, in the future, I find a
+				way to turn extrinsic motivation to intrinsic.
+			</p>
+		</PsyDiv>
 	</div>
 </Section>
 
@@ -55,47 +108,77 @@ import PsySdtNeed from "./PsySdtNeed.astro"
 	@use "@styles/modules/layouts";
 	@use "@styles/base";
 
-	.section-psychology-top {
+	.section-psychology-cover {
 		@extend %grid-full;
+		position: relative;
+		isolation: isolate;
+		overflow: hidden;
 
-		display: grid;
-		grid-template-areas: "stack";
+		grid-row: 1;
 
-		@container (width > 600px) {
-			min-height: 50svh;
+		&__img {
+			max-height: 80svh;
+
+			object-fit: cover;
+		}
+
+		&__overlay {
+			position: absolute;
+			inset: 0;
+
+			background: linear-gradient(
+				to bottom,
+				hsla(0, 0%, 10%, 0.6) 0%,
+				hsla(0, 0%, 10%, 1) 100%
+			);
 		}
 	}
 
-	.section-psychology-top-title {
-		grid-area: stack;
-		place-self: flex-end center;
-		margin-block-end: 10svh;
+	.section-psychology-top {
+		@extend %grid-content;
+		position: relative;
+		grid-row: 1;
 
-		display: flex;
-		flex-flow: column nowrap;
-		gap: 1ch;
+		display: grid;
+		place-content: flex-end flex-start;
 
-		width: min(800px, 100%);
+		&-div {
+			display: flex;
+			gap: 1em;
+		}
+
+		@container (width <= 600px) {
+			&-div {
+				flex-flow: column nowrap;
+			}
+		}
+
+		@container (width > 600px) {
+			$terms-size: 60%;
+			$p-size: calc(100% - $terms-size);
+
+			&-div {
+				flex-flow: row nowrap;
+			}
+
+			:global(.sdt-terms) {
+				flex: 1 1 $terms-size;
+			}
+
+			&__p {
+				flex: 1 1 $p-size;
+			}
+		}
 
 		&__h2 {
 			@extend .text-serif;
-
-			font-size: clamp(3em, 5vw, 4em);
+			font-size: clamp(4em, 5vw, 5em);
 		}
 	}
 
 	.section-psychology-content {
 		@extend %grid-content;
 	}
-
-	//.sdt-pblock {
-	//	border-inline-start: 0.3em solid darkorange;
-	//	border-top-right-radius: var(--global-border-radius);
-	//	border-bottom-right-radius: var(--global-border-radius);
-	//	background-color: var(--global-app-background-color-light1);
-
-	//	padding: 1em 1.2em;
-	//}
 
 	.sdt-needs {
 		--grid-item-min-size: min(250px, 100%);
