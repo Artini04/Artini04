@@ -13,6 +13,9 @@
 			],
 			"@data/*": [
 				"./src/data/*"
+			],
+			"@utils/*": [
+				"./src/utils/*"
 			]
 		}
 	}

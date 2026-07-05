@@ -9,13 +9,7 @@ interface Props {
 	date?: string
 }
 
-const {
-	src,
-	alt = "No alt given.",
-	location = "",
-	caption = "",
-	date = "",
-} = Astro.props
+const { src, alt = "No alt given.", location = "", caption = "" } = Astro.props
 const hasDesc = caption || location ? true : false
 ---
 
