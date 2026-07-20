@@ -3,22 +3,84 @@ import Section from "@components/v1/section/Section.astro"
 ---
 
 <Section class="random">
-	<div class="random-wrapper"></div>
+	<div class="random-wrapper">
+		<canvas id="matrix-canvas" class="matrix-canvas"></canvas>
+	</div>
 </Section>
+
+<script>
+	// Matrix animation using canvas
+	const canvas = document.querySelector("#matrix-canvas") as HTMLCanvasElement
+	if (!canvas) throw new Error("Matrix canvas not found")
+	const ctx = canvas.getContext("2d")!
+
+	const canvasParent = canvas.parentElement as HTMLDivElement
+	const { clientWidth: cw, clientHeight: ch } = canvasParent
+
+	// Set canvas size to fill the wrapper
+	function resize() {
+		canvas.width = cw
+		canvas.height = ch
+	}
+
+	resize()
+
+	window.addEventListener("resize", resize)
+
+	// Characters: Latin letters and numbers + a range of CJK symbols
+	const latin =
+		"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"
+	const cjk =
+		"安美花子김수현사랑해요東京한강사쿠라愛してる감사합니다桜花雨눈꽃사랑영원히一緒に幸せで" // sample CJK characters
+	const chars = (latin + cjk).split("")
+
+	const fontSize = 16
+	const columns = Math.floor(canvas.width / fontSize)
+	const drops = Array(columns).fill(0)
+
+	function draw() {
+		// Fade background to create trailing effect
+		ctx.fillStyle = "hsla(0, 0%, 0%, 0.05)"
+		ctx.fillRect(0, 0, canvas.width, canvas.height)
+
+		ctx.fillStyle = "#0F0" // green characters
+		ctx.font = `${fontSize}px monospace`
+
+		for (let i = 0; i < drops.length; i++) {
+			const text = chars[Math.floor(Math.random() * chars.length)]
+			const x = i * fontSize
+			const y = drops[i] * fontSize
+			ctx.fillText(text, x, y)
+
+			// Reset drop
+			if (y > canvas.height && Math.random() > 0.975) {
+				drops[i] = 0
+			}
+			drops[i]++
+		}
+	}
+
+	setInterval(draw, 50)
+</script>
 
 <style lang="scss">
 	@use "@styles/modules/layouts";
 
 	.random {
-		&-wrapper {
-			@extend %grid-content;
-		}
-
-		&__img {
+		.matrix-canvas {
+			position: absolute;
+			inset: 0;
 			width: 100%;
 			height: 100%;
-
-			object-fit: cover;
+			display: block;
 		}
+	}
+
+	.random-wrapper {
+		position: relative;
+		overflow: hidden;
+		@extend %grid-full;
+
+		min-height: 90svh;
 	}
 </style>
