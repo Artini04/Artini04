@@ -13,9 +13,15 @@ import PHOTOS from "@data/photos.json"
 		</div>
 
 		<div class="section-photos-gear">
-			<p>Canon EOS Rebel T7</p>
-			<p>Canon EF-s 55-250mm f/4-5.6 IS STM</p>
-			<p>Rawtherapee / ART, Upscayl</p>
+			<p data-icon="📷">Canon EOS Rebel T7</p>
+			<p data-icon="📷">Canon EF-s 55-250mm f/4-5.6 IS STM</p>
+			<p data-icon="📦">Rawtherapee / ART, Upscayl</p>
+		</div>
+
+		<div class="section-photos-info">
+			<p class="section-photos-info--info" data-icon="🎏">
+				Will change to higher quality images...
+			</p>
 		</div>
 	</div>
 
@@ -45,7 +51,7 @@ import PHOTOS from "@data/photos.json"
 </Section>
 
 <script>
-	import { PhotoEventDetail } from "@utils/types/photoView"
+	import type { PhotoEventDetail } from "@utils/types/photoView"
 
 	const modal = document.getElementById("photo-modal")! as HTMLDivElement
 	const modalImg = modal.querySelector(
@@ -53,8 +59,7 @@ import PHOTOS from "@data/photos.json"
 	) as HTMLImageElement
 
 	document.addEventListener("photo-view", (e) => {
-		const { src, alt, caption, location } = (e as CustomEvent)
-			.detail as PhotoEventDetail
+		const { src, alt } = (e as CustomEvent).detail as PhotoEventDetail
 
 		modalImg.src = src
 		modalImg.alt = alt
@@ -108,9 +113,11 @@ import PHOTOS from "@data/photos.json"
 			display: flex;
 			flex-flow: row wrap;
 			gap: 0 1.4em;
-			& > *::before {
-				content: "\2299";
-				margin-inline-end: 0.4em;
+
+			& p::before {
+				//content: "\2299";
+				content: attr(data-icon);
+				margin-inline-end: 1ch;
 			}
 		}
 
@@ -123,13 +130,22 @@ import PHOTOS from "@data/photos.json"
 		}
 	}
 
+	.section-photos-info {
+		color: hsl(0, 0%, 50%);
+
+		&--info::before {
+			content: attr(data-icon);
+			margin-inline-end: 1ch;
+		}
+	}
+
 	.section-photos-modal {
 		position: fixed;
 		inset: 0;
 		z-index: 100;
 
 		height: 100svh;
-		padding: 2rem;
+		padding: 4rem;
 		backdrop-filter: blur(5px);
 		transition: opacity ease-in-out 150ms;
 
