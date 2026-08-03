@@ -7,13 +7,21 @@ interface Props {
 	location?: string
 	caption?: string
 	date?: string
+	id: number
 }
 
-const { src, alt = "No alt given.", location = "", caption = "" } = Astro.props
-const hasDesc = caption || location ? true : false
+const {
+	src,
+	alt = "No alt given.",
+	location = "",
+	caption = "",
+	date = "",
+	id,
+} = Astro.props
+const hasDesc = caption || location || date ? true : false
 ---
 
-<div class="photo">
+<div class="photo" data-id={id}>
 	<div class="photo-cover">
 		<Image
 			class="photo__img"
@@ -35,6 +43,11 @@ const hasDesc = caption || location ? true : false
 						{location}
 					</p>
 				)}
+				{date && (
+					<p class="photo__date" data-icon="📅">
+						{date}
+					</p>
+				)}
 			</div>
 		)
 	}
@@ -48,28 +61,26 @@ const hasDesc = caption || location ? true : false
 
 		display: grid;
 		grid-template-areas: "stack";
+		cursor: pointer;
+		user-select: none;
 
 		&-cover,
 		&-content {
 			grid-area: stack;
 			position: relative;
 			isolation: isolate;
-
-			user-select: none;
 		}
 
 		&-content {
 			display: flex;
 			flex-flow: column nowrap;
 			place-content: flex-end;
-
 			padding: 1em;
 		}
 
 		&__img {
 			width: 100%;
 			height: 100%;
-
 			max-height: 250px;
 			object-fit: cover;
 
@@ -82,7 +93,6 @@ const hasDesc = caption || location ? true : false
 			position: absolute;
 			inset: 0;
 			z-index: -1;
-
 			background: linear-gradient(
 				to bottom,
 				hsl(0, 0%, 10%, 0) 60%,
@@ -105,3 +115,30 @@ const hasDesc = caption || location ? true : false
 		}
 	}
 </style>
+
+<script>
+	document.addEventListener("click", (e) => {
+		const target = e.target as Element
+		const photo = target.closest(".photo") as HTMLDivElement | null
+		if (!photo) return
+
+		const img = photo.querySelector("img") as HTMLImageElement
+		const captionEl = photo.querySelector(".photo__caption") as HTMLElement
+		const locationEl = photo.querySelector(
+			".photo__location",
+		) as HTMLElement
+		const dateEl = photo.querySelector(".photo__date") as HTMLElement
+
+		const event = new CustomEvent("photo-view", {
+			bubbles: true,
+			detail: {
+				src: img.src,
+				alt: img.alt,
+				caption: captionEl?.textContent || "",
+				location: locationEl?.textContent || "",
+			},
+		})
+
+		photo.dispatchEvent(event)
+	})
+</script>

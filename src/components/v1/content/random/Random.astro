@@ -2,9 +2,9 @@
 import Section from "@components/v1/section/Section.astro"
 ---
 
-<Section class="random">
-	<div class="random-wrapper">
-		<canvas id="matrix-canvas" class="matrix-canvas"></canvas>
+<Section class="section-random">
+	<div class="section-random-wrapper">
+		<canvas id="matrix-canvas" class="section-random-matrix"></canvas>
 	</div>
 </Section>
 
@@ -15,17 +15,24 @@ import Section from "@components/v1/section/Section.astro"
 	const ctx = canvas.getContext("2d")!
 
 	const canvasParent = canvas.parentElement as HTMLDivElement
-	const { clientWidth: cw, clientHeight: ch } = canvasParent
-
-	// Set canvas size to fill the wrapper
-	function resize() {
-		canvas.width = cw
-		canvas.height = ch
+	//const { clientWidth: cw, clientHeight: ch } = canvasParent
+	const { clientWidth: cw, clientHeight: ch } = {
+		clientWidth: 1920,
+		clientHeight: 1080,
 	}
 
-	resize()
+	canvas.width = cw
+	canvas.height = ch
 
-	window.addEventListener("resize", resize)
+	// Set canvas size to fill the wrapper
+	//function resize() {
+	//	canvas.width = cw
+	//	canvas.height = ch
+	//}
+
+	//resize()
+
+	//window.addEventListener("resize", resize)
 
 	// Characters: Latin letters and numbers + a range of CJK symbols
 	const latin =
@@ -66,21 +73,15 @@ import Section from "@components/v1/section/Section.astro"
 <style lang="scss">
 	@use "@styles/modules/layouts";
 
-	.random {
-		.matrix-canvas {
-			position: absolute;
-			inset: 0;
-			width: 100%;
-			height: 100%;
-			display: block;
-		}
+	.section-random {
 	}
 
-	.random-wrapper {
-		position: relative;
-		overflow: hidden;
+	.section-random-wrapper {
 		@extend %grid-full;
+	}
 
-		min-height: 90svh;
+	.section-random-matrix {
+		width: 100%;
+		height: 100svh;
 	}
 </style>
