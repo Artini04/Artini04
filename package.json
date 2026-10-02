@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
 	"name": "website",
 	"type": "module",
 	"version": "0.0.1",
@@ -24,4 +25,25 @@
 		"@iconify-json/skill-icons": "^1.2.4",
 		"@iconify-json/tabler": "^1.2.35"
 	}
+=======
+  "name": "artini04-rewrite",
+  "type": "module",
+  "version": "0.0.1",
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "astro": "^7.3.5",
+    "sass": "^1.105.1"
+  },
+  "allowScripts": {
+    "esbuild": true
+  }
+>>>>>>> f91095f (rebase init)
 }

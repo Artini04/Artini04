@@ -1,27 +1,11 @@
 ---
-import Default from "@layouts/Default.astro"
+import Welcome from '../components/Welcome.astro'
+import Layout from '../layouts/Layout.astro'
 
-import ContentAnchors from "@components/v1/content/anchors/ContentAnchors.astro"
-import Construction from "@components/v1/content/construction/Construction.astro"
-import ContentProjects from "@components/v1/content/projects/ContentProjects.astro"
-import ContentPhotos from "@components/v1/content/photos/ContentPhotos.astro"
-import ContentRandom from "@components/v1/content/random/Random.astro"
+// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
+// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
-<Default title="Home">
-	<main id="home">
-		<Construction />
-		<ContentAnchors />
-		<ContentProjects />
-		<ContentPhotos />
-		<ContentRandom />
-	</main>
-</Default>
-
-<style lang="scss" is:global>
-	#home {
-		& > * + * {
-			margin-block-start: 4em;
-		}
-	}
-</style>
+<Layout>
+	<h1>Hello!</h1>
+</Layout>
