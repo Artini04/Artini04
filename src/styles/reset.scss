@@ -20,6 +20,12 @@
 		line-height: 1.2;
 	}
 
+	header,
+	footer,
+	main {
+		container-type: inline-size;
+	}
+
 	h1,
 	h2,
 	h3,

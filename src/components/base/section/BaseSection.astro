@@ -1,0 +1,22 @@
+---
+interface Props {
+	id?: string
+	class?: string[]
+}
+
+const { id, class: className = [] } = Astro.props
+---
+
+<section
+	id={id}
+	class:list={['base-section', className]}>
+	<slot />
+</section>
+
+<style lang="scss">
+	@use '../../../styles/module/layouts';
+
+	.base-section {
+		@extend %grid;
+	}
+</style>

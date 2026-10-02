@@ -29,17 +29,23 @@ const { title = 'Index' } = Astro.props
 		/>
 		<title>{title ? `${title.toUpperCase()} // Artini04` : 'Page // Artini04'}</title>
 		<Font
-			cssVariable="--font-ibm-plex-mono"
+			cssVariable={'--font-ibm-plex-mono'}
+			preload
+		/>
+		<Font
+			cssVariable={'--font-ebihara'}
 			preload
 		/>
 	</head>
 
 	<body>
-		<slot />
+		<main id="app">
+			<slot />
+		</main>
 	</body>
 </html>
 
-<style lang="scss">
+<style lang="scss" is:global>
 	@use '../styles/reset.scss';
 	@use '../styles/global.scss';
 	@use '../styles/base.scss';

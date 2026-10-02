@@ -1,0 +1,27 @@
+---
+import BaseSection from '../../base/section/BaseSection.astro'
+---
+
+<BaseSection class={['content-hero']}>
+	<div class="hero-content">
+		<h1>Artini04</h1>
+		<div class="hero-label-list">
+			<p>Web Developer</p>
+			<p>日本語勉強</p>
+		</div>
+	</div>
+</BaseSection>
+
+<style lang="scss">
+	@use '../../../styles/module/layouts';
+
+	.hero-content {
+		@extend %grid-content;
+	}
+
+	.hero-label-list {
+		display: flex;
+		flex-flow: row wrap;
+		gap: 0 1ch;
+	}
+</style>
