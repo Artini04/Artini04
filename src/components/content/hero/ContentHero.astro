@@ -2,8 +2,10 @@
 import BaseSection from '../../base/section/BaseSection.astro'
 ---
 
-<BaseSection class={['content-hero']}>
-	<div class="hero-content">
+<BaseSection
+	id="section-hero"
+	class={['content-hero']}>
+	<div class="content-hero-display">
 		<h1>Artini04</h1>
 		<div class="hero-label-list">
 			<p>Web Developer</p>
@@ -12,10 +14,10 @@ import BaseSection from '../../base/section/BaseSection.astro'
 	</div>
 </BaseSection>
 
-<style lang="scss">
+<style lang="scss" is:global>
 	@use '../../../styles/module/layouts';
 
-	.hero-content {
+	.content-hero-display {
 		@extend %grid-content;
 	}
 

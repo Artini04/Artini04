@@ -13,10 +13,21 @@ const { id, class: className = [] } = Astro.props
 	<slot />
 </section>
 
-<style lang="scss">
+<style lang="scss" is:global>
 	@use '../../../styles/module/layouts';
+
+	.base-section + .base-section {
+		margin-block-start: 3rem;
+	}
 
 	.base-section {
 		@extend %grid;
+
+		& div[class*='heading-title'] {
+			display: flex;
+			flex-flow: row wrap;
+			place-items: flex-end;
+			gap: 0 1ch;
+		}
 	}
 </style>

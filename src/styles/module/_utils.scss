@@ -1,0 +1,24 @@
+@use 'sass:string';
+
+@mixin use-transition($property, $duration: 200ms, $easing: ease-out) {
+	& {
+		transition-property: string.unquote($property);
+		transition-duration: #{$duration};
+		transition-timing-function: #{$easing};
+		@content;
+	}
+}
+
+@mixin on-hover($hold: false) {
+	@media (hover: hover) {
+		&:is(:hover) {
+			@content;
+		}
+	}
+
+	@if $hold {
+		@media (hover: none) {
+			@content;
+		}
+	}
+}

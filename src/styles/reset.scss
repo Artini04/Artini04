@@ -33,4 +33,17 @@
 		text-align: balance;
 		line-height: 1.5;
 	}
+
+	img,
+	video,
+	picture {
+		vertical-align: middle;
+	}
+
+	*[data-icon] {
+		&::before {
+			content: attr(data-icon);
+			margin-inline-end: 0.5ch;
+		}
+	}
 }

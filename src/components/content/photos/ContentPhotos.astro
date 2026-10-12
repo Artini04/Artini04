@@ -1,0 +1,117 @@
+---
+import BaseSection from '../../base/section/BaseSection.astro'
+
+import PHOTOS from '@data/photos.json'
+import Photo from './Photo.astro'
+---
+
+<BaseSection
+	id="section-photos"
+	class={['content-photos']}>
+	<div class="content-photos-heading">
+		<div class="content-photos-heading-title">
+			<h2 class="font-jp">写真</h2>
+			<h3>Photography</h3>
+		</div>
+	</div>
+
+	<div class="content-photos-info">
+		<div class="content-photos-gears">
+			<p data-icon="📷">Canon EOS Rebel T7</p>
+			<p data-icon="📷">Canon EF-s 55-250mm f/4-5.6 IS STM</p>
+			<p data-icon="📦">Rawtherapee / ART, Upscayl</p>
+		</div>
+
+		<div class="content-photos-additional">
+			<p
+				class="content-photos-info__additional"
+				data-icon="🎏">
+				Will add more images in the future...
+			</p>
+		</div>
+	</div>
+
+	<div class="content-photos-content">
+		<div class="content-photos-gallery">
+			{
+				PHOTOS.map((photo, index) => (
+					<Photo
+						id={index}
+						src={photo.src}
+						alt={photo.alt}
+						caption={photo.caption}
+						location={photo.location}
+						date={photo.date}
+					/>
+				))
+			}
+
+			<div class="photo__filler"></div>
+		</div>
+	</div>
+</BaseSection>
+
+<style lang="scss" is:global>
+	//.content-photos-gallery {
+	//	$column-gap: 0.6rem;
+
+	//	columns: 3;
+	//	column-gap: $column-gap;
+
+	//	& .photo + .photo {
+	//		margin-block-start: $column-gap;
+	//	}
+	//}
+
+	.content-photos-gallery {
+		$grid-item-size: min(250px, 100%);
+
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(#{$grid-item-size}, 1fr));
+		gap: 0.6rem;
+
+		& .photo {
+			flex-flow: 1 1 auto;
+		}
+
+		& .photo__filler {
+			flex: 99 1 auto;
+
+			@container (width <= 600px) {
+				display: none;
+			}
+		}
+	}
+</style>
+
+<style lang="scss">
+	@use '../../../styles/module/layouts';
+
+	.content-photos-heading {
+		@extend %grid-content;
+	}
+
+	.content-photos-info {
+		@extend %grid-content;
+
+		& div + div {
+			margin-block-start: 1rem;
+		}
+
+		&__additional {
+			$font-color: hsl(161, 100%, 87%);
+
+			padding: 0.5rem;
+			font-size: 0.8em;
+			color: $font-color;
+			background: oklch(from #{$font-color} calc(l - 0.7) c h);
+
+			border: 1px solid oklch(from #{$font-color} calc(l - 0.55) c h);
+			border-radius: var(--comp-border-radius);
+		}
+	}
+
+	.content-photos-content {
+		@extend %grid-break;
+	}
+</style>
