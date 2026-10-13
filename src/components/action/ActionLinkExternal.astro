@@ -1,0 +1,15 @@
+---
+interface Props {
+	link: string
+	label: string
+}
+
+const { link, label } = Astro.props
+---
+
+<a
+	class:list={['action-link-external']}
+	href={link}
+	target="_blank">
+	<span>{label}</span>
+</a>

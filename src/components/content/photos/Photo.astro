@@ -29,7 +29,7 @@ const hasDescription = Boolean(caption || location || date)
 	</div>
 	{
 		hasDescription && (
-			<div class="photo-info">
+			<div class="photo-info | font-shippori">
 				<div class="photo__overlay" />
 
 				{caption && <p class="photo-info__caption">{caption}</p>}
@@ -63,10 +63,6 @@ const hasDescription = Boolean(caption || location || date)
 		grid-template-areas: 'stack';
 		user-select: none;
 
-		&-media {
-			aspect-ratio: 1;
-		}
-
 		&-media,
 		&-info {
 			grid-area: stack;
@@ -78,8 +74,12 @@ const hasDescription = Boolean(caption || location || date)
 			display: flex;
 			flex-flow: column nowrap;
 			place-content: flex-end;
-			gap: 0.5rem 0;
+			gap: 0.2rem 0;
 			padding: 1rem;
+
+			& p {
+				text-shadow: 1px 1px hsl(0 0% 5% / 0.4);
+			}
 
 			&__caption {
 				font-weight: bold;
@@ -106,7 +106,7 @@ const hasDescription = Boolean(caption || location || date)
 			inset: 0;
 			z-index: -1;
 
-			background: linear-gradient(to bottom, hsl(0 0% 5% / 0) 60%, hsl(0 0% 5% / 0.8) 95%);
+			background: linear-gradient(to top, hsl(0 0% 5% / 0.8) 5%, hsl(0 0% 5% / 0) 40%);
 		}
 	}
 </style>

@@ -26,7 +26,7 @@ import Photo from './Photo.astro'
 			<p
 				class="content-photos-info__additional"
 				data-icon="🎏">
-				Will add more images in the future...
+				Will add more in the future!
 			</p>
 		</div>
 	</div>
@@ -45,41 +45,20 @@ import Photo from './Photo.astro'
 					/>
 				))
 			}
-
-			<div class="photo__filler"></div>
 		</div>
 	</div>
 </BaseSection>
 
 <style lang="scss" is:global>
-	//.content-photos-gallery {
-	//	$column-gap: 0.6rem;
-
-	//	columns: 3;
-	//	column-gap: $column-gap;
-
-	//	& .photo + .photo {
-	//		margin-block-start: $column-gap;
-	//	}
-	//}
-
 	.content-photos-gallery {
-		$grid-item-size: min(250px, 100%);
+		$column-gap: 0.6rem;
 
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(#{$grid-item-size}, 1fr));
-		gap: 0.6rem;
+		//columns: 20cqi auto;
+		column-width: 30ch;
+		column-gap: $column-gap;
 
-		& .photo {
-			flex-flow: 1 1 auto;
-		}
-
-		& .photo__filler {
-			flex: 99 1 auto;
-
-			@container (width <= 600px) {
-				display: none;
-			}
+		& .photo + .photo {
+			margin-block-start: $column-gap;
 		}
 	}
 </style>

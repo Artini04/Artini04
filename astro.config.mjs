@@ -19,5 +19,6 @@ export default defineConfig({
 			fallbacks: ['sans-serif'],
 			options: { variants: [{ src: ['./src/assets/fonts/EbiharaNoKuseji.ttf'] }] },
 		},
+		{ provider: fontProviders.google(), name: 'M PLUS 2', cssVariable: '--font-mplus', fallbacks: ['sans-serif'] },
 	],
 })

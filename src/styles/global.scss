@@ -2,12 +2,12 @@
 	:root {
 		--global-app-background-color: hsl(0 0% 10%);
 		--global-app-font-color: hsl(0 0% 95%);
-		--global-app-font-color--muted: hsl(0 0% 95%);
+		--global-app-font-color--muted: hsl(0 0% 40%);
 	}
 
 	// Component Accents
 	:root {
-		--comp-border-color: hsl(0 0% 60% / 0.1);
+		--comp-border-color: hsl(0 0% 60% / 0.2);
 		--comp-border: 1px solid var(--comp-border-color);
 		--comp-border-radius: 5px;
 	}

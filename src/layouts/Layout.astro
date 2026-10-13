@@ -1,6 +1,6 @@
 ---
 import { Font } from 'astro:assets'
-import AppHeader from '../components/app/AppHeader.astro'
+import AppFooter from '../components/app/AppFooter.astro'
 
 const FAVICON = '/Artini04/favicon-180x180.ico'
 
@@ -12,7 +12,7 @@ const { title = 'Index' } = Astro.props
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="ja">
 	<head>
 		<meta charset="utf-8" />
 		<meta
@@ -36,12 +36,17 @@ const { title = 'Index' } = Astro.props
 			cssVariable={'--font-ebihara'}
 			preload
 		/>
+		<Font
+			cssVariable={'--font-mplus'}
+			preload
+		/>
 	</head>
 
 	<body>
 		<main id="app">
 			<slot />
 		</main>
+		<AppFooter />
 	</body>
 </html>
 
