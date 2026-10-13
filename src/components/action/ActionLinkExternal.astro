@@ -1,35 +1,15 @@
 ---
-import { Icon } from "astro-icon/components"
-
 interface Props {
-  // Properties
-  link: string
-  text: string
+	link: string
+	label: string
 }
 
-const { text, link } = Astro.props
+const { link, label } = Astro.props
 ---
 
 <a
-  class:list={["action-link-external"]}
-  href={link}
-  target="_blank"
-  rel="noopener noreferrer">
-  <span>{text}</span>
-  <Icon name="tabler:external-link" />
+	class:list={['action-link-external']}
+	href={link}
+	target="_blank">
+	<span>{label}</span>
 </a>
-
-<style lang="scss">
-  @use "@styles/modules/utilities" as util;
-
-  .action-link-external {
-    text-decoration: underline;
-    text-decoration-skip-ink: auto;
-    text-decoration-thickness: 1px;
-    text-underline-offset: 4px;
-
-    & [data-icon] {
-      margin-bottom: -0.1em;
-    }
-  }
-</style>

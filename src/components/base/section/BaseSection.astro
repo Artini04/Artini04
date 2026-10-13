@@ -1,0 +1,33 @@
+---
+interface Props {
+	id?: string
+	class?: string[]
+}
+
+const { id, class: className = [] } = Astro.props
+---
+
+<section
+	id={id}
+	class:list={['base-section', className]}>
+	<slot />
+</section>
+
+<style lang="scss" is:global>
+	@use '../../../styles/module/layouts';
+
+	.base-section + .base-section {
+		margin-block-start: 5rem;
+	}
+
+	.base-section {
+		@extend %grid;
+
+		& div[class*='heading-title'] {
+			display: flex;
+			flex-flow: row wrap;
+			place-items: flex-end;
+			gap: 0 1ch;
+		}
+	}
+</style>

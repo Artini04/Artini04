@@ -1,0 +1,57 @@
+---
+import { Font } from 'astro:assets'
+import AppFooter from '../components/app/AppFooter.astro'
+
+const FAVICON = '/Artini04/favicon-180x180.ico'
+
+interface Props {
+	title: string
+}
+
+const { title = 'Index' } = Astro.props
+---
+
+<!doctype html>
+<html lang="ja">
+	<head>
+		<meta charset="utf-8" />
+		<meta
+			name="viewport"
+			content="width=device-width"
+		/>
+		<link
+			rel="icon"
+			href={FAVICON}
+		/>
+		<meta
+			name="generator"
+			content={Astro.generator}
+		/>
+		<title>{title ? `${title.toUpperCase()} // Artini04` : 'Page // Artini04'}</title>
+		<Font
+			cssVariable={'--font-ibm-plex-mono'}
+			preload
+		/>
+		<Font
+			cssVariable={'--font-ebihara'}
+			preload
+		/>
+		<Font
+			cssVariable={'--font-mplus'}
+			preload
+		/>
+	</head>
+
+	<body>
+		<main id="app">
+			<slot />
+		</main>
+		<AppFooter />
+	</body>
+</html>
+
+<style lang="scss" is:global>
+	@use '../styles/reset.scss';
+	@use '../styles/global.scss';
+	@use '../styles/base.scss';
+</style>

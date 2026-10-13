@@ -1,59 +1,17 @@
-@use "./modules/utilities.scss" as util;
-@use "./modules/layouts";
-
-@import url(https://fonts.bunny.net/css?family=hina-mincho:400|ibm-plex-sans-jp:400|oxanium:400,600,800);
-
-@font-face {
-	font-family: "Ebihara No Kuseji";
-	src: url("/Artini04/fonts/EbiharaNoKuseji.ttf");
-	font-display: swap;
-}
-
 @layer base {
 	body {
-		background: var(--global-app-background-color);
+		font-family: var(--font-ibm-plex-mono);
+
+		background-color: var(--global-app-background-color);
 		color: var(--global-app-font-color);
-
-		font-family: "Oxanium", "IBM Plex Sans JP", sans-serif;
-		min-height: 100dvh;
-		overflow-y: scroll;
-
-		@include util.use-transition("background-color");
-
-		@media screen and (width >= 2000px) {
-			font-size: calc(0.5vw + 1rem);
-		}
-	}
-}
-
-@layer utility {
-	.text {
-		&-ebihara {
-			font-family: "Ebihara No Kuseji";
-		}
-
-		&-hina {
-			font-family: "Hina Mincho";
-		}
-
-		&-serif {
-			font-family: "EB Garamond";
-			letter-spacing: 0.07em;
-		}
 	}
 
-	.image-overlay {
-		position: absolute;
-		inset: 0;
-
-		&--gradual-bottom {
-			@extend .image-overlay;
-
-			background: linear-gradient(
-				to bottom,
-				hsla(0, 0%, var(--global-app-background-color), 0) 50%,
-				hsla(0, 0%, var(--global-app-background-color), 1) 100%
-			);
+	.font {
+		&-ja {
+			font-family: var(--font-ebihara);
+		}
+		&-mplus {
+			font-family: var(--font-mplus);
 		}
 	}
 }
