@@ -2,12 +2,16 @@
 	{
 		"title": "360 South Streets Photography",
 		"description": "SOUTH STREETS写真サイト。",
-		"link": "https://southstreets.co",
+		"links": [
+			{
+				"label": "Visit",
+				"href": "https://southstreets.co"
+			}
+		],
 		"pinned": true,
 		"type": [
 			"nuxt",
-			"appwrite",
-			"freelance project"
+			"appwrite"
 		],
 		"cover-img": "/Artini04/projects/south-streets-co.webp",
 		"cover-alt": "South Streets Photography website landing page."
@@ -15,8 +19,17 @@
 	{
 		"title": "Vocabulary Index Web App for Japanese Quartet",
 		"description": "Nuxtで作られた小さい「４技能でひろがる 中級日本語カルテット単語索引」ウェブアプリ。",
-		"link": "https://quartet-index.vercel.app",
-		"github": "https://github.com/Artini04/quartet-index",
+		"links": [
+			{
+				"label": "Visit",
+				"href": "https://quartet-index.vercel.app"
+			},
+			{
+				"label": "GitHub",
+				"href": "https://github.com/Artini04/quartet-index",
+				"icon": "tabler:brand-github"
+			}
+		],
 		"pinned": false,
 		"type": [
 			"nuxt"

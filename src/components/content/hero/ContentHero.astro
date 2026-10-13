@@ -1,8 +1,8 @@
 ---
 import { Image } from 'astro:assets'
 
-import ActionLinkExternal from '../../action/ActionLinkExternal.astro'
-import BaseSection from '../../base/section/BaseSection.astro'
+import ActionLinkExternal from '@components/action/ActionLinkExternal.astro'
+import BaseSection from '@components/base/section/BaseSection.astro'
 ---
 
 <BaseSection
@@ -12,7 +12,8 @@ import BaseSection from '../../base/section/BaseSection.astro'
 		<Image
 			class:list={'content-hero-cover__cover'}
 			src="/Artini04/cover/cover-2.webp"
-			alt="Masinloc Bay Sunset"
+			alt="Picture of a lamp post overlooking an afternoon sky."
+			loading="eager"
 			width={1920}
 			height={1080}
 		/>

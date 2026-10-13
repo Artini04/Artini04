@@ -1,5 +1,6 @@
 // @ts-check
 import { defineConfig, fontProviders } from 'astro/config'
+import icon from 'astro-icon'
 
 // https://astro.build/config
 export default defineConfig({
@@ -19,6 +20,13 @@ export default defineConfig({
 			fallbacks: ['sans-serif'],
 			options: { variants: [{ src: ['./src/assets/fonts/EbiharaNoKuseji.ttf'] }] },
 		},
-		{ provider: fontProviders.google(), name: 'M PLUS 2', cssVariable: '--font-mplus', fallbacks: ['sans-serif'] },
+		{
+			provider: fontProviders.google(),
+			name: 'M PLUS 2',
+			cssVariable: '--font-mplus',
+			fallbacks: ['sans-serif'],
+		},
 	],
+
+	integrations: [icon()],
 })

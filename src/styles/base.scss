@@ -7,11 +7,11 @@
 	}
 
 	.font {
-		&-jp {
+		&-ja {
 			font-family: var(--font-ebihara);
 		}
-		&-shippori {
-			font-family: var(--font-mplus-antique);
+		&-mplus {
+			font-family: var(--font-mplus);
 		}
 	}
 }

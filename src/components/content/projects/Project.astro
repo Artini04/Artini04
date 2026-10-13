@@ -1,0 +1,140 @@
+---
+import { Image } from 'astro:assets'
+
+import ProjectPinned from './other/ProjectPinned.astro'
+import ProjectTypeContainer from './type/ProjectTypeContainer.astro'
+import ProjectType from './type/ProjectType.astro'
+import ProjectLinksContainer from './links/ProjectLinksContainer.astro'
+import ProjectLink from './links/ProjectLink.astro'
+
+interface Props {
+	title: string
+	description: string
+	links: { label: string; href: string; icon?: string }[]
+	type: string[]
+	pinned: boolean
+
+	coverImg?: string
+	coverAlt?: string
+}
+
+const {
+	title,
+	description,
+	links,
+	type,
+	pinned,
+	coverImg,
+	coverAlt = 'No alt provided!',
+} = Astro.props
+---
+
+<div
+	class="project"
+	data-pinned={false}>
+	<div class="project-media">
+		{
+			!coverImg ?
+				<div class:list={'project__img-none'}>No Image provided!</div>
+			:	<Image
+					class:list={'project__img'}
+					src={coverImg}
+					alt={coverAlt}
+					loading="eager"
+					width={1024}
+					height={1024}
+				/>
+		}
+	</div>
+
+	<div class="project-info">
+		<p class="project-info__title">{title}</p>
+		<div class="project-info__description">+++ {description}</div>
+
+		<div class="project-info-actions">
+			<ProjectTypeContainer>
+				{type.map((item) => <ProjectType label={item} />)}
+			</ProjectTypeContainer>
+
+			<ProjectLinksContainer>
+				{
+					links.map(({ label, href, icon }) => (
+						<ProjectLink
+							link={href}
+							label={label}
+							icon={icon}
+						/>
+					))
+				}
+			</ProjectLinksContainer>
+		</div>
+	</div>
+</div>
+
+<style lang="scss">
+	@use '../../../styles/module/utils';
+
+	$project-media-size: 30%;
+
+	.project {
+		display: flex;
+		flex-flow: row nowrap;
+
+		border: var(--comp-border);
+		border-radius: var(--comp-border-radius);
+
+		outline: 1px solid transparent;
+		overflow: hidden;
+
+		&[data-pinned='true'] {
+			order: 0;
+		}
+
+		@container (width <= 600px) {
+			flex-flow: column nowrap;
+		}
+
+		&__img {
+			width: 100%;
+			height: 100%;
+
+			object-fit: cover;
+		}
+	}
+
+	.project-media {
+		flex: 1 1 $project-media-size;
+	}
+
+	.project-info {
+		flex: 1 1 calc(100% - $project-media-size);
+
+		display: flex;
+		flex-flow: column nowrap;
+		gap: 0.2rem 0;
+
+		padding: 0.6rem;
+
+		&__title {
+			font-weight: bolder;
+			font-size: 1.2em;
+			text-transform: uppercase;
+			text-wrap: balance;
+		}
+
+		&__description {
+			flex: 1 1 auto;
+			color: var(--global-app-font-color--secondary);
+		}
+	}
+
+	.project-info-actions {
+		display: flex;
+		flex-flow: row nowrap;
+		gap: 1rem;
+		place-items: center;
+		place-content: center;
+
+		font-size: var(--global-app-font-size--small);
+	}
+</style>

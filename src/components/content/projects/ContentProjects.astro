@@ -1,0 +1,51 @@
+---
+import BaseSection from '@components/base/section/BaseSection.astro'
+import Project from './Project.astro'
+
+import PROJECTS from '@data/projects.json'
+---
+
+<BaseSection
+	id="section-projects"
+	class={['content-projects']}>
+	<div class="content-projects-heading">
+		<div class="content-projects-heading-title">
+			<h2 class="font-ja">プロジェクト</h2>
+			<h3>Projects</h3>
+		</div>
+	</div>
+
+	<div class="content-projects-content">
+		{
+			PROJECTS.map((proj) => (
+				<Project
+					title={proj.title}
+					description={proj.description}
+					links={proj.links}
+					type={proj.type}
+					pinned={proj.pinned}
+					coverImg={proj['cover-img']}
+					coverAlt={proj['cover-alt']}
+				/>
+			))
+		}
+	</div>
+</BaseSection>
+
+<style lang="scss">
+	@use '../../../styles/module/layouts';
+
+	.content-projects-heading {
+		@extend %grid-content;
+	}
+
+	.content-projects-content {
+		@extend %grid-break;
+
+		$grid-item-min-size: 400px;
+
+		display: grid;
+		gap: 1rem;
+		grid-template-columns: repeat(auto-fit, minmax(min($grid-item-min-size, 100%), 1fr));
+	}
+</style>

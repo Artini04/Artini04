@@ -12,7 +12,9 @@
 		"astro": "astro"
 	},
 	"dependencies": {
+		"@iconify-json/tabler": "^1.2.42",
 		"astro": "^7.3.5",
+		"astro-icon": "^1.2.0",
 		"sass": "^1.105.1"
 	},
 	"allowScripts": {
