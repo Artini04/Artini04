@@ -28,6 +28,12 @@ const { id, class: className = [] } = Astro.props
 			flex-flow: row wrap;
 			place-items: flex-end;
 			gap: 0 1ch;
+
+			font-size: clamp(1.2em, 5vw, 1.3em);
+
+			& h2 {
+				color: lightcoral;
+			}
 		}
 	}
 </style>

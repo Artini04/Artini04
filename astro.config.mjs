@@ -8,20 +8,22 @@ export default defineConfig({
 	base: '/Artini04',
 	fonts: [
 		{
-			provider: fontProviders.google(),
-			name: 'IBM Plex Mono',
-			cssVariable: '--font-ibm-plex-mono',
-			fallbacks: ['monospace'],
-		},
-		{
 			provider: fontProviders.local(),
 			name: 'Ebihara No Kuseji',
 			cssVariable: '--font-ebihara',
+			styles: ['normal'],
+			weights: [600],
 			fallbacks: ['sans-serif'],
 			options: { variants: [{ src: ['./src/assets/fonts/EbiharaNoKuseji.ttf'] }] },
 		},
 		{
-			provider: fontProviders.google(),
+			provider: fontProviders.bunny(),
+			name: 'Inconsolata',
+			cssVariable: '--font-inconsolata',
+			fallbacks: ['monospace'],
+		},
+		{
+			provider: fontProviders.bunny(),
 			name: 'M PLUS 2',
 			cssVariable: '--font-mplus',
 			fallbacks: ['sans-serif'],

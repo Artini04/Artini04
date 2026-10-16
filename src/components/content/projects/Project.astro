@@ -1,7 +1,6 @@
 ---
 import { Image } from 'astro:assets'
 
-import ProjectPinned from './other/ProjectPinned.astro'
 import ProjectTypeContainer from './type/ProjectTypeContainer.astro'
 import ProjectType from './type/ProjectType.astro'
 import ProjectLinksContainer from './links/ProjectLinksContainer.astro'
@@ -99,6 +98,10 @@ const {
 			height: 100%;
 
 			object-fit: cover;
+
+			@container (width <= 600px) {
+				height: 150px;
+			}
 		}
 	}
 

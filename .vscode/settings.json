@@ -20,6 +20,6 @@
 		"*.jsx": "${capture}.js",
 		"*.tsx": "${capture}.ts",
 		"astro.config.mjs": "tsconfig.json, tsconfig.*.json",
-		"package.json": "package-lock.json, bun.lock"
+		"package.json": "package-lock.json, bun.lock, pnpm-lock.yaml, pnpm-workspace.yaml"
 	}
 }

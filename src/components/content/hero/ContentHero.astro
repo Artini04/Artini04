@@ -37,6 +37,8 @@ import BaseSection from '@components/base/section/BaseSection.astro'
 <style lang="scss" is:global>
 	@use '../../../styles/module/layouts';
 
+	$hero-max-size: 70svh;
+
 	.content-hero-cover {
 		@extend %grid-full;
 
@@ -51,7 +53,7 @@ import BaseSection from '@components/base/section/BaseSection.astro'
 
 		&__cover {
 			width: 100%;
-			height: 50svh;
+			height: $hero-max-size;
 			object-fit: cover;
 			object-position: bottom center;
 		}

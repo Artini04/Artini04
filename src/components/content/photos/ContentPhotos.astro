@@ -1,8 +1,9 @@
 ---
-import BaseSection from '../../base/section/BaseSection.astro'
+import BaseSection from '@components/base/section/BaseSection.astro'
 
 import PHOTOS from '@data/photos.json'
 import Photo from './Photo.astro'
+import { Image } from 'astro:assets'
 ---
 
 <BaseSection
@@ -16,15 +17,15 @@ import Photo from './Photo.astro'
 	</div>
 
 	<div class="content-photos-info">
-		<div class="content-photos-gears">
+		<div class="content-photos-info-gears">
 			<p data-icon="📷">Canon EOS Rebel T7</p>
 			<p data-icon="📷">Canon EF-s 55-250mm f/4-5.6 IS STM</p>
 			<p data-icon="📦">Rawtherapee / ART, Upscayl</p>
 		</div>
 
-		<div class="content-photos-additional">
+		<div class="content-photos-info-additional">
 			<p
-				class="content-photos-info__additional"
+				class="content-photos-info-additional__add-more"
 				data-icon="🎏">
 				Will add more in the future!
 			</p>
@@ -54,7 +55,8 @@ import Photo from './Photo.astro'
 		$column-gap: 0.6rem;
 
 		//columns: 20cqi auto;
-		column-width: 30ch;
+		columns: 30ch 3;
+		//column-width: 3;
 		column-gap: $column-gap;
 
 		& .photo + .photo {
@@ -73,20 +75,26 @@ import Photo from './Photo.astro'
 	.content-photos-info {
 		@extend %grid-content;
 
-		& div + div {
+		& > div + div {
 			margin-block-start: 1rem;
 		}
 
-		&__additional {
-			$font-color: hsl(161, 100%, 87%);
+		&-gears > * + * {
+			margin-block-start: 0.4rem;
+		}
 
-			padding: 0.5rem;
-			font-size: 0.8em;
-			color: $font-color;
-			background: oklch(from #{$font-color} calc(l - 0.7) c h);
+		&-additional {
+			&__add-more {
+				$font-color: hsl(161, 100%, 87%);
 
-			border: 1px solid oklch(from #{$font-color} calc(l - 0.55) c h);
-			border-radius: var(--comp-border-radius);
+				padding: 0.5rem;
+				font-size: 0.8em;
+				color: $font-color;
+				background: oklch(from #{$font-color} calc(l - 0.7) c h);
+
+				border: 1px solid oklch(from #{$font-color} calc(l - 0.55) c h);
+				border-radius: var(--comp-border-radius);
+			}
 		}
 	}
 

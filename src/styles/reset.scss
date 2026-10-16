@@ -12,6 +12,7 @@
 	html {
 		color-scheme: dark;
 		interpolate-size: allow-keywords;
+		scrollbar-gutter: stable;
 	}
 
 	body {
@@ -20,7 +21,7 @@
 		line-height: 1.2;
 
 		@media screen and (width > 2000px) {
-			font-size: calc(1vw);
+			font-size: calc(1vw + 16px);
 		}
 	}
 
