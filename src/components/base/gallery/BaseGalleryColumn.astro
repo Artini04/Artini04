@@ -1,0 +1,24 @@
+---
+interface Props {
+	class?: string[]
+}
+
+const { class: className = [] } = Astro.props
+---
+
+<div class:list={['base-gallery-column', className]}>
+	<slot />
+</div>
+
+<style lang="scss" is:global>
+	$column-gap: 0.6rem;
+
+	.base-gallery-column {
+		columns: 30ch 3;
+		column-gap: $column-gap;
+
+		& > * + * {
+			margin-block-start: $column-gap;
+		}
+	}
+</style>

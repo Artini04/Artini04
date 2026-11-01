@@ -1,0 +1,139 @@
+---
+import { Image } from 'astro:assets'
+import type { BorderStyle } from '../../../utils/types'
+
+interface Props {
+	id?: string
+	src: string
+	alt?: string
+	props?: { caption?: string; location?: string; date?: string }
+
+	width?: number
+	height?: number
+
+	borderStyle?: BorderStyle
+	imgFit?: 'cover' | 'contain'
+	hasInfo?: boolean
+}
+
+const {
+	id,
+	src,
+	alt = 'No alt given.',
+	props,
+	width = 1920,
+	height = 1920,
+	borderStyle = 'border',
+	imgFit = 'cover',
+	hasInfo = false,
+} = Astro.props
+---
+
+<div
+	id={id}
+	class:list={['base-gallery-image']}
+	data-border-style={borderStyle}>
+	<div class="base-gallery-image-media">
+		<Image
+			class="base-gallery-image-media__img"
+			src={src}
+			alt={alt}
+			width={width}
+			height={height}
+			data-img-fit={imgFit}
+		/>
+	</div>
+
+	{
+		hasInfo && (
+			<div class="base-gallery-image-info | font-mplus">
+				<div class="base-gallery-image-info__overlay" />
+
+				{props?.caption && <p class="base-gallery-image-info__caption">{props.caption}</p>}
+				{props?.location && (
+					<p
+						class="base-gallery-image-info__location"
+						data-icon="📍">
+						{props.location}
+					</p>
+				)}
+				{props?.date && (
+					<p
+						class="base-gallery-image-info__date"
+						data-icon="📅">
+						{props.date}
+					</p>
+				)}
+			</div>
+		)
+	}
+</div>
+
+<style lang="scss">
+	.base-gallery-image {
+		overflow: hidden;
+
+		display: grid;
+		grid-template-areas: 'stack';
+		user-select: none;
+
+		&[data-border-style='border'] {
+			border: var(--comp-border--firm);
+			border-radius: var(--comp-border-radius);
+		}
+	}
+
+	.base-gallery-image-media,
+	.base-gallery-image-info {
+		grid-area: stack;
+		position: relative;
+		isolation: isolate;
+	}
+
+	.base-gallery-image-media {
+		&__img {
+			width: 100%;
+			height: auto;
+
+			object-fit: contain;
+
+			&[data-img-fit='cover'] {
+				object-fit: cover;
+			}
+
+			@container (width <= 600px) {
+				max-height: fit-content;
+			}
+		}
+	}
+
+	.base-gallery-image-info {
+		display: flex;
+		flex-flow: column nowrap;
+		place-content: flex-end;
+		gap: 0.2rem 0;
+		padding: 1rem;
+
+		& p {
+			text-shadow: var(--comp-text-shadow);
+		}
+
+		&__caption {
+			font-weight: bold;
+		}
+
+		&__location,
+		&__date {
+			font-size: 0.8em;
+		}
+
+		/* Image info dark overlay */
+		&__overlay {
+			position: absolute;
+			inset: 0;
+			z-index: -1;
+
+			background: linear-gradient(to top, hsl(0 0% 5% / 0.8) 5%, hsl(0 0% 5% / 0) 40%);
+		}
+	}
+</style>

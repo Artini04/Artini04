@@ -10,8 +10,17 @@
 
 	// Component Accents
 	:root {
-		--comp-border-color: hsl(0 0% 60% / 0.2);
+		--comp-border-color: hsl(0 0% 60% / 0.1);
+		--comp-border-color--firm: hsl(0 0% 60% / 0.2);
 		--comp-border: 1px solid var(--comp-border-color);
+		--comp-border--firm: 1px solid var(--comp-border-color--firm);
 		--comp-border-radius: 5px;
+
+		--comp-background-color: hsl(0 0% 13% / 1);
+
+		--comp-box-shadow: 0 25px 25px -15px var(--comp-box-shadow-color);
+		--comp-box-shadow-color: hsl(0 0% 0% / 0.2);
+
+		--comp-text-shadow: 1px 1px hsl(0 0% 5% / 0.4);
 	}
 }

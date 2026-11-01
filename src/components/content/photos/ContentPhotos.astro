@@ -1,9 +1,9 @@
 ---
 import BaseSection from '@components/base/section/BaseSection.astro'
+import BaseGalleryColumn from '@components/base/gallery/BaseGalleryColumn.astro'
+import BaseGalleryImage from '@components/base/gallery/BaseGalleryImage.astro'
 
 import PHOTOS from '@data/photos.json'
-import Photo from './Photo.astro'
-import { Image } from 'astro:assets'
 ---
 
 <BaseSection
@@ -33,48 +33,35 @@ import { Image } from 'astro:assets'
 	</div>
 
 	<div class="content-photos-content">
-		<div class="content-photos-gallery">
+		<BaseGalleryColumn>
 			{
 				PHOTOS.map((photo, index) => (
-					<Photo
-						id={index}
+					<BaseGalleryImage
+						id={index.toString()}
 						src={photo.src}
 						alt={photo.alt}
-						caption={photo.caption}
-						location={photo.location}
-						date={photo.date}
+						props={{
+							caption: photo.caption,
+							location: photo.location,
+							date: photo.date,
+						}}
+						hasInfo={true}
 					/>
 				))
 			}
-		</div>
+		</BaseGalleryColumn>
 	</div>
 </BaseSection>
-
-<style lang="scss" is:global>
-	.content-photos-gallery {
-		$column-gap: 0.6rem;
-
-		//columns: 20cqi auto;
-		columns: 30ch 3;
-		//column-width: 3;
-		column-gap: $column-gap;
-
-		& .photo + .photo {
-			margin-block-start: $column-gap;
-		}
-	}
-</style>
 
 <style lang="scss">
 	@use '../../../styles/module/layouts';
 
-	.content-photos-heading {
+	.content-photos-heading,
+	.content-photos-info {
 		@extend %grid-content;
 	}
 
 	.content-photos-info {
-		@extend %grid-content;
-
 		& > div + div {
 			margin-block-start: 1rem;
 		}

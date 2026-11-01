@@ -1,0 +1,52 @@
+---
+import BaseGalleryColumn from '@components/base/gallery/BaseGalleryColumn.astro'
+import BaseGalleryImage from '@components/base/gallery/BaseGalleryImage.astro'
+import BaseSection from '@components/base/section/BaseSection.astro'
+
+import BLENDER_RENDERS from '@data/blender.json' with { type: 'json' }
+---
+
+<BaseSection
+	id="section-blender"
+	class={['content-blender']}>
+	<div class="content-blender-heading">
+		<div class="content-blender-heading-title">
+			<h2 class="font-ja">レンダリング</h2>
+			<p>Blender Renders</p>
+		</div>
+	</div>
+
+	<div class="content-blender-info">
+		<p>Some blender renders that I made...</p>
+	</div>
+
+	<div class="content-blender-content">
+		<BaseGalleryColumn>
+			{
+				BLENDER_RENDERS.map((render, index) => (
+					<BaseGalleryImage
+						id={index.toString()}
+						src={render.src}
+						borderStyle={render.borderStyle}
+						imgFit="contain"
+					/>
+				))
+			}
+		</BaseGalleryColumn>
+	</div>
+</BaseSection>
+
+<style lang="scss" is:global></style>
+
+<style lang="scss">
+	@use '../../../styles/module/layouts';
+
+	.content-blender-heading,
+	.content-blender-info {
+		@extend %grid-content;
+	}
+
+	.content-blender-content {
+		@extend %grid-break;
+	}
+</style>
