@@ -1,5 +1,5 @@
 ---
-
+import { Image } from 'astro:assets'
 ---
 
 <footer class="app-footer">
@@ -15,12 +15,12 @@
 
 	.app-footer {
 		@extend %grid;
+
+		padding-block: 4rem 1rem;
 	}
 
 	.app-footer-content {
 		@extend %grid-margin;
-
-		padding-block: 4rem 1rem;
 
 		font-size: 0.8em;
 		text-align: center;

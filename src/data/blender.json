@@ -1,10 +1,18 @@
 [
 	{
-		"src": "/Artini04/blender/Small_Garden-minimized.webp",
-		"borderStyle": "none"
+		"src": "/Artini04/blender/wooloo.gif",
+		"info": {
+			"caption": "🐑 Wooloo",
+			"date": "2022/02/28"
+		},
+		"imgPixel": true
 	},
 	{
-		"src": "/Artini04/blender/Chess_Pieces-minimized.webp",
-		"borderStyle": "border"
+		"src": "/Artini04/blender/Small_Garden-minimized.webp",
+		"borderStyle": "none",
+		"imgPixel": true
+	},
+	{
+		"src": "/Artini04/blender/Chess_Pieces-minimized.webp"
 	}
 ]

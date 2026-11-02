@@ -1,31 +1,31 @@
 ---
 import { Image } from 'astro:assets'
-import type { BorderStyle } from '../../../utils/types'
+import type { TypeBorderStyle, TypeImgFit } from '@utils/types'
 
 interface Props {
 	id?: string
 	src: string
 	alt?: string
-	props?: { caption?: string; location?: string; date?: string }
+	info?: { caption?: string; location?: string; date?: string }
 
 	width?: number
 	height?: number
 
-	borderStyle?: BorderStyle
-	imgFit?: 'cover' | 'contain'
-	hasInfo?: boolean
+	borderStyle?: TypeBorderStyle
+	imgFit?: TypeImgFit
+	imgPixel?: boolean
 }
 
 const {
 	id,
 	src,
 	alt = 'No alt given.',
-	props,
+	info,
 	width = 1920,
 	height = 1920,
 	borderStyle = 'border',
 	imgFit = 'cover',
-	hasInfo = false,
+	imgPixel = false,
 } = Astro.props
 ---
 
@@ -40,28 +40,30 @@ const {
 			alt={alt}
 			width={width}
 			height={height}
+			loading="lazy"
 			data-img-fit={imgFit}
+			data-img-pixel={imgPixel}
 		/>
 	</div>
 
 	{
-		hasInfo && (
+		!!info && (
 			<div class="base-gallery-image-info | font-mplus">
 				<div class="base-gallery-image-info__overlay" />
 
-				{props?.caption && <p class="base-gallery-image-info__caption">{props.caption}</p>}
-				{props?.location && (
+				{info?.caption && <p class="base-gallery-image-info__caption">{info.caption}</p>}
+				{info?.location && (
 					<p
 						class="base-gallery-image-info__location"
 						data-icon="📍">
-						{props.location}
+						{info.location}
 					</p>
 				)}
-				{props?.date && (
+				{info?.date && (
 					<p
 						class="base-gallery-image-info__date"
 						data-icon="📅">
-						{props.date}
+						{info.date}
 					</p>
 				)}
 			</div>
@@ -101,6 +103,10 @@ const {
 				object-fit: cover;
 			}
 
+			&[data-img-pixel='true'] {
+				image-rendering: pixelated;
+			}
+
 			@container (width <= 600px) {
 				max-height: fit-content;
 			}
@@ -124,7 +130,7 @@ const {
 
 		&__location,
 		&__date {
-			font-size: 0.8em;
+			font-size: 0.7em;
 		}
 
 		/* Image info dark overlay */

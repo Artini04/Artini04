@@ -2,6 +2,7 @@
 import BaseGalleryColumn from '@components/base/gallery/BaseGalleryColumn.astro'
 import BaseGalleryImage from '@components/base/gallery/BaseGalleryImage.astro'
 import BaseSection from '@components/base/section/BaseSection.astro'
+import type { TypeBlenderRender } from '@utils/types'
 
 import BLENDER_RENDERS from '@data/blender.json' with { type: 'json' }
 ---
@@ -17,16 +18,17 @@ import BLENDER_RENDERS from '@data/blender.json' with { type: 'json' }
 	</div>
 
 	<div class="content-blender-info">
-		<p>Some blender renders that I made...</p>
+		<p>Some random blender stuff...</p>
 	</div>
 
 	<div class="content-blender-content">
 		<BaseGalleryColumn>
 			{
-				BLENDER_RENDERS.map((render, index) => (
+				(BLENDER_RENDERS as TypeBlenderRender[]).map((render, index) => (
 					<BaseGalleryImage
 						id={index.toString()}
 						src={render.src}
+						info={render.info}
 						borderStyle={render.borderStyle}
 						imgFit="contain"
 					/>

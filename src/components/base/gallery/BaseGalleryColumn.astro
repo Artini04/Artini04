@@ -1,12 +1,15 @@
 ---
 interface Props {
 	class?: string[]
+	columnMaxNum?: number
 }
 
-const { class: className = [] } = Astro.props
+const { class: className = [], columnMaxNum = 3 } = Astro.props
 ---
 
-<div class:list={['base-gallery-column', className]}>
+<div
+	class:list={['base-gallery-column', className]}
+	style={`--column-max-number: ${columnMaxNum}`}>
 	<slot />
 </div>
 
@@ -14,7 +17,7 @@ const { class: className = [] } = Astro.props
 	$column-gap: 0.6rem;
 
 	.base-gallery-column {
-		columns: 30ch 3;
+		columns: 30ch var(--column-max-number);
 		column-gap: $column-gap;
 
 		& > * + * {

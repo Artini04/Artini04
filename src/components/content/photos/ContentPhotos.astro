@@ -2,6 +2,7 @@
 import BaseSection from '@components/base/section/BaseSection.astro'
 import BaseGalleryColumn from '@components/base/gallery/BaseGalleryColumn.astro'
 import BaseGalleryImage from '@components/base/gallery/BaseGalleryImage.astro'
+import type { TypePhoto } from '@utils/types'
 
 import PHOTOS from '@data/photos.json'
 ---
@@ -35,17 +36,12 @@ import PHOTOS from '@data/photos.json'
 	<div class="content-photos-content">
 		<BaseGalleryColumn>
 			{
-				PHOTOS.map((photo, index) => (
+				(PHOTOS as TypePhoto[]).map((photo, index) => (
 					<BaseGalleryImage
 						id={index.toString()}
 						src={photo.src}
 						alt={photo.alt}
-						props={{
-							caption: photo.caption,
-							location: photo.location,
-							date: photo.date,
-						}}
-						hasInfo={true}
+						info={photo.info}
 					/>
 				))
 			}
