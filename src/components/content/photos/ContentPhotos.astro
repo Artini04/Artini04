@@ -12,39 +12,34 @@ import PHOTOS from '@data/photos.json'
 	class={['content-photos']}>
 	<div class="content-photos-heading">
 		<div class="content-photos-heading-title">
-			<h2 class="font-ja">写真</h2>
-			<h3>Photography</h3>
+			<h2>
+				<span class="font-ja">写真</span>
+				Photography
+			</h2>
 		</div>
 	</div>
 
 	<div class="content-photos-info">
 		<div class="content-photos-info-gears">
-			<p data-icon="📷">Canon EOS Rebel T7</p>
-			<p data-icon="📷">Canon EF-s 55-250mm f/4-5.6 IS STM</p>
-			<p data-icon="📦">Rawtherapee / ART, Upscayl</p>
-		</div>
-
-		<div class="content-photos-info-additional">
-			<p
-				class="content-photos-info-additional__add-more"
-				data-icon="🎏">
-				Will add more in the future!
+			<p class="content-photos-info-gears__desc | text-lh-norm">
+				I use my reliable DSLR <span data-emoji="📷">Canon EOS Rebelt T7</span> with{' '}
+				<span data-emoji="📷">55-250mm lens (Canon EF-s 55-250mm f/4-5.6 IS STM)</span> then
+				process them in <span data-emoji="📦">Rawtherapee / ART</span>. I'll add more photos
+				later and most of these are taken in the Philippines!
 			</p>
 		</div>
 	</div>
 
 	<div class="content-photos-content">
 		<BaseGalleryColumn>
-			{
-				(PHOTOS as TypePhoto[]).map((photo, index) => (
-					<BaseGalleryImage
-						id={index.toString()}
-						src={photo.src}
-						alt={photo.alt}
-						info={photo.info}
-					/>
-				))
-			}
+			{(PHOTOS as TypePhoto[]).map((photo, index) => (
+				<BaseGalleryImage
+					id={index.toString()}
+					src={photo.src}
+					alt={photo.alt}
+					info={photo.info}
+				/>
+			))}
 		</BaseGalleryColumn>
 	</div>
 </BaseSection>
@@ -83,5 +78,15 @@ import PHOTOS from '@data/photos.json'
 
 	.content-photos-content {
 		@extend %grid-break;
+	}
+
+	.content-photos-info-gears {
+		&__desc {
+			& span {
+				text-transform: uppercase;
+				font-weight: bold;
+				color: lightgreen;
+			}
+		}
 	}
 </style>

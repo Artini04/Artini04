@@ -8,22 +8,14 @@ import BaseSection from '@components/base/section/BaseSection.astro'
 <BaseSection
 	id="section-hero"
 	class={['content-hero']}>
-	<div class="content-hero-cover">
-		<Image
-			class:list={'content-hero-cover__cover'}
-			src="/Artini04/cover/cover-1.webp"
-			alt="Afternoon beach."
-			loading="eager"
-			width={1920}
-			height={1080}
-		/>
-		<div class="content-hero-cover__overlay"></div>
-	</div>
 	<div class="content-hero-display">
 		<h1 class="content-hero-display__title">Artini04</h1>
 		<div class="hero-label-list">
-			<p>Web Developer</p>
-			<p>日本語勉強</p>
+			<p class="hero-label-list__desc | text-lh-norm">
+				Heya! Welcome to my personal website. I'm a web developer and currently learning
+				Japanese. I'm one of the few people that still code CSS manually instead of using
+				frameworks like Tailwind or using LLMs because, for me, CSS never was a problem.
+			</p>
 		</div>
 		<div class="hero-link-list">
 			<ActionLinkExternal
@@ -34,11 +26,17 @@ import BaseSection from '@components/base/section/BaseSection.astro'
 	</div>
 </BaseSection>
 
-<style lang="scss" is:global>
+<style
+	lang="scss"
+	is:global>
 	@use '../../../styles/module/layouts';
 
-	$hero-max-size: 40svh;
+	$hero-max-size: 60svh;
 	$hero-overlay-color: var(--global-app-background-color);
+
+	.content-hero {
+		height: $hero-max-size;
+	}
 
 	.content-hero-cover {
 		@extend %grid-full;
@@ -62,12 +60,16 @@ import BaseSection from '@components/base/section/BaseSection.astro'
 		}
 
 		&__overlay {
-			background: linear-gradient(to top, #{$hero-overlay-color} 0%, hsl(0 0% 10% / 0) 50%);
+			background: linear-gradient(to top, hsl(0 0% 10% / 1) 0%, hsl(0 0% 10% / 0) 50%);
 		}
 	}
 
 	.content-hero-display {
 		@extend %grid-content;
+
+		display: flex;
+		flex-flow: column nowrap;
+		place-content: flex-end;
 
 		& > div + div {
 			margin-block-start: 0.4rem;
@@ -84,9 +86,5 @@ import BaseSection from '@components/base/section/BaseSection.astro'
 		display: flex;
 		flex-flow: row wrap;
 		gap: 0 1ch;
-	}
-
-	.hero-link-list {
-		font-size: 0.8em;
 	}
 </style>

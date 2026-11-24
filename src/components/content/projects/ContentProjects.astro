@@ -10,25 +10,26 @@ import PROJECTS from '@data/projects.json'
 	class={['content-projects']}>
 	<div class="content-projects-heading">
 		<div class="content-projects-heading-title">
-			<h2 class="font-ja">プロジェクト</h2>
-			<h3>Projects</h3>
+			<h2>
+				<span class="font-ja">プロジェクト</span>
+				Projects
+			</h2>
 		</div>
 	</div>
 
 	<div class="content-projects-content">
-		{
-			PROJECTS.map((proj) => (
-				<Project
-					title={proj.title}
-					description={proj.description}
-					links={proj.links}
-					type={proj.type}
-					pinned={proj.pinned}
-					coverImg={proj['cover-img']}
-					coverAlt={proj['cover-alt']}
-				/>
-			))
-		}
+		{PROJECTS.map((proj) => (
+			<Project
+				title={proj.title}
+				description={proj.description}
+				links={proj.links}
+				type={proj.type}
+				typeIcon={proj['type-icon']}
+				pinned={proj.pinned}
+				coverImg={proj['cover-img']}
+				coverAlt={proj['cover-alt']}
+			/>
+		))}
 	</div>
 </BaseSection>
 

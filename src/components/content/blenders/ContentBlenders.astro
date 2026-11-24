@@ -12,33 +12,31 @@ import BLENDER_RENDERS from '@data/blender.json' with { type: 'json' }
 	class={['content-blender']}>
 	<div class="content-blender-heading">
 		<div class="content-blender-heading-title">
-			<h2 class="font-ja">レンダリング</h2>
-			<p>Blender Renders</p>
+			<h2>
+				<span class="font-ja">レンダリング</span>
+				Blender Renders
+			</h2>
 		</div>
-	</div>
-
-	<div class="content-blender-info">
-		<p>Some random blender stuff...</p>
 	</div>
 
 	<div class="content-blender-content">
 		<BaseGalleryColumn>
-			{
-				(BLENDER_RENDERS as TypeBlenderRender[]).map((render, index) => (
-					<BaseGalleryImage
-						id={index.toString()}
-						src={render.src}
-						info={render.info}
-						borderStyle={render.borderStyle}
-						imgFit="contain"
-					/>
-				))
-			}
+			{(BLENDER_RENDERS as TypeBlenderRender[]).map((render, index) => (
+				<BaseGalleryImage
+					id={index.toString()}
+					src={render.src}
+					info={render.info}
+					borderStyle={render.borderStyle}
+					imgFit="contain"
+				/>
+			))}
 		</BaseGalleryColumn>
 	</div>
 </BaseSection>
 
-<style lang="scss" is:global></style>
+<style
+	lang="scss"
+	is:global></style>
 
 <style lang="scss">
 	@use '../../../styles/module/layouts';

@@ -1,6 +1,11 @@
 @layer global {
 	:root {
-		--global-app-background-color: hsl(20 40% 10%);
+		//--global-app-background-color: hsl(0 0% 10%);
+		--global-app-background-color: linear-gradient(
+			to bottom,
+			hsl(0 0% 10%) 0%,
+			hsl(0 0% 0%) 100%
+		);
 		--global-app-font-color: hsl(0 0% 95%);
 		--global-app-font-color--secondary: hsl(0 0% 70%);
 		--global-app-font-color--muted: hsl(0 0% 40%);
@@ -14,9 +19,9 @@
 		--comp-border-color--firm: hsl(0 0% 60% / 0.2);
 		--comp-border: 1px solid var(--comp-border-color);
 		--comp-border--firm: 1px solid var(--comp-border-color--firm);
-		--comp-border-radius: 5px;
+		--comp-border-radius: 12px;
 
-		--comp-background-color: hsl(0 0% 13% / 1);
+		--comp-background-color: hsl(0 0% 15% / 1);
 
 		--comp-box-shadow: 0 25px 25px -15px var(--comp-box-shadow-color);
 		--comp-box-shadow-color: hsl(0 0% 0% / 0.2);

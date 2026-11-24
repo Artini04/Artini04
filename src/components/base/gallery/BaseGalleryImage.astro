@@ -46,29 +46,27 @@ const {
 		/>
 	</div>
 
-	{
-		!!info && (
-			<div class="base-gallery-image-info | font-mplus">
-				<div class="base-gallery-image-info__overlay" />
+	{!!info && (
+		<div class="base-gallery-image-info | font-mplus">
+			<div class="base-gallery-image-info__overlay" />
 
-				{info?.caption && <p class="base-gallery-image-info__caption">{info.caption}</p>}
-				{info?.location && (
-					<p
-						class="base-gallery-image-info__location"
-						data-icon="📍">
-						{info.location}
-					</p>
-				)}
-				{info?.date && (
-					<p
-						class="base-gallery-image-info__date"
-						data-icon="📅">
-						{info.date}
-					</p>
-				)}
-			</div>
-		)
-	}
+			{info?.caption && <p class="base-gallery-image-info__caption">{info.caption}</p>}
+			{info?.location && (
+				<p
+					class="base-gallery-image-info__location"
+					data-emoji="📍">
+					{info.location}
+				</p>
+			)}
+			{info?.date && (
+				<p
+					class="base-gallery-image-info__date"
+					data-emoji="📅">
+					{info.date}
+				</p>
+			)}
+		</div>
+	)}
 </div>
 
 <style lang="scss">
@@ -80,7 +78,7 @@ const {
 		user-select: none;
 
 		&[data-border-style='border'] {
-			border: var(--comp-border--firm);
+			//border: var(--comp-border--firm);
 			border-radius: var(--comp-border-radius);
 		}
 	}
@@ -117,7 +115,7 @@ const {
 		display: flex;
 		flex-flow: column nowrap;
 		place-content: flex-end;
-		gap: 0.2rem 0;
+		gap: 0.5rem 0;
 		padding: 1rem;
 
 		& p {

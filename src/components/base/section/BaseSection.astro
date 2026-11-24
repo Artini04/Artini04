@@ -13,7 +13,9 @@ const { id, class: className = [] } = Astro.props
 	<slot />
 </section>
 
-<style lang="scss" is:global>
+<style
+	lang="scss"
+	is:global>
 	@use '../../../styles/module/layouts';
 
 	.base-section + .base-section {
@@ -30,8 +32,12 @@ const { id, class: className = [] } = Astro.props
 			gap: 0 1ch;
 
 			font-size: clamp(1.2em, 5vw, 1.3em);
+			font-weight: bolder;
+			text-transform: uppercase;
+			letter-spacing: 0.2ch;
 
-			& h2 {
+			& h2 > span {
+				margin-inline-end: 1ch;
 				color: lightcoral;
 			}
 		}

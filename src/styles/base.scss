@@ -2,7 +2,7 @@
 	body {
 		font-family: var(--font-inconsolata);
 
-		background-color: var(--global-app-background-color);
+		background: var(--global-app-background-color);
 		color: var(--global-app-font-color);
 	}
 
@@ -12,6 +12,13 @@
 		}
 		&-mplus {
 			font-family: var(--font-mplus);
+		}
+	}
+
+	.text-lh {
+		&-norm {
+			line-height: 1.5;
+			max-width: 65ch;
 		}
 	}
 }

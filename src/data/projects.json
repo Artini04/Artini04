@@ -13,6 +13,10 @@
 			"nuxt",
 			"appwrite"
 		],
+		"type-icon": [
+			"material-icon-theme:nuxt",
+			"material-icon-theme:appwrite"
+		],
 		"cover-img": "/Artini04/projects/south-streets-co.webp",
 		"cover-alt": "South Streets Photography website landing page."
 	},
@@ -33,6 +37,9 @@
 		"pinned": false,
 		"type": [
 			"nuxt"
+		],
+		"type-icon": [
+			"material-icon-theme:nuxt"
 		],
 		"cover-img": "/Artini04/projects/quartet.jpg",
 		"cover-alt": ""
